@@ -315,8 +315,6 @@
     <h3>🔗 कहानी शेयर करें</h3>
 
     <button onclick="shareWhatsApp()">🟢 WhatsApp</button>
-    <button onclick="copyStoryLink()">📋 Link Copy करें</button>
-    <button onclick="shareTelegram()">🔵 Telegram</button>
 </div>
 
 <script>
@@ -333,19 +331,6 @@ function shareWhatsApp() {
 function copyStoryLink() {
     navigator.clipboard.writeText(window.location.href);
     alert("✅ कहानी का link copy हो गया!");
-}
-
-function shareTelegram() {
-    const url = window.location.href;
-    const text = "📖 विचित्र कहानी पढ़ें";
-
-    window.open(
-        "https://t.me/share/url?url=" +
-        encodeURIComponent(url) +
-        "&text=" +
-        encodeURIComponent(text),
-        "_blank"
-    );
 }
 </script>
 
