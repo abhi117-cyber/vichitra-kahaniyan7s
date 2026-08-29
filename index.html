@@ -495,7 +495,39 @@ footer hr {
 
     </footer>
 
+<div class="website-share">
 
+    <h3>🌐 मेरी वेबसाइट शेयर करें</h3>
+
+    <button onclick="shareWebsite()">📤 Share Website</button>
+
+</div>
+
+<script>
+
+function shareWebsite() {
+
+    const url = window.location.origin + window.location.pathname;
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: "विचित्र कहानियाँ | Abhishek Yadav",
+            text: "📖 मेरी वेबसाइट पर कहानियाँ पढ़ें:",
+            url: url
+        });
+
+    } else {
+
+        navigator.clipboard.writeText(url);
+
+        alert("✅ Website का link copy हो गया!");
+
+    }
+
+}
+
+</script>
 </body>
 
 </html>
