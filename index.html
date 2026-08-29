@@ -606,20 +606,28 @@ if (localStorage.getItem("darkMode") === "on") {
 <script src="https://counterapi.com/c.js" async></script>
     <script>
 function toggleLike(story) {
-    const button = document.getElementById("like-" + story);
 
-    if (localStorage.getItem("liked-" + story) === "yes") {
-        localStorage.removeItem("liked-" + story);
-        button.textContent = "Like";
-    } else {
-        localStorage.setItem("liked-" + story, "yes");
-        button.textContent = "Liked ❤️";
+    let count = Number(localStorage.getItem("likes-" + story)) || 0;
+    let liked = localStorage.getItem("liked-" + story);
+
+    if (liked === "yes") {
+        return;
     }
+
+    count++;
+
+    localStorage.setItem("likes-" + story, count);
+    localStorage.setItem("liked-" + story, "yes");
+
+    document.getElementById("like-" + story).textContent =
+        "Like " + count + " ❤️";
 }
 
-if (localStorage.getItem("liked-kahani1") === "yes") {
-    document.getElementById("like-kahani1").textContent = "Liked ❤️";
-}
+let savedLikes =
+    Number(localStorage.getItem("likes-kahani1")) || 0;
+
+document.getElementById("like-kahani1").textContent =
+    "Like " + savedLikes + " ❤️";
 </script>
 </body>
 
