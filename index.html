@@ -601,6 +601,23 @@ if (localStorage.getItem("darkMode") === "on") {
 </div>
 
 <script src="https://counterapi.com/c.js" async></script>
+    <script>
+function toggleLike(story) {
+    const button = document.getElementById("like-" + story);
+
+    if (localStorage.getItem("liked-" + story) === "yes") {
+        localStorage.removeItem("liked-" + story);
+        button.textContent = "Like";
+    } else {
+        localStorage.setItem("liked-" + story, "yes");
+        button.textContent = "Liked ❤️";
+    }
+}
+
+if (localStorage.getItem("liked-kahani1") === "yes") {
+    document.getElementById("like-kahani1").textContent = "Liked ❤️";
+}
+</script>
 </body>
 
 </html>
