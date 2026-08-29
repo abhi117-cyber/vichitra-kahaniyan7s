@@ -852,6 +852,129 @@ function escapeHTML(text) {
 loadComments();
 
 </script>
+    <!-- SUPABASE COMMENTS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://uhvstqieyyogjidfnhvu.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_cEbtfpMaQp1650sZ7W2O5g_-u2NUqQ";
+
+const supabaseClient =
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+// COMMENTS LOAD
+
+async function loadComments() {
+
+    const { data, error } =
+        await supabaseClient
+        .from("comments")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    const list =
+        document.getElementById("commentsList");
+
+    if (error) {
+        console.error(error);
+        list.innerHTML =
+            "<p>Comments लोड नहीं हो पाए।</p>";
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        list.innerHTML =
+            "<p>अभी कोई comment नहीं है। पहला comment आप करें! ❤️</p>";
+        return;
+    }
+
+    list.innerHTML = data.map(comment => {
+
+        return `
+            <div class="comment">
+                <strong>👤 ${escapeHTML(comment.name)}</strong>
+                <p>${escapeHTML(comment.message)}</p>
+            </div>
+        `;
+
+    }).join("");
+}
+
+
+// COMMENT POST
+
+async function postComment() {
+
+    const name =
+        document.getElementById("commentName").value.trim();
+
+    const message =
+        document.getElementById("commentMessage").value.trim();
+
+    if (!name || !message) {
+        alert("कृपया नाम और comment दोनों लिखें।");
+        return;
+    }
+
+    const { error } =
+        await supabaseClient
+        .from("comments")
+        .insert([
+            {
+                name: name,
+                message: message
+            }
+        ]);
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Comment नहीं भेजा गया:\n\n" +
+            error.message
+        );
+
+        return;
+    }
+
+    document.getElementById("commentName").value = "";
+    document.getElementById("commentMessage").value = "";
+
+    alert("✅ आपका comment भेज दिया गया!");
+
+    loadComments();
+}
+
+
+// SECURITY
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
+// PAGE LOAD
+
+loadComments();
+
+</script>
+    
 </body>
 
 </html>
