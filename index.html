@@ -817,14 +817,18 @@ async function postComment() {
             }
         ]);
 
-    if (error) {
+   
+if (error) {
 
-        console.error(error);
+    console.error(error);
 
-        alert("Comment भेजने में समस्या हुई।");
-        return;
-    }
+    alert(
+        "Comment नहीं भेजा गया:\n\n" +
+        error.message
+    );
 
+    return;
+}
     document.getElementById("commentName").value = "";
     document.getElementById("commentMessage").value = "";
 
