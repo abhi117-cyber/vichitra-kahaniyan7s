@@ -2,17 +2,18 @@
 <html lang="hi">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Login | विचित्र कहानियाँ</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
+/* ==============================
+   BASIC
+============================== */
 
 * {
     box-sizing: border-box;
@@ -28,25 +29,105 @@ body {
 
     font-family: Arial, sans-serif;
 
-    background: #f4f1ea;
+    background:
+        radial-gradient(circle at top, #ffffff, #f4f1ea 60%, #e5ded2);
+
+    overflow: hidden;
 }
 
+
+/* ==============================
+   BACKGROUND ANIMATION
+============================== */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(24, 40, 72, 0.08);
+
+    filter: blur(10px);
+
+    animation: float 7s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+body::before {
+    top: -80px;
+    left: -80px;
+}
+
+body::after {
+    right: -80px;
+    bottom: -80px;
+
+    animation-delay: 2s;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, 25px) scale(1.15);
+    }
+}
+
+
+/* ==============================
+   LOGIN BOX
+============================== */
+
 .login-box {
+
     width: 90%;
     max-width: 400px;
 
-    background: white;
+    background: rgba(255,255,255,0.95);
 
-    padding: 30px;
+    padding: 32px;
 
-    border-radius: 18px;
+    border-radius: 22px;
 
-    box-shadow: 0 5px 20px #ccc;
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.15);
 
     text-align: center;
+
+    animation: boxIn 0.8s ease;
+
+    backdrop-filter: blur(10px);
 }
 
+@keyframes boxIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ==============================
+   LOGO
+============================== */
+
 .logo {
+
     width: 90px;
     height: 90px;
 
@@ -55,21 +136,82 @@ body {
     object-fit: cover;
 
     margin-bottom: 10px;
+
+    animation: logoIn 1s ease;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.18);
 }
 
+@keyframes logoIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.4) rotate(-20deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+/* ==============================
+   TITLE
+============================== */
+
 h1 {
+
     color: #182848;
 
     font-size: 28px;
+
+    margin: 8px 0 12px;
+
+    animation: fadeIn 1s ease;
 }
 
 h2 {
+
     color: #333;
 
     margin-bottom: 20px;
+
+    transition: 0.3s;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ==============================
+   INPUTS
+============================== */
+
+.input-group {
+
+    animation: inputIn 0.7s ease both;
+}
+
+.input-group:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+.input-group:nth-of-type(2) {
+    animation-delay: 0.35s;
 }
 
 input {
+
     width: 100%;
 
     padding: 14px;
@@ -78,12 +220,48 @@ input {
 
     border: 1px solid #ccc;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
     font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border 0.3s,
+        box-shadow 0.3s,
+        transform 0.2s;
 }
 
+input:focus {
+
+    border-color: #182848;
+
+    box-shadow:
+        0 0 0 3px rgba(24,40,72,0.12);
+
+    transform: translateY(-2px);
+}
+
+@keyframes inputIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
 button {
+
     width: 100%;
 
     padding: 14px;
@@ -92,7 +270,7 @@ button {
 
     border: none;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
     background: #182848;
 
@@ -101,26 +279,116 @@ button {
     font-size: 16px;
 
     cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
 }
 
 button:hover {
+
     background: #243b6b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(24,40,72,0.25);
 }
 
+button:active {
+
+    transform: scale(0.97);
+}
+
+
+/* ==============================
+   SWITCH BUTTON
+============================== */
+
 .switch-btn {
+
     background: transparent;
 
     color: #182848;
 
     border: 1px solid #182848;
+
+    box-shadow: none;
 }
 
+.switch-btn:hover {
+
+    background: #182848;
+
+    color: white;
+
+}
+
+
+/* ==============================
+   MESSAGE
+============================== */
+
 #message {
+
     margin-top: 15px;
 
     font-weight: bold;
 
     line-height: 1.5;
+
+    min-height: 24px;
+
+}
+
+
+/* ==============================
+   LOADING
+============================== */
+
+.loading {
+
+    display: inline-block;
+
+    width: 18px;
+    height: 18px;
+
+    border: 3px solid rgba(255,255,255,0.4);
+
+    border-top-color: white;
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+
+    vertical-align: middle;
+
+    margin-right: 7px;
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 600px) {
+
+    .login-box {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
 }
 
 </style>
@@ -151,20 +419,28 @@ button:hover {
     </h2>
 
 
-    <input
-        type="text"
-        id="username"
-        placeholder="अपना नाम / Username"
-        autocomplete="username"
-    >
+    <div class="input-group">
+
+        <input
+            type="text"
+            id="username"
+            placeholder="अपना नाम / Username"
+            autocomplete="username"
+        >
+
+    </div>
 
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        autocomplete="current-password"
-    >
+    <div class="input-group">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+        >
+
+    </div>
 
 
     <button
@@ -192,7 +468,6 @@ button:hover {
 
 <script>
 
-
 /* =========================================
    SUPABASE
 ========================================= */
@@ -201,14 +476,9 @@ const SUPABASE_URL =
 "https://uhvstqieyyogjidfnhvu.supabase.co";
 
 
-/*
-   IMPORTANT:
-   अपनी Supabase PUBLISHABLE KEY यहाँ डालें.
-   यह sb_publishable_... से शुरू होगी.
-*/
-
 const SUPABASE_KEY =
 "sb_publishable_cEbtfpMaQp1650sZ7W2O5g_-u2NUqQG";
+
 
 const supabaseClient =
 supabase.createClient(
@@ -218,32 +488,28 @@ supabase.createClient(
 
 
 /* =========================================
-   LOGIN / REGISTER MODE
+   MODE
 ========================================= */
 
 let registerMode = false;
 
 
 /* =========================================
-   LOGIN / REGISTER बदलना
+   TOGGLE MODE
 ========================================= */
 
 function toggleMode() {
 
     registerMode = !registerMode;
 
-
     const title =
         document.getElementById("title");
-
 
     const mainButton =
         document.getElementById("mainButton");
 
-
     const switchButton =
         document.getElementById("switchButton");
-
 
     const message =
         document.getElementById("message");
@@ -257,40 +523,32 @@ function toggleMode() {
         title.innerText =
             "📝 नया Account बनाएँ";
 
-
         mainButton.innerText =
             "✅ Account बनाएँ";
-
 
         switchButton.innerText =
             "🔐 पहले से Account है? Login करें";
 
-    }
-
-    else {
+    } else {
 
         title.innerText =
             "🔐 Login";
 
-
         mainButton.innerText =
             "🔓 Login करें";
 
-
         switchButton.innerText =
             "📝 नया Account बनाएँ";
-
     }
 
 }
 
 
 /* =========================================
-   MAIN BUTTON
+   MAIN FUNCTION
 ========================================= */
 
 async function handleAccount() {
-
 
     const username =
         document
@@ -298,18 +556,17 @@ async function handleAccount() {
         .value
         .trim();
 
-
     const password =
         document
         .getElementById("password")
         .value;
 
-
     const message =
         document.getElementById("message");
 
+    const mainButton =
+        document.getElementById("mainButton");
 
-    /* खाली field check */
 
     if (!username || !password) {
 
@@ -317,14 +574,15 @@ async function handleAccount() {
             "❌ नाम और Password दोनों डालें।";
 
         return;
-
     }
 
 
-    /* Loading */
+    /* LOADING */
 
-    message.innerText =
-        "⏳ कृपया प्रतीक्षा करें...";
+    mainButton.disabled = true;
+
+    mainButton.innerHTML =
+        '<span class="loading"></span> कृपया प्रतीक्षा करें...';
 
 
     /* =====================================
@@ -332,7 +590,6 @@ async function handleAccount() {
     ===================================== */
 
     if (registerMode) {
-
 
         const { data, error } =
             await supabaseClient.rpc(
@@ -344,15 +601,24 @@ async function handleAccount() {
             );
 
 
-       if (error) {
+        if (error) {
 
-    console.error("REGISTER ERROR:", error);
+            console.error(
+                "REGISTER ERROR:",
+                error
+            );
 
-    message.innerText =
-        "❌ " + error.message;
+            message.innerText =
+                "❌ " + error.message;
 
-    return;
-}
+            mainButton.disabled = false;
+
+            mainButton.innerText =
+                "✅ Account बनाएँ";
+
+            return;
+        }
+
 
         if (!data || !data.success) {
 
@@ -361,12 +627,14 @@ async function handleAccount() {
                 (data?.message ||
                 "Account नहीं बन पाया।");
 
-            return;
+            mainButton.disabled = false;
 
+            mainButton.innerText =
+                "✅ Account बनाएँ";
+
+            return;
         }
 
-
-        /* Account successfully created */
 
         message.innerText =
             "✅ Account बन गया! अब Login करें।";
@@ -380,9 +648,8 @@ async function handleAccount() {
             .innerText = "🔐 Login";
 
 
-        document
-            .getElementById("mainButton")
-            .innerText = "🔓 Login करें";
+        mainButton.innerText =
+            "🔓 Login करें";
 
 
         document
@@ -396,15 +663,15 @@ async function handleAccount() {
             .value = "";
 
 
-        return;
+        mainButton.disabled = false;
 
+        return;
     }
 
 
     /* =====================================
        LOGIN
     ===================================== */
-
 
     const { data, error } =
         await supabaseClient.rpc(
@@ -418,13 +685,20 @@ async function handleAccount() {
 
     if (error) {
 
-        console.error(error);
+        console.error(
+            "LOGIN ERROR:",
+            error
+        );
 
         message.innerText =
-            "❌ Login में समस्या हुई।";
+            "❌ " + error.message;
+
+        mainButton.disabled = false;
+
+        mainButton.innerText =
+            "🔓 Login करें";
 
         return;
-
     }
 
 
@@ -433,8 +707,12 @@ async function handleAccount() {
         message.innerText =
             "❌ Username या Password गलत है।";
 
-        return;
+        mainButton.disabled = false;
 
+        mainButton.innerText =
+            "🔓 Login करें";
+
+        return;
     }
 
 
@@ -442,29 +720,34 @@ async function handleAccount() {
        LOGIN SUCCESS
     ===================================== */
 
+    sessionStorage.setItem(
+        "loggedIn",
+        "true"
+    );
+
 
     sessionStorage.setItem(
-    "loggedIn",
-    "true"
-);
-
-      
-   sessionStorage.setItem(
-    "username",
-    data.username
-);
+        "username",
+        data.username
+    );
 
 
     message.innerText =
         "✅ Login सफल!";
 
 
-    /* थोड़ी देर बाद index.html */
+    /* =====================================
+       OPEN INDEX
+    ===================================== */
 
-   setTimeout(function() {
-    window.location.href = "./index.html";
-}, 1500);
-      
+    setTimeout(function() {
+
+        window.location.href =
+            "./index.html";
+
+    }, 800);
+
+}
 
 </script>
 
