@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="hi">
-
+    
+<script>
+    // Login check
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+</script>
 <head>
     <link rel="icon" href="https://abhi117-cyber.github.io/vichitra-kahaniyan7s/favicon.jpg?v=3" type="image/jpeg">
 <link rel="shortcut icon" href="https://abhi117-cyber.github.io/vichitra-kahaniyan7s/favicon.jpg?v=3" type="image/jpeg">
