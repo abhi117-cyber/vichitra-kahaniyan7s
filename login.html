@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="hi">
-    
-<script>
-    if (localStorage.getItem("loggedIn") !== "true") {
-        window.location.href = "login.html";
-    }
-</script>
-    
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Login | विचित्र कहानियाँ</title>
 
@@ -24,63 +21,106 @@
 body {
     margin: 0;
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     font-family: Arial, sans-serif;
+
     background: #f4f1ea;
 }
 
 .login-box {
     width: 90%;
     max-width: 400px;
+
     background: white;
+
     padding: 30px;
+
     border-radius: 18px;
+
     box-shadow: 0 5px 20px #ccc;
+
     text-align: center;
 }
 
 .logo {
     width: 90px;
     height: 90px;
+
     border-radius: 50%;
+
     object-fit: cover;
+
+    margin-bottom: 10px;
 }
 
 h1 {
     color: #182848;
+
+    font-size: 28px;
+}
+
+h2 {
+    color: #333;
+
+    margin-bottom: 20px;
 }
 
 input {
     width: 100%;
+
     padding: 14px;
+
     margin: 8px 0;
+
     border: 1px solid #ccc;
+
     border-radius: 8px;
+
     font-size: 16px;
 }
 
 button {
     width: 100%;
+
     padding: 14px;
+
     margin-top: 10px;
+
     border: none;
+
     border-radius: 8px;
+
     background: #182848;
+
     color: white;
+
     font-size: 16px;
+
     cursor: pointer;
+}
+
+button:hover {
+    background: #243b6b;
 }
 
 .switch-btn {
     background: transparent;
+
     color: #182848;
+
+    border: 1px solid #182848;
 }
 
 #message {
     margin-top: 15px;
+
     font-weight: bold;
+
+    line-height: 1.5;
 }
 
 </style>
@@ -90,7 +130,9 @@ button {
 
 <body>
 
+
 <div class="login-box">
+
 
     <img
         src="favicon.jpg"
@@ -98,9 +140,15 @@ button {
         alt="विचित्र कहानियाँ"
     >
 
-    <h1>📖 विचित्र कहानियाँ</h1>
 
-    <h2 id="title">🔐 Login</h2>
+    <h1>
+        📖 विचित्र कहानियाँ
+    </h1>
+
+
+    <h2 id="title">
+        🔐 Login
+    </h2>
 
 
     <input
@@ -119,26 +167,31 @@ button {
     >
 
 
-    <button id="mainButton" onclick="loginUser()">
+    <button
+        id="mainButton"
+        onclick="handleAccount()"
+    >
         🔓 Login करें
     </button>
 
 
     <button
         class="switch-btn"
-        onclick="toggleMode()"
         id="switchButton"
+        onclick="toggleMode()"
     >
-        नया Account बनाएँ
+        📝 नया Account बनाएँ
     </button>
 
 
     <p id="message"></p>
 
+
 </div>
 
 
 <script>
+
 
 /* =========================================
    SUPABASE
@@ -147,6 +200,12 @@ button {
 const SUPABASE_URL =
 "https://uhvstqieyyogjidfnhvu.supabase.co";
 
+
+/*
+   IMPORTANT:
+   अपनी Supabase PUBLISHABLE KEY यहाँ डालें.
+   यह sb_publishable_... से शुरू होगी.
+*/
 
 const SUPABASE_KEY =
 "ABHI7S";
@@ -160,28 +219,32 @@ supabase.createClient(
 
 
 /* =========================================
-   MODE
+   LOGIN / REGISTER MODE
 ========================================= */
 
 let registerMode = false;
 
 
 /* =========================================
-   TOGGLE LOGIN / REGISTER
+   LOGIN / REGISTER बदलना
 ========================================= */
 
 function toggleMode() {
 
     registerMode = !registerMode;
 
+
     const title =
         document.getElementById("title");
+
 
     const mainButton =
         document.getElementById("mainButton");
 
+
     const switchButton =
         document.getElementById("switchButton");
+
 
     const message =
         document.getElementById("message");
@@ -195,19 +258,25 @@ function toggleMode() {
         title.innerText =
             "📝 नया Account बनाएँ";
 
+
         mainButton.innerText =
             "✅ Account बनाएँ";
+
 
         switchButton.innerText =
             "🔐 पहले से Account है? Login करें";
 
-    } else {
+    }
+
+    else {
 
         title.innerText =
             "🔐 Login";
 
+
         mainButton.innerText =
             "🔓 Login करें";
+
 
         switchButton.innerText =
             "📝 नया Account बनाएँ";
@@ -221,13 +290,15 @@ function toggleMode() {
    MAIN BUTTON
 ========================================= */
 
-async function loginUser() {
+async function handleAccount() {
+
 
     const username =
         document
         .getElementById("username")
         .value
         .trim();
+
 
     const password =
         document
@@ -239,14 +310,19 @@ async function loginUser() {
         document.getElementById("message");
 
 
+    /* खाली field check */
+
     if (!username || !password) {
 
         message.innerText =
             "❌ नाम और Password दोनों डालें।";
 
         return;
+
     }
 
+
+    /* Loading */
 
     message.innerText =
         "⏳ कृपया प्रतीक्षा करें...";
@@ -257,6 +333,7 @@ async function loginUser() {
     ===================================== */
 
     if (registerMode) {
+
 
         const { data, error } =
             await supabaseClient.rpc(
@@ -276,17 +353,23 @@ async function loginUser() {
                 "❌ Account बनाने में समस्या हुई।";
 
             return;
+
         }
 
 
-        if (!data.success) {
+        if (!data || !data.success) {
 
             message.innerText =
-                "❌ " + data.message;
+                "❌ " +
+                (data?.message ||
+                "Account नहीं बन पाया।");
 
             return;
+
         }
 
+
+        /* Account successfully created */
 
         message.innerText =
             "✅ Account बन गया! अब Login करें।";
@@ -294,27 +377,37 @@ async function loginUser() {
 
         registerMode = false;
 
-        document.getElementById("title")
+
+        document
+            .getElementById("title")
             .innerText = "🔐 Login";
 
-        document.getElementById("mainButton")
+
+        document
+            .getElementById("mainButton")
             .innerText = "🔓 Login करें";
 
-        document.getElementById("switchButton")
-            .innerText = "📝 नया Account बनाएँ";
+
+        document
+            .getElementById("switchButton")
+            .innerText =
+                "📝 नया Account बनाएँ";
 
 
-        document.getElementById("password")
+        document
+            .getElementById("password")
             .value = "";
 
 
         return;
+
     }
 
 
     /* =====================================
        LOGIN
     ===================================== */
+
 
     const { data, error } =
         await supabaseClient.rpc(
@@ -334,15 +427,17 @@ async function loginUser() {
             "❌ Login में समस्या हुई।";
 
         return;
+
     }
 
 
-    if (!data.success) {
+    if (!data || !data.success) {
 
         message.innerText =
             "❌ Username या Password गलत है।";
 
         return;
+
     }
 
 
@@ -350,13 +445,14 @@ async function loginUser() {
        LOGIN SUCCESS
     ===================================== */
 
-    sessionStorage.setItem(
+
+    localStorage.setItem(
         "loggedIn",
         "true"
     );
 
 
-    sessionStorage.setItem(
+    localStorage.setItem(
         "username",
         data.username
     );
@@ -365,6 +461,8 @@ async function loginUser() {
     message.innerText =
         "✅ Login सफल!";
 
+
+    /* थोड़ी देर बाद index.html */
 
     setTimeout(function() {
 
@@ -377,6 +475,7 @@ async function loginUser() {
 }
 
 </script>
+
 
 </body>
 
