@@ -378,6 +378,31 @@ a[href="#about"]:hover {
 
     transform: translateY(-1px);
 }
+
+        .glow-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+
+    text-shadow:
+        0 0 4px #fff,
+        0 0 8px #fff,
+        0 0 15px #fff,
+        0 0 25px #fff,
+        0 0 40px #fff !important;
+
+    transition: all 0.3s ease;
+}
+
+.glow-link:hover {
+    color: #ffffff !important;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 35px #fff,
+        0 0 55px #fff !important;
+}
     </style>
 </head>
 
@@ -402,12 +427,11 @@ a[href="#about"]:hover {
 
     <nav>
 
-        <a href="#home">होम</a>
+      <a href="#home" class="glow-link">होम</a>
 
-        <a href="#stories">कहानियाँ</a>
+<a href="#stories" class="glow-link">कहानियाँ</a>
 
-        <a href="#about">मेरे बारे में</a>
-
+<a href="#about" class="glow-link">मेरे बारे में</a>
     </nav>
 
 
