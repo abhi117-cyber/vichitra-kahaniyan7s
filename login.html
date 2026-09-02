@@ -2,13 +2,12 @@
 <html lang="hi">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Login | विचित्र कहानियाँ</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
@@ -19,98 +18,62 @@ content="width=device-width, initial-scale=1.0">
 body {
     margin: 0;
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-family: Arial, sans-serif;
-
     background: #f4f1ea;
 }
 
 .login-box {
-
     width: 90%;
     max-width: 400px;
-
     background: white;
-
     padding: 30px;
-
     border-radius: 18px;
-
     box-shadow: 0 5px 20px #ccc;
-
     text-align: center;
 }
 
 .logo {
-
     width: 90px;
     height: 90px;
-
     border-radius: 50%;
-
     object-fit: cover;
-
-    margin-bottom: 10px;
 }
 
 h1 {
     color: #182848;
 }
 
-h2 {
-    color: #333;
-}
-
 input {
-
     width: 100%;
-
     padding: 14px;
-
     margin: 8px 0;
-
     border: 1px solid #ccc;
-
     border-radius: 8px;
-
     font-size: 16px;
 }
 
 button {
-
     width: 100%;
-
     padding: 14px;
-
     margin-top: 10px;
-
     border: none;
-
     border-radius: 8px;
-
     background: #182848;
-
     color: white;
-
     font-size: 16px;
-
     cursor: pointer;
 }
 
-button:hover {
-    background: #243b6b;
+.switch-btn {
+    background: transparent;
+    color: #182848;
 }
 
 #message {
-
     margin-top: 15px;
-
-    line-height: 1.5;
-
     font-weight: bold;
 }
 
@@ -120,7 +83,6 @@ button:hover {
 
 
 <body>
-
 
 <div class="login-box">
 
@@ -132,7 +94,7 @@ button:hover {
 
     <h1>📖 विचित्र कहानियाँ</h1>
 
-    <h2>🔐 Login</h2>
+    <h2 id="title">🔐 Login</h2>
 
 
     <input
@@ -151,8 +113,17 @@ button:hover {
     >
 
 
-    <button onclick="login()">
+    <button id="mainButton" onclick="loginUser()">
         🔓 Login करें
+    </button>
+
+
+    <button
+        class="switch-btn"
+        onclick="toggleMode()"
+        id="switchButton"
+    >
+        नया Account बनाएँ
     </button>
 
 
@@ -161,15 +132,11 @@ button:hover {
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
 <script>
 
-
-// =====================================
-// SUPABASE
-// =====================================
+/* =========================================
+   SUPABASE
+========================================= */
 
 const SUPABASE_URL =
 "https://uhvstqieyyogjidfnhvu.supabase.co";
@@ -186,19 +153,79 @@ supabase.createClient(
 );
 
 
-// =====================================
-// LOGIN
-// =====================================
+/* =========================================
+   MODE
+========================================= */
 
-async function login() {
+let registerMode = false;
+
+
+/* =========================================
+   TOGGLE LOGIN / REGISTER
+========================================= */
+
+function toggleMode() {
+
+    registerMode = !registerMode;
+
+    const title =
+        document.getElementById("title");
+
+    const mainButton =
+        document.getElementById("mainButton");
+
+    const switchButton =
+        document.getElementById("switchButton");
+
+    const message =
+        document.getElementById("message");
+
+
+    message.innerText = "";
+
+
+    if (registerMode) {
+
+        title.innerText =
+            "📝 नया Account बनाएँ";
+
+        mainButton.innerText =
+            "✅ Account बनाएँ";
+
+        switchButton.innerText =
+            "🔐 पहले से Account है? Login करें";
+
+    } else {
+
+        title.innerText =
+            "🔐 Login";
+
+        mainButton.innerText =
+            "🔓 Login करें";
+
+        switchButton.innerText =
+            "📝 नया Account बनाएँ";
+
+    }
+
+}
+
+
+/* =========================================
+   MAIN BUTTON
+========================================= */
+
+async function loginUser() {
 
     const username =
-        document.getElementById("username")
+        document
+        .getElementById("username")
         .value
         .trim();
 
     const password =
-        document.getElementById("password")
+        document
+        .getElementById("password")
         .value;
 
 
@@ -216,19 +243,81 @@ async function login() {
 
 
     message.innerText =
-        "⏳ Login हो रहा है...";
+        "⏳ कृपया प्रतीक्षा करें...";
 
 
-    // =================================
-    // USER SEARCH
-    // =================================
+    /* =====================================
+       REGISTER
+    ===================================== */
+
+    if (registerMode) {
+
+        const { data, error } =
+            await supabaseClient.rpc(
+                "register_user",
+                {
+                    p_username: username,
+                    p_password: password
+                }
+            );
+
+
+        if (error) {
+
+            console.error(error);
+
+            message.innerText =
+                "❌ Account बनाने में समस्या हुई।";
+
+            return;
+        }
+
+
+        if (!data.success) {
+
+            message.innerText =
+                "❌ " + data.message;
+
+            return;
+        }
+
+
+        message.innerText =
+            "✅ Account बन गया! अब Login करें।";
+
+
+        registerMode = false;
+
+        document.getElementById("title")
+            .innerText = "🔐 Login";
+
+        document.getElementById("mainButton")
+            .innerText = "🔓 Login करें";
+
+        document.getElementById("switchButton")
+            .innerText = "📝 नया Account बनाएँ";
+
+
+        document.getElementById("password")
+            .value = "";
+
+
+        return;
+    }
+
+
+    /* =====================================
+       LOGIN
+    ===================================== */
 
     const { data, error } =
-        await supabaseClient
-        .from("users")
-        .select("id, username, password_hash")
-        .eq("username", username)
-        .maybeSingle();
+        await supabaseClient.rpc(
+            "login_user",
+            {
+                p_username: username,
+                p_password: password
+            }
+        );
 
 
     if (error) {
@@ -236,47 +325,30 @@ async function login() {
         console.error(error);
 
         message.innerText =
-            "❌ Login में समस्या हुई:\n" +
-            error.message;
+            "❌ Login में समस्या हुई।";
 
         return;
     }
 
 
-    if (!data) {
+    if (!data.success) {
 
         message.innerText =
-            "❌ यह Username मौजूद नहीं है।";
+            "❌ Username या Password गलत है।";
 
         return;
     }
 
 
-    // =================================
-    // PASSWORD CHECK
-    // =================================
-
-    const passwordHash =
-        await sha256(password);
-
-
-    if (passwordHash !== data.password_hash) {
-
-        message.innerText =
-            "❌ Password गलत है।";
-
-        return;
-    }
-
-
-    // =================================
-    // LOGIN SUCCESS
-    // =================================
+    /* =====================================
+       LOGIN SUCCESS
+    ===================================== */
 
     sessionStorage.setItem(
         "loggedIn",
         "true"
     );
+
 
     sessionStorage.setItem(
         "username",
@@ -298,39 +370,7 @@ async function login() {
 
 }
 
-
-// =====================================
-// SHA-256
-// =====================================
-
-async function sha256(text) {
-
-    const encoder =
-        new TextEncoder();
-
-    const data =
-        encoder.encode(text);
-
-    const hashBuffer =
-        await crypto.subtle.digest(
-            "SHA-256",
-            data
-        );
-
-    const hashArray =
-        Array.from(
-            new Uint8Array(hashBuffer)
-        );
-
-    return hashArray
-        .map(
-            b => b.toString(16).padStart(2, "0")
-        )
-        .join("");
-}
-
 </script>
-
 
 </body>
 
