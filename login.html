@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Login | विचित्र कहानियाँ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f1ea;
+}
+
+.login-box {
+
+    width: 90%;
+    max-width: 400px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 20px #ccc;
+
+    text-align: center;
+}
+
+.logo {
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #182848;
+}
+
+h2 {
+    color: #333;
+}
+
+input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin: 8px 0;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+}
+
+button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #182848;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #243b6b;
+}
+
+#message {
+
+    margin-top: 15px;
+
+    line-height: 1.5;
+
+    font-weight: bold;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+    <img
+        src="favicon.jpg"
+        class="logo"
+        alt="विचित्र कहानियाँ"
+    >
+
+    <h1>📖 विचित्र कहानियाँ</h1>
+
+    <h2>🔐 Login</h2>
+
+
+    <input
+        type="text"
+        id="username"
+        placeholder="अपना नाम / Username"
+        autocomplete="username"
+    >
+
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="current-password"
+    >
+
+
+    <button onclick="login()">
+        🔓 Login करें
+    </button>
+
+
+    <p id="message"></p>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+
+// =====================================
+// SUPABASE
+// =====================================
+
+const SUPABASE_URL =
+"https://uhvstqieyyogjidfnhvu.supabase.co";
+
+
+const SUPABASE_KEY =
+"ABHI7S";
+
+
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+// =====================================
+// LOGIN
+// =====================================
+
+async function login() {
+
+    const username =
+        document.getElementById("username")
+        .value
+        .trim();
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+
+    const message =
+        document.getElementById("message");
+
+
+    if (!username || !password) {
+
+        message.innerText =
+            "❌ नाम और Password दोनों डालें।";
+
+        return;
+    }
+
+
+    message.innerText =
+        "⏳ Login हो रहा है...";
+
+
+    // =================================
+    // USER SEARCH
+    // =================================
+
+    const { data, error } =
+        await supabaseClient
+        .from("users")
+        .select("id, username, password_hash")
+        .eq("username", username)
+        .maybeSingle();
+
+
+    if (error) {
+
+        console.error(error);
+
+        message.innerText =
+            "❌ Login में समस्या हुई:\n" +
+            error.message;
+
+        return;
+    }
+
+
+    if (!data) {
+
+        message.innerText =
+            "❌ यह Username मौजूद नहीं है।";
+
+        return;
+    }
+
+
+    // =================================
+    // PASSWORD CHECK
+    // =================================
+
+    const passwordHash =
+        await sha256(password);
+
+
+    if (passwordHash !== data.password_hash) {
+
+        message.innerText =
+            "❌ Password गलत है।";
+
+        return;
+    }
+
+
+    // =================================
+    // LOGIN SUCCESS
+    // =================================
+
+    sessionStorage.setItem(
+        "loggedIn",
+        "true"
+    );
+
+    sessionStorage.setItem(
+        "username",
+        data.username
+    );
+
+
+    message.innerText =
+        "✅ Login सफल!";
+
+
+    setTimeout(function() {
+
+        window.location.replace(
+            "index.html"
+        );
+
+    }, 500);
+
+}
+
+
+// =====================================
+// SHA-256
+// =====================================
+
+async function sha256(text) {
+
+    const encoder =
+        new TextEncoder();
+
+    const data =
+        encoder.encode(text);
+
+    const hashBuffer =
+        await crypto.subtle.digest(
+            "SHA-256",
+            data
+        );
+
+    const hashArray =
+        Array.from(
+            new Uint8Array(hashBuffer)
+        );
+
+    return hashArray
+        .map(
+            b => b.toString(16).padStart(2, "0")
+        )
+        .join("");
+}
+
+</script>
+
+
+</body>
+
+</html>
