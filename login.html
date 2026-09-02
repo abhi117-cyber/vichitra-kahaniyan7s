@@ -345,17 +345,15 @@ async function handleAccount() {
             );
 
 
-        if (error) {
+       if (error) {
 
-            console.error(error);
+    console.error("REGISTER ERROR:", error);
 
-            message.innerText =
-                "❌ Account बनाने में समस्या हुई।";
+    message.innerText =
+        "❌ " + error.message;
 
-            return;
-
-        }
-
+    return;
+}
 
         if (!data || !data.success) {
 
