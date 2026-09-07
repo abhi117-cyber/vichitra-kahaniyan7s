@@ -488,7 +488,6 @@ a[href="#about"] {
                     पूरी कहानी पढ़ें →
                 </a>
 
-                
             </div>
 
 
@@ -506,8 +505,6 @@ a[href="#about"] {
                 <a class="read" href="kahani2.html">
                     पूरी कहानी पढ़ें →
                 </a>
-
-                 
 
             </div>
 
@@ -527,7 +524,6 @@ a[href="#about"] {
                     पूरी कहानी पढ़ें →
                 </a>
 
-
             </div>
 
 
@@ -546,7 +542,6 @@ a[href="#about"] {
                     पूरी कहानी पढ़ें →
                 </a>
 
-
             </div>
 
 
@@ -564,8 +559,7 @@ a[href="#about"] {
                 <a class="read" href="kahani5.html">
                     पूरी कहानी पढ़ें →
                 </a>
-
-
+    
             </div>
           <!-- STORY 6 -->
 
@@ -716,54 +710,31 @@ if (localStorage.getItem("darkMode") === "on") {
     <span class="counterapi" data-name="vichitra-kahaniyan-visitors"></span>
 </div>
 
- <div class="stats">
+<script src="https://counterapi.com/c.js" async></script>
+    <script>
+function toggleLike(story) {
 
-        <div class="stat">
-            ✍️ कहानी लेखक
-        </div>
+    let count = Number(localStorage.getItem("likes-" + story)) || 0;
+    let liked = localStorage.getItem("liked-" + story);
 
-        <div class="stat">
-            ❤️ अपनी कहानियाँ
-        </div>
+    if (liked === "yes") {
+        return;
+    }
 
-        <div class="stat">
-            📅 2026
-        </div>
+    count++;
 
-    </div>
+    localStorage.setItem("likes-" + story, count);
+    localStorage.setItem("liked-" + story, "yes");
 
+    document.getElementById("like-" + story).textContent =
+        "Like " + count + " ❤️";
+}
 
-    <a
-        class="whatsapp"
-        href="https://wa.me/919258938569"
-        target="_blank">
+let savedLikes =
+    Number(localStorage.getItem("likes-kahani1")) || 0;
 
-        🟢 WhatsApp पर सीधे बात करें
-
-    </a>
-
-
-    <div class="social-row">
-
-        <a
-            href="tel:+919258938569">
-
-            📞 9258938569
-
-        </a>
-
-
-        <a
-            href="#">
-
-            📷 Instagram
-        <a href="https://www.instagram.com/mr_abhishek_yadav6924/"
-           target="_blank">
-            @mr_abhishek_yadav6924
-        </a>
-
-    </div>
-
-
+document.getElementById("like-kahani1").textContent =
+    "Like " + savedLikes + " ❤️";
+</script>
   
 </html>
