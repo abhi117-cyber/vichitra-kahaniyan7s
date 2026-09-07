@@ -8,6 +8,9 @@
 
 <title>विचित्र कहानी | विचित्र कहानियाँ</title>
 
+<meta name="description"
+content="विचित्र कहानी — Abhishek Yadav द्वारा लिखी गई कहानी।">
+
 <style>
 
 /* =========================================
@@ -16,6 +19,8 @@
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
@@ -24,159 +29,233 @@ html{
 
 body{
 
-    margin:0;
-
     font-family:Arial,sans-serif;
 
     background:
-        radial-gradient(
-            circle at top left,
-            #fff8e8 0%,
-            #f4f1ea 40%,
-            #eee9df 100%
-        );
+        radial-gradient(circle at 10% 20%,rgba(64,100,180,.16),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(150,70,180,.14),transparent 30%),
+        #090d18;
 
-    color:#252525;
+    color:#e9edf7;
 
-    line-height:1.8;
+    min-height:100vh;
+
+    transition:.4s;
+
 }
 
 
 /* =========================================
-   TOP DECORATION
+   READING PROGRESS
 ========================================= */
 
-.top-line{
+.progress-bar{
 
-    height:6px;
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    height:4px;
+
+    width:0%;
 
     background:
         linear-gradient(
             90deg,
-            #182848,
-            #b78a3c,
-            #182848
+            #5ee7ff,
+            #8b7cff,
+            #ff5fd7
         );
 
-}
-
-
-/* =========================================
-   MAIN STORY BOX
-========================================= */
-
-.story-box{
-
-    width:calc(100% - 30px);
-
-    max-width:900px;
-
-    margin:35px auto 60px;
-
-    background:#fffdf9;
-
-    border:1px solid #e4d7c5;
-
-    border-radius:24px;
-
-    padding:35px 55px 55px;
+    z-index:99999;
 
     box-shadow:
-        0 15px 45px rgba(24,40,72,.12),
-        0 2px 8px rgba(0,0,0,.05);
+        0 0 12px #6deaff;
 
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-/* decorative circles */
-
-.story-box::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(183,138,60,.20);
-
-    top:-90px;
-
-    right:-70px;
-}
-
-
-.story-box::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:130px;
-
-    height:130px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(24,40,72,.12);
-
-    bottom:-70px;
-
-    left:-50px;
 }
 
 
 /* =========================================
-   BACK BUTTON
+   BACKGROUND PARTICLES
 ========================================= */
 
-.back{
+.particle{
 
-    display:inline-flex;
+    position:fixed;
+
+    width:4px;
+    height:4px;
+
+    background:#ffffff;
+
+    border-radius:50%;
+
+    opacity:.35;
+
+    animation:float 8s infinite ease-in-out;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.p1{left:10%;top:20%;animation-delay:0s;}
+.p2{left:25%;top:70%;animation-delay:2s;}
+.p3{left:50%;top:30%;animation-delay:4s;}
+.p4{left:75%;top:80%;animation-delay:1s;}
+.p5{left:90%;top:25%;animation-delay:3s;}
+.p6{left:60%;top:65%;animation-delay:5s;}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+        opacity:.2;
+    }
+
+    50%{
+        transform:translateY(-35px);
+        opacity:.8;
+    }
+
+}
+
+
+/* =========================================
+   TOP NAV
+========================================= */
+
+.top-bar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    backdrop-filter:blur(15px);
+
+    background:rgba(8,12,25,.78);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    padding:12px 18px;
+
+    display:flex;
+
+    justify-content:space-between;
 
     align-items:center;
 
-    gap:8px;
+}
 
-    background:#182848;
+.back{
 
-    color:white;
+    display:inline-block;
+
+    color:#fff;
 
     text-decoration:none;
 
-    padding:11px 18px;
+    background:
+
+        linear-gradient(
+            135deg,
+            #283f73,
+            #182848
+        );
+
+    padding:10px 16px;
 
     border-radius:12px;
 
-    font-size:15px;
+    font-size:14px;
 
-    font-weight:bold;
+    border:1px solid rgba(255,255,255,.12);
 
-    box-shadow:
-        0 5px 15px rgba(24,40,72,.20);
+    transition:.3s;
 
-    transition:.25s;
-
-    position:relative;
-
-    z-index:2;
 }
 
 .back:hover{
 
-    background:#b78a3c;
-
     transform:translateX(-4px);
 
     box-shadow:
-        0 8px 20px rgba(183,138,60,.25);
+        0 0 20px rgba(90,180,255,.35);
+
+}
+
+
+/* =========================================
+   MODE BUTTON
+========================================= */
+
+.mode-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:#171d31;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    padding:9px 13px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+.mode-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+/* =========================================
+   MAIN STORY
+========================================= */
+
+.story-box{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+    margin:45px auto;
+
+    padding:50px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(20,27,48,.96),
+            rgba(12,17,32,.96)
+        );
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+
+        0 30px 80px rgba(0,0,0,.45),
+
+        inset 0 0 50px rgba(100,120,255,.035);
+
 }
 
 
@@ -188,169 +267,160 @@ body{
 
     text-align:center;
 
-    padding:35px 10px 25px;
+    padding:20px 10px 45px;
 
-    position:relative;
-
-    z-index:2;
 }
-
 
 .story-label{
 
     display:inline-block;
 
-    padding:5px 13px;
+    padding:6px 14px;
 
-    border-radius:20px;
+    border-radius:30px;
 
-    background:#f5ead3;
+    background:rgba(103,221,255,.09);
 
-    color:#8b641f;
+    border:1px solid rgba(103,221,255,.25);
+
+    color:#75e8ff;
 
     font-size:12px;
 
-    font-weight:bold;
+    letter-spacing:1px;
 
-    letter-spacing:.5px;
+    margin-bottom:20px;
 
-    margin-bottom:12px;
 }
-
 
 h1{
 
-    margin:5px 0 8px;
+    font-size:clamp(40px,7vw,70px);
 
-    color:#182848;
+    font-weight:900;
 
-    font-size:44px;
+    letter-spacing:2px;
 
-    font-weight:700;
+    color:#fff;
 
-    letter-spacing:.5px;
+    text-shadow:
+
+        0 0 8px rgba(100,220,255,.8),
+
+        0 0 30px rgba(110,120,255,.45);
+
+    margin-bottom:18px;
 
 }
-
-
-.story-subtitle{
-
-    color:#777;
-
-    font-size:15px;
-
-    margin:0;
-}
-
-
-/* =========================================
-   AUTHOR
-========================================= */
 
 .author{
 
-    text-align:center;
-
-    color:#777;
-
-    margin:10px 0 30px;
+    color:#9ca8c4;
 
     font-size:14px;
+
+    margin-bottom:10px;
+
+}
+
+.date{
+
+    color:#68748e;
+
+    font-size:12px;
+
 }
 
 
 /* =========================================
-   GOLD DIVIDER
+   DECORATIVE LINE
 ========================================= */
 
-.divider{
+.title-line{
 
-    width:100%;
+    width:100px;
 
-    display:flex;
+    height:3px;
 
-    align-items:center;
+    margin:25px auto;
 
-    justify-content:center;
-
-    gap:12px;
-
-    margin:25px 0 35px;
-
-    color:#b78a3c;
-
-    font-size:18px;
-}
-
-
-.divider::before,
-.divider::after{
-
-    content:"";
-
-    height:1px;
-
-    flex:1;
+    border-radius:10px;
 
     background:
+
         linear-gradient(
             90deg,
-            transparent,
-            #d7bd8c
+            #5ee7ff,
+            #9c7cff,
+            #ff63d8
         );
-}
 
+    box-shadow:
+        0 0 15px rgba(100,220,255,.5);
 
-.divider::after{
-
-    background:
-        linear-gradient(
-            90deg,
-            #d7bd8c,
-            transparent
-        );
 }
 
 
 /* =========================================
-   SECTION HEADING
+   SUMMARY
 ========================================= */
 
-h2{
-
-    color:#182848;
-
-    font-size:29px;
-
-    margin-top:20px;
-
-    margin-bottom:28px;
-
-    padding-bottom:10px;
-
-    border-bottom:2px solid #eadfcf;
+.summary{
 
     position:relative;
+
+    margin:10px 0 45px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(42,54,91,.65),
+            rgba(24,30,56,.65)
+        );
+
+    border:1px solid rgba(120,170,255,.18);
+
 }
 
-
-h2::after{
+.summary::before{
 
     content:"";
 
     position:absolute;
 
     left:0;
+    top:15px;
+    bottom:15px;
 
-    bottom:-2px;
-
-    width:75px;
-
-    height:3px;
-
-    background:#b78a3c;
+    width:4px;
 
     border-radius:5px;
+
+    background:
+
+        linear-gradient(
+            #5ee7ff,
+            #9d7cff,
+            #ff65d9
+        );
+
+}
+
+.summary h2{
+
+    color:#79eaff;
+
+    font-size:25px;
+
+    margin-bottom:25px;
+
+    padding-left:10px;
+
 }
 
 
@@ -358,27 +428,32 @@ h2::after{
    STORY TEXT
 ========================================= */
 
-p{
+.story-content{
+
+    counter-reset:paragraph;
+
+}
+
+.story-content p{
 
     font-size:20px;
 
-    line-height:2;
+    line-height:2.05;
 
     text-align:justify;
 
-    color:#333;
+    color:#dce2ef;
 
-    margin:23px 0;
+    margin:0 0 25px;
+
+    letter-spacing:.15px;
+
 }
 
+.story-content p:first-letter{
 
-/* first paragraph special */
+    color:#7deaff;
 
-.story-content > p:first-of-type{
-
-    color:#182848;
-
-    font-weight:600;
 }
 
 
@@ -386,31 +461,30 @@ p{
    SPECIAL QUOTE
 ========================================= */
 
-.story-content > p:nth-last-of-type(2){
+.story-content p:nth-last-of-type(1){
 
-    margin-top:45px;
+    margin-top:40px;
 
-    padding:25px 28px;
+    padding:28px;
+
+    border-radius:18px;
 
     background:
+
         linear-gradient(
             135deg,
-            #fff9eb,
-            #f8f0df
+            rgba(91,75,150,.25),
+            rgba(35,60,100,.25)
         );
 
-    border-left:5px solid #b78a3c;
-
-    border-radius:0 15px 15px 0;
-
-    color:#39445b;
-
-    font-style:italic;
+    border:1px solid rgba(150,140,255,.22);
 
     text-align:center;
 
-    box-shadow:
-        0 5px 18px rgba(183,138,60,.10);
+    font-style:italic;
+
+    color:#e9e4ff;
+
 }
 
 
@@ -424,86 +498,216 @@ p{
 
     margin-top:45px;
 
-    padding-top:25px;
+    padding-top:30px;
 
-    border-top:1px solid #e5d8c8;
+    border-top:1px solid rgba(255,255,255,.09);
 
-    color:#182848;
+    font-size:18px;
 
-    font-size:21px;
+    color:#8d9ab6;
 
-    font-weight:bold;
-
-    letter-spacing:1px;
 }
 
 
 /* =========================================
-   SHARE BOX
+   STORY ACTIONS
+========================================= */
+
+.actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:35px;
+
+}
+
+.action-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:11px 17px;
+
+    border-radius:12px;
+
+    color:white;
+
+    background:#1b2440;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    transition:.3s;
+
+}
+
+.action-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#28365d;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+
+}
+
+.like-count{
+
+    color:#ff6f91;
+
+}
+
+
+/* =========================================
+   SHARE
 ========================================= */
 
 .share-box{
 
-    width:calc(100% - 30px);
-
-    max-width:900px;
-
-    margin:0 auto 50px;
+    margin-top:45px;
 
     padding:25px;
-
-    background:#182848;
-
-    color:white;
 
     border-radius:20px;
 
     text-align:center;
 
-    box-shadow:
-        0 12px 30px rgba(24,40,72,.18);
-}
+    background:
 
+        linear-gradient(
+            135deg,
+            rgba(25,70,55,.35),
+            rgba(20,35,50,.35)
+        );
+
+    border:1px solid rgba(80,220,170,.16);
+
+}
 
 .share-box h3{
 
-    margin:0 0 18px;
+    color:#7ff0c7;
 
-    font-size:21px;
+    margin-bottom:18px;
 
-    color:white;
 }
 
+.share-buttons{
 
-.share-box button{
+    display:flex;
 
-    border:0;
+    justify-content:center;
 
-    background:#fff;
+    flex-wrap:wrap;
 
-    color:#182848;
+    gap:10px;
 
-    padding:11px 20px;
+}
+
+.share-btn{
+
+    border:none;
+
+    padding:10px 16px;
 
     border-radius:10px;
 
-    font-size:14px;
-
-    font-weight:bold;
-
     cursor:pointer;
-
-    transition:.25s;
-}
-
-
-.share-box button:hover{
-
-    background:#b78a3c;
 
     color:white;
 
+    background:#19382e;
+
+    transition:.3s;
+
+}
+
+.share-btn:hover{
+
     transform:translateY(-2px);
+
+}
+
+
+/* =========================================
+   READING TIME
+========================================= */
+
+.read-time{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:#77839e;
+
+    font-size:12px;
+
+}
+
+
+/* =========================================
+   TOP BUTTON
+========================================= */
+
+.top-btn{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #293d75,
+            #624c91
+        );
+
+    color:white;
+
+    font-size:20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.4);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.top-btn.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
 }
 
 
@@ -511,27 +715,80 @@ p{
    FOOTER
 ========================================= */
 
-.story-footer{
+footer{
 
     text-align:center;
 
-    color:#777;
+    color:#69758e;
+
+    padding:35px 20px 50px;
 
     font-size:13px;
 
-    padding-bottom:30px;
 }
 
 
 /* =========================================
-   SELECTION
+   LIGHT MODE
 ========================================= */
 
-::selection{
+body.light{
 
-    background:#182848;
+    background:#f3f5fa;
 
-    color:white;
+    color:#222;
+
+}
+
+body.light .story-box{
+
+    background:#ffffff;
+
+    border:1px solid #e0e3eb;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.12);
+
+}
+
+body.light h1{
+
+    color:#182848;
+
+    text-shadow:none;
+
+}
+
+body.light .story-content p{
+
+    color:#333;
+
+}
+
+body.light .summary{
+
+    background:#f4f7ff;
+
+}
+
+body.light .top-bar{
+
+    background:rgba(255,255,255,.85);
+
+}
+
+body.light .mode-btn{
+
+    background:#e8ecf5;
+
+    color:#182848;
+
+}
+
+body.light .share-box{
+
+    background:#eefaf5;
+
 }
 
 
@@ -543,51 +800,29 @@ p{
 
     .story-box{
 
-        width:calc(100% - 18px);
+        margin:20px 12px;
 
-        margin:18px auto 35px;
+        padding:25px 18px;
 
-        padding:22px 20px 35px;
+        border-radius:20px;
 
-        border-radius:18px;
     }
-
-
-    .back{
-
-        font-size:13px;
-
-        padding:9px 14px;
-    }
-
 
     .story-header{
 
-        padding:28px 5px 20px;
-    }
+        padding-bottom:30px;
 
+    }
 
     h1{
 
-        font-size:31px;
+        font-size:40px;
 
-        line-height:1.4;
+        letter-spacing:1px;
+
     }
 
-
-    .story-subtitle{
-
-        font-size:13px;
-    }
-
-
-    h2{
-
-        font-size:24px;
-    }
-
-
-    p{
+    .story-content p{
 
         font-size:18px;
 
@@ -595,51 +830,18 @@ p{
 
         text-align:left;
 
-        margin:20px 0;
     }
 
+    .summary{
 
-    .story-content > p:nth-last-of-type(2){
+        padding:23px 20px;
 
-        padding:20px;
-
-        font-size:17px;
-
-        text-align:center;
     }
 
+    .top-bar{
 
-    .share-box{
+        padding:10px 12px;
 
-        width:calc(100% - 18px);
-
-        padding:22px 15px;
-
-        border-radius:17px;
-    }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media(max-width:400px){
-
-    h1{
-
-        font-size:27px;
-    }
-
-    h2{
-
-        font-size:22px;
-    }
-
-    p{
-
-        font-size:17px;
     }
 
 }
@@ -651,66 +853,79 @@ p{
 
 <body>
 
-<div class="top-line"></div>
+<!-- PROGRESS BAR -->
+
+<div class="progress-bar" id="progressBar"></div>
 
 
-<!-- =========================================
-     STORY
-========================================= -->
+<!-- PARTICLES -->
 
-<div class="story-box">
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+<div class="particle p6"></div>
 
 
-    <!-- BACK -->
+<!-- TOP BAR -->
+
+<div class="top-bar">
 
     <a class="back" href="index.html">
         ← वापस कहानियों पर
     </a>
 
+    <button class="mode-btn" onclick="toggleMode()" id="modeBtn">
+        🌙 Reading Mode
+    </button>
 
-    <!-- HEADER -->
+</div>
 
-    <div class="story-header">
 
-        <span class="story-label">
-            📖 कहानी #1
-        </span>
+<!-- STORY -->
 
-        <h1>
-            विचित्र कहानी
-        </h1>
+<main class="story-box">
 
-        <p class="story-subtitle">
-            यादों, भावनाओं और कुछ अनकही बातों की कहानी
-        </p>
 
-    </div>
+<!-- HEADER -->
 
+<header class="story-header">
+
+    <span class="story-label">
+        📖 STORY • #01
+    </span>
+
+    <h1>
+        विचित्र कहानी
+    </h1>
+
+    <div class="title-line"></div>
 
     <div class="author">
         ✍️ ABHISHEK YADAV
     </div>
 
-
-    <div class="divider">
-        ✦
+    <div class="date">
+        17/08/2026
     </div>
 
+</header>
 
-    <!-- CONTENT -->
+
+<!-- SUMMARY -->
+
+<section class="summary">
+
+    <h2>
+        ✦ सारांश
+    </h2>
 
     <div class="story-content">
-
-
-        <h2>
-            सारांश
-        </h2>
-
 
         <p>
             लिखना हमेशा सिद्धांतों पर कार्य करता है।
         </p>
-
 
         <p>
             मेरा नाम अभिषेक यादव है। मैं एक ऐसी कहानी लिख रहा हूँ,
@@ -719,20 +934,17 @@ p{
             किया, उन बातों को इस कहानी के रूप में लिख रहा हूँ।
         </p>
 
-
         <p>
             मैं जानता हूँ कि इस कहानी को कोई नहीं पढ़ेगा, लेकिन फिर भी
             मैं लिख रहा हूँ। इस कहानी के बाद एक कहानी, एक कहानी के बाद
             दूसरी, दूसरी के बाद तीसरी और तीसरी के बाद चौथी।
         </p>
 
-
         <p>
             इन कहानियों में से एक कहानी ऐसी होती है, जिसमें जो आप होते हैं,
             उस कहानी की तलाश अब तक जारी थी। या यूँ कहूँ, उस इंसान का आना
             अब तक रुका हुआ था, जो इस कहानी को लिखने में मेरी मदद करे।
         </p>
-
 
         <p>
             इस कहानी में किसी की बात, किसी की कहानी, किसी के ख्याल,
@@ -741,13 +953,11 @@ p{
             कहानी का एक अच्छा हिस्सा बन जाती हैं।
         </p>
 
-
         <p>
             सभी कहते हैं, “ये क्या करता रहता है?”
             लेकिन कोई उस भाव में नहीं उतरता, जो मैं जानता हूँ।
             इन बातों को कोई नहीं समझता, सिवाय मेरे।
         </p>
-
 
         <p>
             मुझे पता ही नहीं चला कि मैंने ये कहानियाँ कब लिखकर खत्म कर दीं।
@@ -756,48 +966,40 @@ p{
             हमें पता नहीं चलता।
         </p>
 
-
         <p>
             मैंने कहानियों में जो लिखा है, उन्हें बार-बार पढ़कर खुश हो जाता हूँ।
             यही सोचता रहता हूँ कि— “ये मैंने लिखा है... हाँ, मैंने लिखा है।”
         </p>
-
 
         <p>
             मैं तो केवल इन कहानियों को लिख रहा हूँ, लेकिन इन कहानियों को
             लिखवाने वाला कोई और है।
         </p>
 
-
         <p>
             ये बातें मुझे छिपाकर रखनी चाहिए, लेकिन क्या करूँ?
             ये कहानियाँ मुझसे छुपती ही नहीं। जो मन में आता है, बोल देता हूँ।
         </p>
-
 
         <p>
             इन सब कहानियों में एक ही चीज है, जो सबको बाँधे रखती है—
             जो है प्रेम।
         </p>
 
-
         <p>
             यह सब कुछ महादेव का है। वह प्रेम को कैसे लिखवाते हैं,
             वो तो वही जाने।
         </p>
-
 
         <p>
             और भोलेनाथ की ओर से मुझे एक मैसेज आया।
             मैसेज वो नहीं, जो आते हैं—मैसेज की जगह एक इंसान था।
         </p>
 
-
         <p>
             मैं ज्यादातर मैसेज को इग्नोर कर देता हूँ, लेकिन पता नहीं क्यों,
             उस मैसेज को देखते ही मुझे क्या हो गया।
         </p>
-
 
         <p>
             उस मैसेज में ऐसी लड़की का नाम लिखा था, जो मेरी होकर भी
@@ -805,18 +1007,15 @@ p{
             को पाने की तलब लग गई।
         </p>
 
-
         <p>
             तो वो मैसेज दूसरी तरफ से एक शिवानी नाम की लड़की का था।
             हाँ, शिवानी...
         </p>
 
-
         <p>
             वो मेरी इन कहानियों को लिखवाने का एक इकलौता जरिया थी।
             शिवानी एक बहुत ही सिंपल और हमारी क्लास की होशियार लड़की थी।
         </p>
-
 
         <p>
             हमारी लंबी-लंबी बातें होने लगीं। बातें कभी रुक जातीं,
@@ -824,12 +1023,10 @@ p{
             वे कभी बिल्कुल रुक जातीं और फिर दो दिन बाद वहीं से शुरू होतीं।
         </p>
 
-
         <p>
             जितना बोलना था, उतना ही चुप रहना मुझे पसंद था।
             शायद शिवानी को भी था।
         </p>
-
 
         <p>
             कभी-कभी तो हम एक-दूसरे के नाम से ही लड़ जाते थे।
@@ -837,22 +1034,18 @@ p{
             और वो—शिवानी।
         </p>
 
-
         <p>
             दोनों ऐसे ही खुश रहते, मस्त रहते, अपनी दुनिया में
             अपने हिस्से का काम करते रहते।
         </p>
 
-
         <p>
             मुझे वो बातें बताती, मैं सुनता रहता।
         </p>
 
-
         <p>
             ये एक बड़ी विचित्र कहानी थी।
         </p>
-
 
         <p>
             इसके बाद फेयरवेल का दिन आया, फिर एग्जाम्स शुरू हुए।
@@ -861,11 +1054,9 @@ p{
             उसने मुझे व्हाट्सएप पर ब्लॉक कर दिया।
         </p>
 
-
         <p>
             मेरे मन में बहुत सवाल थे, लेकिन मेरे पास कोई जवाब नहीं था।
         </p>
-
 
         <p>
             आज भी जब वो कभी सामने से गुजरती है, तो दिल चाहता है
@@ -873,11 +1064,9 @@ p{
             शायद वो भी कुछ कहना चाहती है, और शायद मैं भी।
         </p>
 
-
         <p>
             लेकिन अब हमारे बीच खामोशी की एक बहुत बड़ी दीवार बन चुकी है।
         </p>
-
 
         <p>
             “तुम मेरी जिंदगी का वह खूबसूरत हिस्सा हो,
@@ -886,20 +1075,47 @@ p{
             तुम हमेशा रहोगी।”
         </p>
 
-
-        <div class="end">
-            — विचित्र कहानी
-        </div>
-
-
     </div>
+
+</section>
+
+
+<!-- END -->
+
+<div class="end">
+
+    — विचित्र कहानी
 
 </div>
 
 
-<!-- =========================================
-     SHARE
-========================================= -->
+<!-- READING TIME -->
+
+<div class="read-time">
+
+    ⏱️ अनुमानित पढ़ने का समय:
+    <span id="readingTime">लगभग 3 मिनट</span>
+
+</div>
+
+
+<!-- ACTIONS -->
+
+<div class="actions">
+
+    <button class="action-btn" onclick="likeStory()">
+        ❤️ Like
+        <span class="like-count" id="likeCount">0</span>
+    </button>
+
+    <button class="action-btn" onclick="copyStoryLink()">
+        📋 Copy Link
+    </button>
+
+</div>
+
+
+<!-- SHARE -->
 
 <div class="share-box">
 
@@ -907,33 +1123,189 @@ p{
         🔗 कहानी शेयर करें
     </h3>
 
-    <button onclick="shareWhatsApp()">
-        🟢 WhatsApp पर शेयर करें
-    </button>
+    <div class="share-buttons">
+
+        <button class="share-btn" onclick="shareWhatsApp()">
+            🟢 WhatsApp
+        </button>
+
+        <button class="share-btn" onclick="shareStory()">
+            📤 Share
+        </button>
+
+    </div>
 
 </div>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+</main>
 
-<div class="story-footer">
+
+<!-- TOP BUTTON -->
+
+<button
+    class="top-btn"
+    id="topBtn"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+    ↑
+</button>
+
+
+<!-- FOOTER -->
+
+<footer>
 
     © 2026 विचित्र कहानियाँ
 
-    <br>
+    <br><br>
 
     Made with ❤️ by Abhishek Yadav
 
-</div>
+</footer>
 
 
 <script>
 
+/* =========================================
+   READING PROGRESS
+========================================= */
+
+window.addEventListener("scroll",function(){
+
+    const scrollTop =
+        document.documentElement.scrollTop;
+
+    const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress =
+        (scrollTop / height) * 100;
+
+    document.getElementById("progressBar")
+        .style.width = progress + "%";
+
+
+    /* TOP BUTTON */
+
+    const topBtn =
+        document.getElementById("topBtn");
+
+    if(scrollTop > 400){
+
+        topBtn.classList.add("show");
+
+    }else{
+
+        topBtn.classList.remove("show");
+
+    }
+
+});
+
+
+/* =========================================
+   DARK / LIGHT MODE
+========================================= */
+
+function toggleMode(){
+
+    document.body.classList.toggle("light");
+
+    const light =
+        document.body.classList.contains("light");
+
+    localStorage.setItem(
+        "storyMode",
+        light ? "light" : "dark"
+    );
+
+    document.getElementById("modeBtn").innerText =
+        light
+        ? "🌙 Dark Mode"
+        : "☀️ Light Mode";
+
+}
+
+
+/* LOAD MODE */
+
+if(localStorage.getItem("storyMode") === "light"){
+
+    document.body.classList.add("light");
+
+    document.getElementById("modeBtn").innerText =
+        "🌙 Dark Mode";
+
+}
+
+
+/* =========================================
+   LIKE
+========================================= */
+
+function likeStory(){
+
+    let count =
+        Number(localStorage.getItem("story1Like")) || 0;
+
+    let liked =
+        localStorage.getItem("story1Liked");
+
+    if(liked === "yes"){
+
+        return;
+
+    }
+
+    count++;
+
+    localStorage.setItem(
+        "story1Like",
+        count
+    );
+
+    localStorage.setItem(
+        "story1Liked",
+        "yes"
+    );
+
+    document.getElementById("likeCount").innerText =
+        count;
+
+}
+
+
+/* LOAD LIKE */
+
+document.getElementById("likeCount").innerText =
+    Number(localStorage.getItem("story1Like")) || 0;
+
+
+/* =========================================
+   COPY LINK
+========================================= */
+
+function copyStoryLink(){
+
+    navigator.clipboard.writeText(
+        window.location.href
+    );
+
+    alert("✅ कहानी का link copy हो गया!");
+
+}
+
+
+/* =========================================
+   WHATSAPP
+========================================= */
+
 function shareWhatsApp(){
 
-    const url = window.location.href;
+    const url =
+        window.location.href;
 
     const text =
         "📖 विचित्र कहानी पढ़ें — " + url;
@@ -946,8 +1318,61 @@ function shareWhatsApp(){
 
 }
 
-</script>
 
+/* =========================================
+   SHARE
+========================================= */
+
+function shareStory(){
+
+    const url =
+        window.location.href;
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:
+                "विचित्र कहानी | Abhishek Yadav",
+
+            text:
+                "📖 विचित्र कहानी पढ़ें",
+
+            url:url
+
+        });
+
+    }else{
+
+        copyStoryLink();
+
+    }
+
+}
+
+
+/* =========================================
+   READING TIME
+========================================= */
+
+const words =
+    document.querySelector(".story-content")
+    .innerText
+    .trim()
+    .split(/\s+/)
+    .length;
+
+const minutes =
+    Math.max(
+        1,
+        Math.ceil(words / 180)
+    );
+
+document.getElementById("readingTime").innerText =
+    "लगभग " + minutes + " मिनट";
+
+
+</script>
 
 </body>
 
