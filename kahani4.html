@@ -9,101 +9,766 @@
 
 <style>
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f1ea;
-    color: #222;
-    line-height: 1.9;
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+
+/* =========================
+   ROOT
+========================= */
+
+:root{
+    --bg:#080b14;
+    --card:#101522;
+    --card2:#151b2b;
+    --text:#e9edf7;
+    --muted:#9ba4b8;
+    --accent:#a78bfa;
+    --accent2:#60a5fa;
+    --border:rgba(255,255,255,.10);
+    --shadow:rgba(0,0,0,.45);
 }
 
-.top {
-    text-align: center;
-    padding: 35px 15px 20px;
+
+/* =========================
+   BODY
+========================= */
+
+*{
+    box-sizing:border-box;
 }
 
-.top h1 {
-    margin: 0;
-    font-size: 32px;
+html{
+    scroll-behavior:smooth;
 }
 
-.date {
-    margin-top: 10px;
-    color: #666;
+body{
+    margin:0;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 15% 10%,rgba(96,165,250,.14),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(167,139,250,.14),transparent 28%),
+        radial-gradient(circle at 50% 90%,rgba(59,130,246,.08),transparent 35%),
+        var(--bg);
+    font-family:'Kalam',cursive;
+    line-height:2;
+    transition:.4s;
 }
 
-.back {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 18px;
-    background: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
+
+/* =========================
+   STARS BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.35;
+    background-image:
+        radial-gradient(circle,white 1px,transparent 1px),
+        radial-gradient(circle,white 1px,transparent 1px);
+    background-size:120px 120px,180px 180px;
+    background-position:0 0,60px 80px;
 }
 
-.book {
-    max-width: 850px;
-    margin: 20px auto 50px;
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px #ccc;
+
+/* =========================
+   TOP HEADER
+========================= */
+
+.top{
+    min-height:330px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:70px 20px 45px;
+    position:relative;
+    overflow:hidden;
 }
 
-.book h2 {
-    text-align: center;
-    margin-top: 30px;
+.top::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(167,139,250,.20),
+        transparent 70%);
+    top:-180px;
+    left:50%;
+    transform:translateX(-50%);
+    filter:blur(10px);
 }
 
-.book p {
-    font-size: 18px;
-    margin: 18px 0;
+.top h1{
+    position:relative;
+    margin:0;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(38px,7vw,70px);
+    font-weight:800;
+    letter-spacing:2px;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #c4b5fd,
+        #93c5fd,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 0 25px rgba(167,139,250,.22);
+
+    animation:titleGlow 4s ease-in-out infinite;
 }
 
-.quote {
-    text-align: center;
-    font-size: 20px;
-    font-style: italic;
-    margin: 30px 0;
+@keyframes titleGlow{
+    0%,100%{
+        filter:drop-shadow(0 0 0 transparent);
+    }
+    50%{
+        filter:drop-shadow(0 0 14px rgba(167,139,250,.35));
+    }
 }
 
-.end {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 19px;
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.subtitle{
+    margin-top:12px;
+    color:#cbd5e1;
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+.subtitle::before{
+    content:"✦ ";
+    color:var(--accent);
+}
+
+.subtitle::after{
+    content:" ✦";
+    color:var(--accent2);
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+.date{
+    margin-top:16px;
+    padding:8px 18px;
+    border:1px solid var(--border);
+    border-radius:50px;
+    color:var(--muted);
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(10px);
+    font-size:16px;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:24px;
+    padding:11px 21px;
+
+    color:white;
+    text-decoration:none;
+
+    border:1px solid rgba(167,139,250,.35);
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(167,139,250,.20),
+        rgba(96,165,250,.15)
+    );
+
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+    transition:.3s;
+}
+
+.back:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 12px 35px rgba(96,165,250,.20);
+}
+
+
+/* =========================
+   STORY CARD
+========================= */
+
+.book{
+    width:min(920px,92%);
+    margin:20px auto 80px;
+
+    padding:55px 65px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid var(--border);
+    border-radius:28px;
+
+    box-shadow:
+        0 30px 80px var(--shadow),
+        inset 0 1px rgba(255,255,255,.05);
+
+    backdrop-filter:blur(16px);
+}
+
+
+/* =========================
+   BOOK TOP LINE
+========================= */
+
+.book::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:140px;
+    height:3px;
+    transform:translateX(-50%);
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        var(--accent2),
+        transparent
+    );
+
+    box-shadow:0 0 18px rgba(167,139,250,.6);
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+    position:relative;
+
+    margin:10px auto 42px;
+    padding:30px 35px;
+
+    text-align:center;
+
+    color:#e9d5ff;
+    font-size:24px;
+    line-height:1.8;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(167,139,250,.10),
+            rgba(96,165,250,.07)
+        );
+
+    border:1px solid rgba(167,139,250,.20);
+
+    box-shadow:
+        inset 0 0 35px rgba(167,139,250,.035),
+        0 10px 30px rgba(0,0,0,.18);
+}
+
+.quote::before{
+    content:"“";
+    position:absolute;
+    left:15px;
+    top:-18px;
+    font-family:Georgia,serif;
+    font-size:70px;
+    color:var(--accent);
+    opacity:.65;
+}
+
+.quote::after{
+    content:"”";
+    position:absolute;
+    right:18px;
+    bottom:-45px;
+    font-family:Georgia,serif;
+    font-size:70px;
+    color:var(--accent2);
+    opacity:.45;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+.book h2{
+    position:relative;
+
+    margin:55px 0 25px;
+    padding:14px 20px;
+
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+
+    color:#ddd6fe;
+
+    border-left:4px solid var(--accent);
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(167,139,250,.10),
+            transparent
+        );
+}
+
+.book h2::after{
+    content:"";
+    display:block;
+    width:55px;
+    height:2px;
+    margin-top:8px;
+
+    background:linear-gradient(
+        90deg,
+        var(--accent),
+        transparent
+    );
+}
+
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+.book p{
+    position:relative;
+
+    font-size:20px;
+    margin:24px 0;
+
+    color:#e5e7eb;
+
+    text-align:justify;
+
+    transition:.25s;
+}
+
+.book p:hover{
+    color:#ffffff;
+    transform:translateX(3px);
+}
+
+
+/* =========================
+   SPECIAL FIRST LETTER
+========================= */
+
+.book > p:first-of-type::first-letter{
+    font-family:'Playfair Display',serif;
+    font-size:52px;
+    float:left;
+    line-height:.9;
+    padding-right:8px;
+    color:var(--accent);
+}
+
+
+/* =========================
+   LIST / CHAT
+========================= */
+
+.book ul{
+    margin:25px 0;
+    padding:25px 30px 25px 50px;
+
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    border-radius:18px;
+
+    box-shadow:inset 0 0 30px rgba(0,0,0,.12);
+}
+
+.book li{
+    margin:9px 0;
+    color:#dbe4f0;
+    font-size:18px;
+}
+
+.book li::marker{
+    color:var(--accent);
+}
+
+
+/* =========================
+   END SECTION
+========================= */
+
+.end{
+    position:relative;
+
+    margin-top:55px;
+    padding:35px 25px;
+
+    text-align:center;
+
+    font-size:21px;
+    line-height:2.2;
+
+    color:#d8b4fe;
+
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(167,139,250,.08),
+            transparent 70%
+        );
+}
+
+.end strong{
+    color:#93c5fd;
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+}
+
+
+/* =========================
+   FLOATING CONTROLS
+========================= */
+
+.controls{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    z-index:50;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.control-btn{
+    width:46px;
+    height:46px;
+
+    border:1px solid var(--border);
+    border-radius:50%;
+
+    color:white;
+    background:rgba(15,23,42,.85);
+
+    backdrop-filter:blur(10px);
+
+    cursor:pointer;
+    font-size:19px;
+
+    transition:.3s;
+}
+
+.control-btn:hover{
+    transform:scale(1.08);
+    background:rgba(167,139,250,.18);
+}
+
+
+/* =========================
+   READING PROGRESS
+========================= */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:4px;
+    width:0%;
+
+    z-index:100;
+
+    background:linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2)
+    );
+
+    box-shadow:0 0 12px rgba(167,139,250,.7);
+}
+
+
+/* =========================
+   SHARE BOX
+========================= */
+
+.share-box{
+    width:min(920px,92%);
+    margin:-45px auto 70px;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    backdrop-filter:blur(12px);
+}
+
+.share-box h3{
+    margin-top:0;
+    color:#ddd6fe;
+    font-size:22px;
+}
+
+.share-btn{
+    border:0;
+    padding:11px 20px;
+    margin:5px;
+
+    border-radius:50px;
+
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    cursor:pointer;
+    font-family:inherit;
+    font-size:17px;
+
+    transition:.3s;
+}
+
+.share-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(124,58,237,.25);
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light{
+    --bg:#f3f4f6;
+    --card:#ffffff;
+    --card2:#ffffff;
+    --text:#202124;
+    --muted:#64748b;
+    --border:rgba(0,0,0,.10);
+    --shadow:rgba(0,0,0,.15);
+
+    background:
+        radial-gradient(circle at 15% 10%,rgba(96,165,250,.15),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(167,139,250,.15),transparent 28%),
+        #f3f4f6;
+    color:#202124;
+}
+
+body.light .book{
+    background:rgba(255,255,255,.82);
+}
+
+body.light .book p{
+    color:#30343b;
+}
+
+body.light .book p:hover{
+    color:#111827;
+}
+
+body.light .control-btn{
+    color:#111827;
+    background:rgba(255,255,255,.8);
+}
+
+body.light .share-box{
+    background:rgba(255,255,255,.75);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .top{
+        min-height:280px;
+        padding:55px 15px 35px;
+    }
+
+    .top h1{
+        font-size:40px;
+        line-height:1.25;
+    }
+
+    .subtitle{
+        font-size:17px;
+    }
+
+    .date{
+        font-size:14px;
+    }
+
+    .book{
+        width:92%;
+        padding:35px 22px;
+        border-radius:22px;
+    }
+
+    .book h2{
+        font-size:24px;
+        margin-top:42px;
+        padding:12px 14px;
+    }
+
+    .book p{
+        font-size:18px;
+        line-height:2;
+        text-align:left;
+    }
+
+    .quote{
+        font-size:20px;
+        padding:25px 20px;
+    }
+
+    .book ul{
+        padding:20px 15px 20px 35px;
+    }
+
+    .book li{
+        font-size:16px;
+    }
+
+    .controls{
+        right:12px;
+        bottom:12px;
+    }
+
+}
+
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media(max-width:400px){
+
+    .top h1{
+        font-size:33px;
+    }
+
+    .book{
+        padding:28px 17px;
+    }
+
+    .book p{
+        font-size:17px;
+    }
+
+    .book h2{
+        font-size:22px;
+    }
+
+}
+
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection{
+    background:#8b5cf6;
+    color:white;
 }
 
 </style>
 </head>
 
+
 <body>
+
+<div class="progress" id="progress"></div>
+
+
+<!-- =========================
+     TOP
+========================= -->
 
 <div class="top">
 
-<h1>मैं और मेरी कहानी ✨</h1>
+    <h1>मैं और मेरी कहानी ✨</h1>
 
-<div class="date">
-अभिषेक यादव | 09/06/2026
+    <div class="subtitle">
+        एक अधूरी कहानी
+    </div>
+
+    <div class="date">
+        अभिषेक यादव | 09/06/2026
+    </div>
+
+    <a class="back" href="index.html">
+        ← वापस कहानियों पर
+    </a>
+
 </div>
 
-<a class="back" href="index.html">
-← वापस कहानियों पर
-</a>
 
-</div>
-
+<!-- =========================
+     STORY
+========================= -->
 
 <div class="book">
 
+
 <div class="quote">
-“एक ऐसा प्यार, जो कभी मेरा होकर भी मेरा न हो सका।”
+    “एक ऐसा प्यार, जो कभी मेरा होकर भी मेरा न हो सका।”
 </div>
+
 
 <p>
 कुछ यादें वक्त के साथ धुंधली नहीं होतीं, बल्कि और गहरी हो जाती हैं।
 ये कहानी है मेरे पहले प्यार की...
 </p>
+
 
 <h2>9th Class — जो पहली झलक</h2>
 
@@ -118,6 +783,7 @@ body {
 9th Class में हमारी कभी कोई बात नहीं हुई।
 मैं बस उसे दूर से देखा करता था, और वही मेरे लिए सब कुछ था।
 </p>
+
 
 <h2>10th और 11th Class — दोस्ती</h2>
 
@@ -162,6 +828,7 @@ body {
 क्योंकि हम दोनों के बोर्ड एग्जाम थे और वो हमारी क्लास की टॉपर थी।
 </p>
 
+
 <h2>12th Class</h2>
 
 <p>
@@ -186,6 +853,7 @@ body {
 वैसे ही किसी न किसी काम से वो मुझे बुलाती— "Abhishek..."
 और मैं अपने आप को फिर रोक नहीं पाता।
 </p>
+
 
 <h2>26 अगस्त 2025</h2>
 
@@ -229,6 +897,7 @@ body {
 और फिर हमारी छुट्टियाँ पड़ गईं।
 </p>
 
+
 <h2>नया साल — 1 जनवरी 2026</h2>
 
 <p>
@@ -258,6 +927,7 @@ body {
 मैंने मुस्कुराकर कहा— “सही है।”
 उसकी छोटी-सी बात भी मेरे लिए किसी खुशी से कम नहीं थी।
 </p>
+
 
 <h2>16 जनवरी 2026</h2>
 
@@ -325,6 +995,7 @@ body {
 वो ऊपर वाली क्लास में चली गई और मेरी क्लास नीचे थी।
 </p>
 
+
 <h2>5 फरवरी 2026</h2>
 
 <p>
@@ -369,6 +1040,7 @@ body {
 उसने कहा—
 “हाँ।”
 </p>
+
 
 <h2>6 फरवरी 2026 — मेरा जन्मदिन</h2>
 
@@ -442,12 +1114,14 @@ body {
 “अब उसे भूलाने में ही मेरी भलाई है।”
 </p>
 
+
 <h2>फिर से मुलाकात</h2>
 
 <p>
 इसके बाद मुझे पता भी नहीं था कि वो मुझे दोबारा भी मिल सकती थी।
 एक दिन ऐसे ही WhatsApp पर मेरे दोस्त का मैसेज आया।
 </p>
+
 
 <ul>
     <li><strong>तारिक अली:</strong> ठीक है तू?</li>
@@ -489,6 +1163,7 @@ body {
     <li><strong>मैं:</strong> अच्छा।</li>
     <li><strong>मैं:</strong> और कोई जाता है या अकेले?</li>
 </ul>
+
 
 <p>
 तब मेरे दोस्त ने बताया कि वह कंप्यूटर कोर्स कर रही है।
@@ -573,6 +1248,7 @@ body {
 जिस दिन उसका मैसेज नहीं आता था, मैं पुरानी बातें, पुरानी चैट पढ़ता रहता था और खुश हो जाता था।
 </p>
 
+
 <h2>कहानी में फिर आया मोड़</h2>
 
 <p>
@@ -640,6 +1316,7 @@ body {
 “ओके।”
 लेकिन मुझे अंदर ही अंदर बहुत बुरा लगा।
 </p>
+
 
 <h2>3 महीने बाद...</h2>
 
@@ -754,6 +1431,7 @@ body {
 लेकिन बीच में मेरी सेल्फ-रिस्पेक्ट आ जाती थी।
 </p>
 
+
 <h2>आखिरी बातचीत</h2>
 
 <p>
@@ -779,27 +1457,205 @@ body {
 वरना हमारी कोई खास बात नहीं होती।
 </p>
 
+
 <div class="quote">
-और यहीं हमारी कहानी खत्म हो गई।
+    और यहीं हमारी कहानी खत्म हो गई।
 </div>
+
 
 <p class="end">
 ये वो अधूरा प्यार है,<br>
 जो कभी पूरा ना हो सका।
 </p>
 
+
 <div class="end">
-शिवानी... ❤️
-<br><br>
-और मुझे जरूर बताना कि कैसी थी<br>
-<strong>“मैं और मेरी कहानी”</strong> ✨
-<br><br>
-By. ABHISHEK YADAV
-<br>
-Relative By. VICHITRA
-</div>
+
+    शिवानी... ❤️
+
+    <br><br>
+
+    और मुझे जरूर बताना कि कैसी थी<br>
+
+    <strong>“मैं और मेरी कहानी”</strong> ✨
+
+    <br><br>
+
+    By. ABHISHEK YADAV
+
+    <br>
+
+    Relative By. VICHITRA
 
 </div>
+
+
+</div>
+
+
+<!-- =========================
+     SHARE
+========================= -->
+
+<div class="share-box">
+
+    <h3>🔗 कहानी पसंद आई? शेयर करें</h3>
+
+    <button class="share-btn" onclick="shareStory()">
+        📤 शेयर करें
+    </button>
+
+    <button class="share-btn" onclick="copyLink()">
+        🔗 लिंक कॉपी
+    </button>
+
+</div>
+
+
+<!-- =========================
+     FLOATING BUTTONS
+========================= -->
+
+<div class="controls">
+
+    <button class="control-btn"
+            onclick="changeFont(1)"
+            title="Text बड़ा करें">
+        A+
+    </button>
+
+    <button class="control-btn"
+            onclick="changeFont(-1)"
+            title="Text छोटा करें">
+        A-
+    </button>
+
+    <button class="control-btn"
+            onclick="toggleTheme()"
+            title="Theme बदलें">
+        ☀️
+    </button>
+
+    <button class="control-btn"
+            onclick="window.scrollTo({top:0,behavior:'smooth'})"
+            title="ऊपर जाएँ">
+        ↑
+    </button>
+
+</div>
+
+
+<script>
+
+/* =========================
+   READING PROGRESS
+========================= */
+
+window.addEventListener("scroll",function(){
+
+    const scrollTop =
+        document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const percentage =
+        (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress").style.width =
+        percentage + "%";
+
+});
+
+
+/* =========================
+   FONT SIZE
+========================= */
+
+let fontSize = 20;
+
+function changeFont(amount){
+
+    fontSize += amount;
+
+    if(fontSize < 16){
+        fontSize = 16;
+    }
+
+    if(fontSize > 26){
+        fontSize = 26;
+    }
+
+    document.querySelectorAll(".book p").forEach(function(p){
+
+        p.style.fontSize = fontSize + "px";
+
+    });
+
+}
+
+
+/* =========================
+   THEME
+========================= */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("light");
+
+}
+
+
+/* =========================
+   SHARE
+========================= */
+
+function shareStory(){
+
+    const url = window.location.href;
+
+    const text =
+        "📖 मैं और मेरी कहानी ✨\n\n" +
+        "विचित्र कहानियाँ पढ़ें:\n" +
+        url;
+
+    if(navigator.share){
+
+        navigator.share({
+            title:"मैं और मेरी कहानी",
+            text:text,
+            url:url
+        });
+
+    }else{
+
+        navigator.clipboard.writeText(url);
+
+        alert("🔗 कहानी का लिंक कॉपी हो गया!");
+
+    }
+
+}
+
+
+/* =========================
+   COPY LINK
+========================= */
+
+function copyLink(){
+
+    navigator.clipboard.writeText(
+        window.location.href
+    ).then(function(){
+
+        alert("✅ कहानी का लिंक कॉपी हो गया!");
+
+    });
+
+}
+
+</script>
 
 </body>
 </html>
