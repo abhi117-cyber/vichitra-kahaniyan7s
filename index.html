@@ -1,106 +1,403 @@
 <!DOCTYPE html>
 <html lang="hi">
-    
-<
+
 <head>
-    <link rel="icon" href="https://abhi117-cyber.github.io/vichitra-kahaniyan7s/favicon.jpg?v=3" type="image/jpeg">
-<link rel="shortcut icon" href="https://abhi117-cyber.github.io/vichitra-kahaniyan7s/favicon.jpg?v=3" type="image/jpeg">
-    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>विचित्र कहानियाँ | Abhishek Yadav</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="विचित्र कहानियाँ — Abhishek Yadav द्वारा लिखी गई कहानियों, यादों और भावनाओं का संग्रह।">
+<title>विचित्र कहानियाँ | Abhishek Yadav</title>
 
-<meta name="keywords" content="विचित्र कहानियाँ, Abhishek Yadav, हिंदी कहानियाँ, हिंदी कहानी, कुछ यादें">
+<meta name="description"
+content="विचित्र कहानियाँ — Abhishek Yadav द्वारा लिखी गई कहानियों, यादों और भावनाओं का संग्रह।">
 
-    <style>
+<meta name="keywords"
+content="विचित्र कहानियाँ, Abhishek Yadav, हिंदी कहानियाँ, हिंदी कहानी, कुछ यादें">
 
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f1ea;
-            color: #222;
-        }
-
-        /* HEADER */
-
-        header {
-            background: #182848;
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 45px;
-        }
-
-        header p {
-            font-size: 19px;
-            margin-top: 12px;
-        }
-
-        
-        nav {
-            background: #0f172a;
-            text-align: center;
-            padding: 16px;
-            position: sticky;
-            top: 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 17px;
-        }
-
-        nav a:hover {
-            color: #ffd166;
-        }
-
-        /* MAIN */
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 35px 20px;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .intro h2 {
-            font-size: 32px;
-            color: #182848;
-        }
-
-        .intro p {
-            font-size: 18px;
-        }
+<link rel="icon"
+href="https://abhi117-cyber.github.io/vichitra-kahaniyan7s/favicon.jpg?v=3"
+type="image/jpeg">
 
 
-        /* =========================================
-   SEARCH
+<style>
+
+/* =========================================
+   BASIC
 ========================================= */
 
-.search-box{
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    font-family:
+    Arial,
+    "Noto Sans Devanagari",
+    sans-serif;
+
+    background:#f4f1ea;
+
+    color:#222;
+
+    transition:.3s;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header{
+
+    background:#182848;
+
+    color:white;
+
+    text-align:center;
+
+    padding:45px 20px;
+
+}
+
+header h1{
+
+    margin:0;
+
+    font-size:45px;
+
+}
+
+header p{
+
+    font-size:19px;
+
+    margin-top:12px;
+
+}
+
+
+/* =========================================
+   NAV
+========================================= */
+
+nav{
+
+    background:#0f172a;
+
+    text-align:center;
+
+    padding:16px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+nav a{
+
+    color:white !important;
+
+    text-decoration:none !important;
+
+    margin:0 15px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
+nav a:hover{
+
+    color:#ffd166 !important;
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:35px 20px;
+
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.intro h2{
+
+    font-size:32px;
+
+    color:#182848;
+
+}
+
+.intro p{
+
+    font-size:18px;
+
+}
+
+
+/* =========================================
+   INTRO PAGE
+========================================= */
+
+.intro-page{
 
     background:white;
 
-    border:1px solid var(--border);
+    max-width:700px;
 
-    border-radius:13px;
+    margin:30px auto;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px #ccc;
+
+    text-align:center;
+
+}
+
+.intro-page h1{
+
+    color:#182848;
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+.intro-page h2{
+
+    color:#182848;
+
+    font-size:26px;
+
+}
+
+.intro-page p{
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    color:#555;
+
+}
+
+.intro-page .quote{
+
+    font-style:italic;
+
+    color:#182848;
+
+    margin-top:20px;
+
+}
+
+.intro-page .thanks{
+
+    font-weight:bold;
+
+    color:#182848;
+
+}
+
+
+/* =========================================
+   STORIES GRID
+========================================= */
+
+.stories{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+    align-items:stretch;
+
+}
+
+
+/* =========================================
+   STORY CARD
+========================================= */
+
+.card,
+.story-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+}
+
+.card:hover,
+.story-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+/* =========================================
+   CARD TEXT
+========================================= */
+
+.card h3,
+.story-card h3{
+
+    color:#182848;
+
+    font-size:24px;
+
+    margin-top:8px;
+
+    margin-bottom:12px;
+
+}
+
+.card p,
+.story-card p{
+
+    line-height:1.7;
+
+    color:#555;
+
+}
+
+
+/* =========================================
+   STORY TOP
+========================================= */
+
+.card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:5px;
+
+}
+
+.story-number{
+
+    color:#426da8;
+
+    font-weight:bold;
+
+}
+
+.card-icons{
+
+    color:#555;
+
+}
+
+
+/* =========================================
+   META
+========================================= */
+
+.meta{
+
+    font-size:11px;
+
+    color:#777;
+
+    margin-bottom:10px;
+
+}
+
+
+/* =========================================
+   MINI QUOTE
+========================================= */
+
+.mini-quote{
+
+    background:#fffbea;
+
+    border-left:3px solid #f0a500;
+
+    border-radius:8px;
+
+    padding:10px;
+
+    margin:12px 0;
+
+    font-size:12px;
+
+    color:#555;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================
+   CARD BOTTOM
+========================================= */
+
+.card-bottom{
+
+    margin-top:auto;
+
+    padding-top:10px;
 
     display:flex;
 
@@ -108,277 +405,12 @@
 
     gap:8px;
 
-    padding:0 13px;
-
-    margin-bottom:13px;
-
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.04);
 }
 
-.search-box span{
 
-    font-size:16px;
-}
-
-.search-box input{
-
-    width:100%;
-
-    border:0;
-
-    outline:0;
-
-    background:transparent;
-
-    padding:12px 4px;
-
-    font-size:12px;
-
-    color:var(--text);
-}
-
-        /* STORY CARDS */
-
-        .stories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 12px #ccc;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: #182848;
-            font-size: 24px;
-        }
-
-        .card p {
-            line-height: 1.7;
-            color: #555;
-        }
-
-        .read {
-            display: inline-block;
-            background: #182848;
-            color: white;
-            text-decoration: none;
-            padding: 11px 18px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        .read:hover {
-            background: #304878;
-        }
-
-        /* ABOUT */
-
-        .about {
-            background: white;
-            margin-top: 50px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px #ccc;
-            text-align: center;
-        }
-
-        .about h2 {
-            color: #182848;
-        }
-
-        .about p {
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        /* FOOTER */
-
-        footer {
-            margin-top: 50px;
-            background: #182848;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            header h1 {
-                font-size: 32px;
-            }
-
-            nav a {
-                display: inline-block;
-                margin: 7px;
-            }
-
-            .card h3 {
-                font-size: 22px;
-            }
-
-        }
-footer a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer a:hover {
-    color: #ffd166;
-    text-decoration: underline;
-}
-
-footer hr {
-    width: 60%;
-    margin: 20px auto;
-    border: 0;
-    border-top: 1px solid #777;
-}
- .intro-page {
-    background: white;
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px #ccc;
-    text-align: center;
-}
-
-.intro-page h1 {
-    color: #182848;
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.intro-page h2 {
-    color: #182848;
-    font-size: 26px;
-}
-
-.intro-page p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: #555;
-}
-
-.intro-page .quote {
-    font-style: italic;
-    color: #182848;
-    margin-top: 20px;
-}
-
-.intro-page .thanks {
-    font-weight: bold;
-    color: #182848;
-}
-        /* DARK MODE BUTTON */
-
-.dark-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 9999;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    background: #222;
-    color: white;
-}
-
-/* DARK MODE */
-
-body.dark-mode {
-    background: #121212;
-    color: #eeeeee;
-}
-
-body.dark-mode .card,
-body.dark-mode .intro-page {
-    background: #1e1e1e;
-    color: #eeeeee;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode p {
-    color: #eeeeee;
-}
-
-body.dark-mode a {
-    color: #8ab4ff;
-}
-        .visitor-counter {
-    text-align: center;
-    margin: 30px auto;
-    padding: 12px 20px;
-    width: fit-content;
-    border-radius: 25px;
-    background: #f1f3f6;
-    font-weight: bold;
-}
-    
-
-        a[href="#home"],
-a[href="#stories"],
-a[href="#about"] {
-    color: black !important;
-    text-shadow: none !important;
-    text-decoration: none;
-}
-        .story-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.story-link .card {
-    color: inherit;
-}
-
-.story-link h3 {
-    color: #182848;
-    text-decoration: none;
-}
-
-.story-link p {
-    color: #555;
-    text-decoration: none;
-}
-.story-link:hover {
-    text-decoration: none;
-}
-        .story-link h3 {
-    color: #182848 !important;
-    text-decoration: none !important;
-}
-
-.story-link p {
-    color: #555 !important;
-    text-decoration: none !important;
-}
-
-.story-link {
-    color: #182848 !important;
-    text-decoration: none !important;
-}
-
-/* LIKE */
+/* =========================================
+   LIKE BUTTON
+========================================= */
 
 .like-btn{
 
@@ -390,61 +422,74 @@ a[href="#about"] {
 
     border-radius:8px;
 
-    padding:5px 8px;
-
-    font-size:9px;
-
-    cursor:pointer;
-}
-
-
-/* READ BUTTON */
-
-.read-btn{
-
-    background:var(--navy);
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:8px;
-
     padding:7px 10px;
 
-    font-size:9px;
+    font-size:11px;
 
-    font-weight:700;
+    cursor:pointer;
 
-    transition:.2s;
+    white-space:nowrap;
+
 }
 
-.read-btn:hover{
+.like-btn:hover{
 
-    background:#294a78;
+    background:#ffe8ec;
+
 }
 
 
 /* =========================================
-   UPCOMING CARD
+   READ BUTTON
+========================================= */
+
+.read,
+.read-btn{
+
+    display:inline-block;
+
+    background:#182848;
+
+    color:white !important;
+
+    text-decoration:none !important;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
+.read:hover,
+.read-btn:hover{
+
+    background:#304878;
+
+}
+
+
+/* =========================================
+   UPCOMING
 ========================================= */
 
 .upcoming{
 
     background:
 
-        linear-gradient(
-            135deg,
-            #edf2fa,
-            #ffffff
-        );
+    linear-gradient(
+        135deg,
+        #edf2fa,
+        #ffffff
+    );
 
     border:1px dashed #8da2c2;
-}
 
-.upcoming .story-number{
-
-    color:#426da8;
 }
 
 .upcoming-badge{
@@ -457,72 +502,465 @@ a[href="#about"] {
 
     border-radius:20px;
 
-    padding:4px 8px;
+    padding:5px 9px;
 
-    font-size:8px;
+    font-size:9px;
 
     font-weight:800;
 
-    margin-bottom:7px;
+    margin:5px 0;
+
+    width:max-content;
+
 }
 
 
-       
-    </style>
+/* =========================================
+   ABOUT
+========================================= */
+
+.about{
+
+    background:white;
+
+    margin-top:50px;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px #ccc;
+
+    text-align:center;
+
+}
+
+.about h2{
+
+    color:#182848;
+
+}
+
+.about p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+
+    margin-top:50px;
+
+    background:#182848;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+}
+
+footer a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+footer a:hover{
+
+    color:#ffd166;
+
+    text-decoration:underline;
+
+}
+
+footer hr{
+
+    width:60%;
+
+    margin:20px auto;
+
+    border:0;
+
+    border-top:1px solid #777;
+
+}
+
+
+/* =========================================
+   SHARE
+========================================= */
+
+.website-share{
+
+    text-align:center;
+
+    background:white;
+
+    max-width:700px;
+
+    margin:30px auto;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px #ccc;
+
+}
+
+.website-share h3{
+
+    color:#182848;
+
+}
+
+.website-share button{
+
+    background:#182848;
+
+    color:white;
+
+    border:0;
+
+    border-radius:8px;
+
+    padding:11px 18px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+/* =========================================
+   VISITOR
+========================================= */
+
+.visitor-counter{
+
+    text-align:center;
+
+    margin:30px auto;
+
+    padding:15px 20px;
+
+    width:fit-content;
+
+    border-radius:25px;
+
+    background:#f1f3f6;
+
+    font-weight:bold;
+
+}
+
+.copyright{
+
+    font-size:12px;
+
+    color:#777;
+
+    font-weight:normal;
+
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+.dark-btn{
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    z-index:9999;
+
+    border:none;
+
+    border-radius:25px;
+
+    padding:10px 16px;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+    background:#222;
+
+    color:white;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.3);
+
+}
+
+
+/* DARK */
+
+body.dark-mode{
+
+    background:#121212;
+
+    color:#eee;
+
+}
+
+body.dark-mode .card,
+body.dark-mode .story-card,
+body.dark-mode .intro-page,
+body.dark-mode .about,
+body.dark-mode .website-share{
+
+    background:#1e1e1e;
+
+    color:#eee;
+
+    box-shadow:0 4px 12px #000;
+
+}
+
+body.dark-mode .card h3,
+body.dark-mode .story-card h3,
+body.dark-mode .intro-page h1,
+body.dark-mode .intro-page h2,
+body.dark-mode .about h2,
+body.dark-mode .website-share h3{
+
+    color:#fff;
+
+}
+
+body.dark-mode .card p,
+body.dark-mode .story-card p,
+body.dark-mode .intro-page p,
+body.dark-mode .about p{
+
+    color:#ccc;
+
+}
+
+body.dark-mode .mini-quote{
+
+    background:#292929;
+
+    color:#ddd;
+
+}
+
+body.dark-mode .visitor-counter{
+
+    background:#222;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    header{
+
+        padding:30px 15px;
+
+    }
+
+    header h1{
+
+        font-size:31px;
+
+    }
+
+    header p{
+
+        font-size:15px;
+
+    }
+
+    nav a{
+
+        display:inline-block;
+
+        margin:6px 8px;
+
+        font-size:15px;
+
+    }
+
+    .container{
+
+        padding:25px 12px;
+
+    }
+
+    .stories{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+    .card,
+    .story-card{
+
+        padding:20px;
+
+    }
+
+    .card h3,
+    .story-card h3{
+
+        font-size:22px;
+
+    }
+
+    .card-bottom{
+
+        flex-wrap:wrap;
+
+    }
+
+    .intro-page{
+
+        padding:20px;
+
+    }
+
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media(min-width:900px){
+
+    .stories{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
-<button class="dark-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
-
-    <!-- HEADER -->
-
-    <header>
-
-        <h1>📖 विचित्र कहानियाँ</h1>
-
-        <p>
-            शब्दों में छुपी यादों और कहानियों की दुनिया
-        </p>
-
-    </header>
 
 
-    <!-- MENU -->
+<!-- DARK MODE -->
 
-    <nav>
+<button
+class="dark-btn"
+onclick="toggleDarkMode()">
 
-      <a href="#home" class="glow-link">होम</a>
+🌙 Dark Mode
 
-<a href="#stories" class="glow-link">कहानियाँ</a>
-
-<a href="#about" class="glow-link">मेरे बारे में</a>
-    </nav>
-
-
-    <!-- MAIN -->
-
-    <main class="container" id="home">
+</button>
 
 
-        <div class="intro">
+<!-- =========================================
+     HEADER
+========================================= -->
 
-            <h2>मेरी कहानियाँ 📚</h2>
+<header id="home">
 
-            <p>
-                यहाँ मेरी लिखी हुई कहानियाँ पढ़ सकते हैं।
-            </p>
+    <h1>📖 विचित्र कहानियाँ</h1>
 
-        </div>
-        <div class="intro-page">
+    <p>
+        शब्दों में छुपी यादों और कहानियों की दुनिया
+    </p>
 
-    <h1>“विचित्र कहानी”</h1>
+</header>
 
-    <p><b>By- ABHISHEK YADAV</b></p>
 
-    <p><b>17/08/2026</b></p>
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-    <h2>विचित्र कहानी</h2>
+<nav>
+
+    <a href="#home">
+        होम
+    </a>
+
+    <a href="#stories">
+        कहानियाँ
+    </a>
+
+    <a href="#about">
+        मेरे बारे में
+    </a>
+
+</nav>
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="container">
+
+
+<!-- INTRO -->
+
+<div class="intro">
+
+    <h2>
+        मेरी कहानियाँ 📚
+    </h2>
+
+    <p>
+        यहाँ मेरी लिखी हुई कहानियाँ पढ़ सकते हैं।
+    </p>
+
+</div>
+
+
+<!-- =========================================
+     INTRO STORY
+========================================= -->
+
+<div class="intro-page">
+
+    <h1>
+        “विचित्र कहानी”
+    </h1>
+
+    <p>
+        <b>By- ABHISHEK YADAV</b>
+    </p>
+
+    <p>
+        <b>17/08/2026</b>
+    </p>
+
+    <h2>
+        विचित्र कहानी
+    </h2>
 
     <p>
         “विचित्र कहानी” ये केवल एक कहानी नहीं है।
@@ -536,151 +974,345 @@ a[href="#about"] {
         एक कहानी की तरह लिख रहा हूँ।
     </p>
 
-    <p><b>— ABHISHEK YADAV</b></p>
+    <p>
+        <b>— ABHISHEK YADAV</b>
+    </p>
 
     <p class="quote">
         “मैं तो केवल इन कहानियों को लिख रहा हूँ,
         लेकिन इन कहानियों को लिखवाने वाला कोई और है।”
     </p>
 
-    <p class="thanks">Thank you....</p>
+    <p class="thanks">
+        Thank you....
+    </p>
 
 </div>
 
 
-        <!-- STORIES -->
+<!-- =========================================
+     STORIES
+========================================= -->
 
-        <div class="stories" id="stories">
-
-
-            <!-- STORY 1 -->
-
-            <div class="card">
-
-                <h3>विचित्र कहानी</h3>
-
-                <p>
-                    एक ऐसी कहानी जिसमें यादें,
-                    भावनाएँ और कुछ अनकही बातें
-                    शब्दों का रूप लेती हैं।
-                </p>
+<section
+class="stories"
+id="stories">
 
 
-                <div class="mini-quote">
+<!-- =========================================
+     STORY 1
+========================================= -->
+
+<article class="card">
+
+    <div class="card-top">
+
+        <span class="story-number">
+            #1
+        </span>
+
+        <span class="card-icons">
+            📖
+        </span>
+
+    </div>
+
+    <h3>
+        विचित्र कहानी
+    </h3>
+
+    <div class="meta">
+        👤 ABHISHEK YADAV
+    </div>
+
+    <p>
+        एक ऐसी कहानी जिसमें यादें,
+        भावनाएँ और कुछ अनकही बातें
+        शब्दों का रूप लेती हैं।
+    </p>
+
+    <div class="mini-quote">
+
         “कुछ यादें कहानी बन जाती हैं,
         और कुछ कहानियाँ याद बन जाती हैं।”
+
     </div>
+
     <div class="card-bottom">
 
         <button
-            class="like-btn"
-            onclick="likeStory(1)"
-        >
+        class="like-btn"
+        onclick="likeStory(1)">
+
             ❤️ <span id="like1">0</span>
+
         </button>
-                   <a class="read" href="kahani1.html">
-                    पूरी कहानी पढ़ें →
-                </a>
-              </div>
 
-          <!-- STORY 2 -->
+        <a
+        class="read"
+        href="kahani1.html">
 
-            <div class="card">
+            पूरी कहानी पढ़ें →
 
-                <h3>उन दिनों में</h3>
+        </a>
 
-                <p>
-                   कुछ यादें, जो कभी पुरानी नहीं होतीं.
-                </p>
-                    <div class="card-bottom">
+    </div>
+
+</article>
+
+
+<!-- =========================================
+     STORY 2
+========================================= -->
+
+<article class="card">
+
+    <div class="card-top">
+
+        <span class="story-number">
+            #2
+        </span>
+
+        <span class="card-icons">
+            📖
+        </span>
+
+    </div>
+
+    <h3>
+        उन दिनों में
+    </h3>
+
+    <div class="meta">
+        👤 ABHISHEK YADAV
+    </div>
+
+    <p>
+        कुछ यादें, जो कभी पुरानी नहीं होतीं।
+    </p>
+
+    <div class="mini-quote">
+
+        “कुछ पल बीत जाते हैं,
+        लेकिन उनकी यादें हमेशा रहती हैं।”
+
+    </div>
+
+    <div class="card-bottom">
+
         <button
-            class="like-btn"
-            onclick="likeStory(2)"
-        >
+        class="like-btn"
+        onclick="likeStory(2)">
+
             ❤️ <span id="like2">0</span>
+
         </button>
-                <a class="read" href="kahani2.html">
-                    पूरी कहानी पढ़ें →
-                </a>
 
-            </div>
+        <a
+        class="read"
+        href="kahani2.html">
 
-            <!-- STORY 3 -->
+            पूरी कहानी पढ़ें →
 
-            <div class="card">
+        </a>
 
-                <h3>एक ख्वाहिश</h3>
+    </div>
 
-                <p>
-                    एक ख्वाहिश और उससे जुड़ी
-                    कुछ यादों की कहानी।
-                </p>
- <div class="card-bottom">
+</article>
+
+
+<!-- =========================================
+     STORY 3
+========================================= -->
+
+<article class="card">
+
+    <div class="card-top">
+
+        <span class="story-number">
+            #3
+        </span>
+
+        <span class="card-icons">
+            ❤️
+        </span>
+
+    </div>
+
+    <h3>
+        एक ख्वाहिश
+    </h3>
+
+    <div class="meta">
+        👤 ABHISHEK YADAV
+    </div>
+
+    <p>
+        एक ख्वाहिश और उससे जुड़ी
+        कुछ यादों की कहानी।
+    </p>
+
+    <div class="mini-quote">
+
+        “हर ख्वाहिश अपने साथ
+        कुछ यादें छोड़ जाती है।”
+
+    </div>
+
+    <div class="card-bottom">
 
         <button
-            class="like-btn"
-            onclick="likeStory(3)"
-        >
+        class="like-btn"
+        onclick="likeStory(3)">
+
             ❤️ <span id="like3">0</span>
+
         </button>
-             <a class="read" href="kahani3.html">
-                    पूरी कहानी पढ़ें →
-                </a>
 
-            </div>
+        <a
+        class="read"
+        href="kahani3.html">
 
-            <!-- STORY 4 -->
+            पूरी कहानी पढ़ें →
 
-            <div class="card">
+        </a>
 
-                <h3>मैं और मेरी कहानी</h3>
+    </div>
 
-                <p>
-                    एक कहानी जो लेखक और
-                    उसकी अपनी दुनिया से जुड़ी है।
-                </p>
-                <div class="card-bottom">
+</article>
+
+
+<!-- =========================================
+     STORY 4
+========================================= -->
+
+<article class="card">
+
+    <div class="card-top">
+
+        <span class="story-number">
+            #4
+        </span>
+
+        <span class="card-icons">
+            ✍️
+        </span>
+
+    </div>
+
+    <h3>
+        मैं और मेरी कहानी
+    </h3>
+
+    <div class="meta">
+        👤 ABHISHEK YADAV
+    </div>
+
+    <p>
+        एक कहानी जो लेखक और
+        उसकी अपनी दुनिया से जुड़ी है।
+    </p>
+
+    <div class="mini-quote">
+
+        “कभी-कभी कहानी लिखते-लिखते
+        इंसान खुद को समझने लगता है।”
+
+    </div>
+
+    <div class="card-bottom">
+
         <button
-            class="like-btn"
-            onclick="likeStory(4)"
-        >
+        class="like-btn"
+        onclick="likeStory(4)">
+
             ❤️ <span id="like4">0</span>
+
         </button>
 
-                <a class="read" href="kahani4.html">
-                    पूरी कहानी पढ़ें →
-                </a>
-            </div>
+        <a
+        class="read"
+        href="kahani4.html">
 
-            <!-- STORY 5 -->
+            पूरी कहानी पढ़ें →
 
-            <div class="card">
+        </a>
 
-                <h3>मैं और मैं</h3>
+    </div>
 
-                <p>
-                    खुद से जुड़ी सोच और
-                    कुछ अनकहे एहसासों की कहानी।
-                </p>
-                 <div class="card-bottom">
+</article>
+
+
+<!-- =========================================
+     STORY 5
+========================================= -->
+
+<article class="card">
+
+    <div class="card-top">
+
+        <span class="story-number">
+            #5
+        </span>
+
+        <span class="card-icons">
+            🪞
+        </span>
+
+    </div>
+
+    <h3>
+        मैं और मैं
+    </h3>
+
+    <div class="meta">
+        👤 ABHISHEK YADAV
+    </div>
+
+    <p>
+        खुद से जुड़ी सोच और
+        कुछ अनकहे एहसासों की कहानी।
+    </p>
+
+    <div class="mini-quote">
+
+        “कभी-कभी खुद से की गई बातें
+        सबसे ज्यादा याद रहती हैं।”
+
+    </div>
+
+    <div class="card-bottom">
+
         <button
-            class="like-btn"
-            onclick="likeStory(5)"
-        >
+        class="like-btn"
+        onclick="likeStory(5)">
+
             ❤️ <span id="like5">0</span>
+
         </button>
-                <a class="read" href="kahani5.html">
-                    पूरी कहानी पढ़ें →
-                </a>
-    
-            </div>
-         <!-- STORY 6 -->
-                
+
+        <a
+        class="read"
+        href="kahani5.html">
+
+            पूरी कहानी पढ़ें →
+
+        </a>
+
+    </div>
+
+</article>
+
+
+<!-- =========================================
+     STORY 6
+========================================= -->
+
 <article
-    class="story-card upcoming"
-    data-category="new"
-    data-search="काल्पनिक दुनिया imagination world नई कहानी"
->
+class="story-card upcoming"
+data-category="new"
+data-search="काल्पनिक दुनिया imagination world नई कहानी">
+
     <div class="card-top">
 
         <span class="story-number">
@@ -692,53 +1324,70 @@ a[href="#about"] {
         </span>
 
     </div>
+
+
     <span class="upcoming-badge">
         ✨ NEW STORY
     </span>
+
+
     <h3>
         काल्पनिक दुनिया 🌌
     </h3>
 
+
     <div class="meta">
         👤 ABHISHEK YADAV
     </div>
+
 
     <p>
         एक ऐसी दुनिया जहाँ ख्याल
         हकीकत से भी ज्यादा खूबसूरत होते हैं...
     </p>
 
+
     <div class="mini-quote">
+
         “असली दुनिया से अलग,
         मेरी अपनी एक काल्पनिक दुनिया।”
+
     </div>
+
 
     <div class="card-bottom">
 
         <button
-            class="like-btn"
-            onclick="likeStory(6)"
-        >
+        class="like-btn"
+        onclick="likeStory(6)">
+
             ❤️ <span id="like6">0</span>
+
         </button>
+
+
         <a
-            href="kalpanik-duniya.html"
-            class="read-btn"
-        >
+        href="kalpanik-duniya.html"
+        class="read-btn">
+
             पूरी कहानी पढ़ें →
+
         </a>
 
     </div>
 
 </article>
-    
-<!-- YAADEN -->
+
+
+<!-- =========================================
+     STORY 7
+========================================= -->
 
 <article
-    class="story-card"
-    data-category="memory"
-    data-search="कुछ यादें तस्वीरें यादें"
->
+class="story-card"
+data-category="memory"
+data-search="कुछ यादें तस्वीरें यादें">
+
     <div class="card-top">
 
         <span class="story-number">
@@ -751,13 +1400,16 @@ a[href="#about"] {
 
     </div>
 
+
     <h3>
         कुछ यादें
     </h3>
 
+
     <div class="meta">
         👤 ABHISHEK YADAV
     </div>
+
 
     <p>
         कुछ तस्वीरें, कुछ पल और कुछ
@@ -765,138 +1417,91 @@ a[href="#about"] {
         रखना चाहता हूँ।
     </p>
 
+
     <div class="card-bottom">
 
         <button
-            class="like-btn"
-            onclick="likeStory(7)"
-        >
+        class="like-btn"
+        onclick="likeStory(7)">
+
             ❤️ <span id="like7">0</span>
+
         </button>
 
+
         <a
-            href="yaadein.html"
-            class="read-btn"
-        >
+        href="yaadein.html"
+        class="read-btn">
+
             यादें देखें →
+
         </a>
 
     </div>
 
 </article>
 
-</section>      
-     
-        <!-- ABOUT -->
 
-        <div class="about" id="about">
-
-            <h2>✍️ लेखक के बारे में</h2>
-
-            <p>
-                मेरा नाम अभिषेक यादव है।
-                मुझे कहानियाँ लिखना पसंद है।
-                मेरी कोशिश है कि मेरे शब्द
-                किसी न किसी के दिल तक पहुँचें।
-            </p>
-
-        </div>
+</section>
 
 
-    </main>
+<!-- =========================================
+     ABOUT
+========================================= -->
 
+<div
+class="about"
+id="about">
 
-    <!-- FOOTER -->
-<footer>
+    <h2>
+        ✍️ लेखक के बारे में
+    </h2>
 
     <p>
-        © 2026 विचित्र कहानियाँ
+        मेरा नाम अभिषेक यादव है।
+        मुझे कहानियाँ लिखना पसंद है।
+        मेरी कोशिश है कि मेरे शब्द
+        किसी न किसी के दिल तक पहुँचें।
     </p>
 
-    <p>
-        लेखक — <strong>ABHISHEK YADAV</strong>
-    </p>
+</div>
 
-    <hr>
 
-    <h3>📩 संपर्क करें</h3>
+</main>
 
-    <p>
-        📱 मोबाइल:
-        <a href="tel:9258938569">9258938569</a>
-    </p>
 
-    <p>
-        📧 Email:
-        <a href="mailto:ay2174459@gmail.com">
-            ay2174459@gmail.com
-        </a>
-    </p>
-
-    <p>
-        📸 Instagram:
-        <a href="https://www.instagram.com/mr_abhishek_yadav6924/"
-           target="_blank">
-            @mr_abhishek_yadav6924
-        </a>
-    </p>
-
-    </footer>
+<!-- =========================================
+     SHARE
+========================================= -->
 
 <div class="website-share">
 
-    <h3>🌐 मेरी वेबसाइट शेयर करें</h3>
+    <h3>
+        🌐 मेरी वेबसाइट शेयर करें
+    </h3>
 
-    <button onclick="shareWebsite()">📤 Share Website</button>
+    <button
+    onclick="shareWebsite()">
 
-</button>
+        📤 Share Website
 
-<script>
+    </button>
 
-function shareWebsite() {
+</div>
 
-    const url = window.location.origin + window.location.pathname;
 
-    if (navigator.share) {
-
-        navigator.share({
-            title: "विचित्र कहानियाँ | Abhishek Yadav",
-            text: "📖 मेरी वेबसाइट पर कहानियाँ पढ़ें:",
-            url: url
-        });
-
-    } else {
-
-        navigator.clipboard.writeText(url);
-
-        alert("✅ Website का link copy हो गया!");
-
-    }
-
-}
-
-</script>
-    <script>
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "on");
-    } else {
-        localStorage.setItem("darkMode", "off");
-    }
-}
-
-if (localStorage.getItem("darkMode") === "on") {
-    document.body.classList.add("dark-mode");
-}
-</script>
-    <!-- VISITOR COUNTER -->
+<!-- =========================================
+     VISITOR COUNTER
+========================================= -->
 
 <div class="visitor-counter">
-    👁️ कुल Visitors:
-    <span class="counterapi" data-name="vichitra-kahaniyan-visitors"></span>
 
+    👁️ कुल Visitors:
+
+    <span
+    class="counterapi"
+    data-name="vichitra-kahaniyan-visitors">
+    </span>
 
     <p class="copyright">
 
@@ -910,62 +1515,79 @@ if (localStorage.getItem("darkMode") === "on") {
 
 </div>
 
-<script src="https://counterapi.com/c.js" async></script>
-    <script>
-function toggleLike(story) {
 
-    let count = Number(localStorage.getItem("likes-" + story)) || 0;
-    let liked = localStorage.getItem("liked-" + story);
+<!-- =========================================
+     FOOTER
+========================================= -->
 
-    if (liked === "yes") {
-        return;
-    }
+<footer>
 
-    count++;
+    <p>
+        © 2026 विचित्र कहानियाँ
+    </p>
 
-    localStorage.setItem("likes-" + story, count);
-    localStorage.setItem("liked-" + story, "yes");
+    <p>
+        लेखक — <strong>ABHISHEK YADAV</strong>
+    </p>
 
-    document.getElementById("like-" + story).textContent =
-        "Like " + count + " ❤️";
-}
+    <hr>
 
-let savedLikes =
-    Number(localStorage.getItem("likes-kahani1")) || 0;
+    <h3>
+        📩 संपर्क करें
+    </h3>
 
-document.getElementById("like-kahani1").textContent =
-    "Like " + savedLikes + " ❤️";
+    <p>
+        📱 मोबाइल:
+        <a href="tel:9258938569">
+            9258938569
+        </a>
+    </p>
 
+    <p>
+        📧 Email:
+        <a href="mailto:ay2174459@gmail.com">
+            ay2174459@gmail.com
+        </a>
+    </p>
+
+    <p>
+        📸 Instagram:
+        <a
+        href="https://www.instagram.com/mr_abhishek_yadav6924/"
+        target="_blank">
+
+            @mr_abhishek_yadav6924
+
+        </a>
+    </p>
+
+</footer>
+
+
+<!-- COUNTER -->
+
+<script
+src="https://counterapi.com/c.js"
+async>
 </script>
 
 
 <script>
 
 /* =========================================
-   LOGIN PROTECTION
-========================================= */
-
-const loggedIn =
-    localStorage.getItem("loggedIn") === "true" ||
-    sessionStorage.getItem("loggedIn") === "true";
-
-if(!loggedIn){
-
-    window.location.replace("login.html");
-
-}
-
-
-/* =========================================
    DARK MODE
 ========================================= */
 
-function toggleDark(){
+function toggleDarkMode(){
 
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle(
+        "dark-mode"
+    );
 
     if(
-        document.body.classList.contains("dark")
+        document.body.classList.contains(
+            "dark-mode"
+        )
     ){
 
         localStorage.setItem(
@@ -985,19 +1607,21 @@ function toggleDark(){
 }
 
 
-/* LOAD DARK MODE */
-
 if(
-    localStorage.getItem("darkMode") === "on"
+    localStorage.getItem(
+        "darkMode"
+    ) === "on"
 ){
 
-    document.body.classList.add("dark");
+    document.body.classList.add(
+        "dark-mode"
+    );
 
 }
 
 
 /* =========================================
-   LIKE
+   LIKE SYSTEM
 ========================================= */
 
 function likeStory(id){
@@ -1006,35 +1630,46 @@ function likeStory(id){
         "story-like-" + id;
 
     let count =
-        Number(localStorage.getItem(key)) || 0;
+        Number(
+            localStorage.getItem(key)
+        ) || 0;
+
 
     const liked =
         localStorage.getItem(
             key + "-done"
         );
 
-    if(liked === "yes"){
+
+    if(
+        liked === "yes"
+    ){
 
         return;
 
     }
 
+
     count++;
+
 
     localStorage.setItem(
         key,
         count
     );
 
+
     localStorage.setItem(
         key + "-done",
         "yes"
     );
 
+
     const element =
         document.getElementById(
             "like" + id
         );
+
 
     if(element){
 
@@ -1046,9 +1681,15 @@ function likeStory(id){
 }
 
 
-/* LOAD LIKES */
+/* =========================================
+   LOAD LIKES
+========================================= */
 
-for(let i=1;i<=7;i++){
+for(
+    let i = 1;
+    i <= 7;
+    i++
+){
 
     const count =
         Number(
@@ -1057,10 +1698,12 @@ for(let i=1;i<=7;i++){
             )
         ) || 0;
 
+
     const element =
         document.getElementById(
             "like" + i
         );
+
 
     if(element){
 
@@ -1073,122 +1716,50 @@ for(let i=1;i<=7;i++){
 
 
 /* =========================================
-   SEARCH
+   SHARE WEBSITE
 ========================================= */
 
-function searchStories(){
+function shareWebsite(){
 
-    const input =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+    const url =
+        window.location.href;
 
 
-    const cards =
-        document.querySelectorAll(
-            ".story-card"
-        );
+    if(
+        navigator.share
+    ){
 
+        navigator.share({
 
-    cards.forEach(card => {
+            title:
+            "विचित्र कहानियाँ | Abhishek Yadav",
 
-        const text =
-            (
-                card.innerText +
-                " " +
-                card.dataset.search
-            )
-            .toLowerCase();
+            text:
+            "📖 मेरी वेबसाइट पर कहानियाँ पढ़ें:",
 
+            url:url
 
-        if(
-            text.includes(input)
-        ){
+        });
 
-            card.style.display =
-                "flex";
+    }else{
 
-        }else{
+        navigator.clipboard
+        .writeText(url)
+        .then(function(){
 
-            card.style.display =
-                "none";
+            alert(
+                "✅ Website का link copy हो गया!"
+            );
 
-        }
+        });
 
-    });
+    }
 
 }
 
-
-/* =========================================
-   FILTER
-========================================= */
-
-function filterStories(
-    category,
-    button
-){
-
-    document
-    .querySelectorAll(".filter")
-    .forEach(btn => {
-
-        btn.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    button.classList.add(
-        "active"
-    );
-
-
-    const cards =
-        document.querySelectorAll(
-            ".story-card"
-        );
-
-
-    cards.forEach(card => {
-
-        if(category === "all"){
-
-            card.style.display =
-                "flex";
-
-        }
-
-        else if(
-            card.dataset.category ===
-            category
-        ){
-
-            card.style.display =
-                "flex";
-
-        }
-
-        else{
-
-            card.style.display =
-                "none";
-
-        }
-
-    });
-
-
-    document
-    .getElementById("searchInput")
-    .value = "";
-
-}
 </script>
-  
+
+
 </body>
 
 </html>
