@@ -7,84 +7,308 @@
 <title>उन दिनों में | विचित्र कहानियाँ</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
     font-family:Arial, sans-serif;
-    background:#f4f1ea;
-    color:#222;
+    background:
+        radial-gradient(circle at top left,#e8eef8,transparent 35%),
+        radial-gradient(circle at bottom right,#f3e4d2,transparent 35%),
+        #f4f1ea;
+    color:#242424;
 }
+
+/* TOP */
 
 .top{
     text-align:center;
-    padding:35px 20px 15px;
+    padding:55px 20px 25px;
 }
 
 .top h1{
-    font-size:38px;
-    margin:0 0 15px;
+    margin:0;
+    font-size:48px;
+    font-weight:900;
+    letter-spacing:1px;
+
+    background:linear-gradient(
+        90deg,
+        #182848,
+        #4b6cb7,
+        #182848
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 4px 15px rgba(24,40,72,.15);
 }
 
 .date{
-    font-size:18px;
-    margin-bottom:20px;
+    margin:15px 0 25px;
+    color:#777;
+    font-size:16px;
 }
+
+/* BACK BUTTON */
 
 .back{
     display:inline-block;
     text-decoration:none;
-    background:#333;
     color:white;
-    padding:10px 18px;
-    border-radius:8px;
+    background:linear-gradient(135deg,#182848,#4b6cb7);
+    padding:11px 20px;
+    border-radius:30px;
+    font-weight:bold;
+    box-shadow:0 6px 18px rgba(24,40,72,.25);
+    transition:.3s;
 }
+
+.back:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(24,40,72,.35);
+}
+
+/* STORY */
 
 .story{
-    max-width:850px;
-    margin:25px auto 50px;
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 4px 15px #ccc;
+    position:relative;
+    max-width:900px;
+    margin:30px auto 70px;
+    padding:55px 60px;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.96),
+            rgba(255,253,248,.96)
+        );
+
+    border:1px solid rgba(24,40,72,.12);
+    border-radius:25px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.10),
+        0 2px 8px rgba(0,0,0,.05);
+
+    overflow:hidden;
 }
+
+/* DECORATION */
+
+.story::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(75,108,183,.07);
+    top:-80px;
+    right:-70px;
+}
+
+.story::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(198,150,92,.07);
+    bottom:-60px;
+    left:-50px;
+}
+
+/* STORY TITLE */
 
 .story h2{
+    position:relative;
     text-align:center;
-    font-size:28px;
-    margin-bottom:30px;
+    font-size:34px;
+    color:#182848;
+    margin:5px 0 35px;
 }
+
+.story h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:4px;
+    margin:15px auto 0;
+    border-radius:10px;
+    background:linear-gradient(
+        90deg,
+        #182848,
+        #4b6cb7
+    );
+}
+
+/* PARAGRAPH */
 
 .story p{
+    position:relative;
     font-size:20px;
-    line-height:1.9;
-    margin-bottom:25px;
+    line-height:2;
+    margin:0 0 27px;
+    text-align:justify;
+    color:#333;
 }
+
+/* FIRST LETTER */
+
+.story p:first-of-type::first-letter{
+    font-size:48px;
+    font-weight:bold;
+    color:#182848;
+    float:left;
+    line-height:.9;
+    padding-right:6px;
+}
+
+/* QUOTE */
 
 .quote{
-    text-align:center;
-    font-weight:bold;
+    position:relative;
+    margin:38px 0;
+    padding:22px 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1f5fb,
+            #fffaf2
+        );
+
+    border-left:5px solid #4b6cb7;
+    border-radius:0 15px 15px 0;
+
+    color:#182848;
     font-size:22px;
-    margin:35px 0;
+    font-weight:bold;
+    text-align:center;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
+
+/* AUTHOR */
 
 .author{
+    position:relative;
     text-align:right;
     font-weight:bold;
-    margin-top:40px;
+    font-size:18px;
+    color:#182848;
+    margin-top:45px;
+    padding-top:20px;
+    border-top:1px solid #ddd;
 }
 
-@media(max-width:600px){
+/* SHARE */
+
+.share-box{
+    max-width:900px;
+    margin:-35px auto 60px;
+    padding:25px;
+    text-align:center;
+
+    background:white;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.share-box h3{
+    margin-top:0;
+    color:#182848;
+}
+
+.share-box button{
+    border:0;
+    background:#25D366;
+    color:white;
+    padding:11px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+    transition:.3s;
+}
+
+.share-box button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 18px rgba(37,211,102,.3);
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .top{
+        padding:40px 15px 20px;
+    }
+
+    .top h1{
+        font-size:34px;
+    }
+
     .story{
-        margin:15px;
-        padding:22px;
+        margin:20px 12px 50px;
+        padding:30px 22px;
+        border-radius:20px;
+    }
+
+    .story h2{
+        font-size:27px;
     }
 
     .story p{
         font-size:18px;
+        line-height:1.9;
     }
 
-    .top h1{
-        font-size:30px;
+    .story p:first-of-type::first-letter{
+        font-size:40px;
     }
+
+    .quote{
+        font-size:18px;
+        padding:18px;
+    }
+
+    .share-box{
+        margin:0 12px 40px;
+    }
+}
+
+/* DARK MODE */
+
+body.dark{
+    background:#10131a;
+    color:#eee;
+}
+
+body.dark .story,
+body.dark .share-box{
+    background:#191d27;
+    border-color:#303746;
+}
+
+body.dark .story p{
+    color:#ddd;
+}
+
+body.dark .story h2,
+body.dark .author{
+    color:#9dbbff;
+}
+
+body.dark .quote{
+    background:#222936;
+    color:#b8ccff;
+}
+
+body.dark .date{
+    color:#aaa;
 }
 </style>
 </head>
@@ -93,15 +317,15 @@ body{
 
 <div class="top">
 
-<h1>उन दिनों में....</h1>
+    <h1>उन दिनों में....</h1>
 
-<div class="date">
-📅 07/02/2026
-</div>
+    <div class="date">
+        📅 07/02/2026
+    </div>
 
-<a class="back" href="index.html">
-← वापस कहानियों पर
-</a>
+    <a class="back" href="index.html">
+        ← वापस कहानियों पर
+    </a>
 
 </div>
 
@@ -239,6 +463,41 @@ body{
 </div>
 
 </div>
+
+
+<!-- SHARE -->
+
+<div class="share-box">
+
+    <h3>🔗 कहानी शेयर करें</h3>
+
+    <button onclick="shareWhatsApp()">
+        🟢 WhatsApp
+    </button>
+
+</div>
+
+
+<script>
+
+function shareWhatsApp(){
+
+    const url = window.location.href;
+
+    const text =
+        "📖 उन दिनों में — विचित्र कहानियाँ\n\n" +
+        "कहानी पढ़ें:\n" +
+        url;
+
+    window.open(
+        "https://wa.me/?text=" +
+        encodeURIComponent(text),
+        "_blank"
+    );
+
+}
+
+</script>
 
 </body>
 </html>
