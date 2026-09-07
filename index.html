@@ -488,15 +488,7 @@ a[href="#about"] {
                     पूरी कहानी पढ़ें →
                 </a>
 
-                 <div class="card-bottom">
-
-                <button
-                    class="like-btn"
-                    onclick="likeStory(this)">
-                    ❤️ <span>0</span>
-                </button>
-
-
+                
             </div>
 
 
@@ -515,14 +507,7 @@ a[href="#about"] {
                     पूरी कहानी पढ़ें →
                 </a>
 
-                 <div class="card-bottom">
-
-                <button
-                    class="like-btn"
-                    onclick="likeStory(this)">
-                    ❤️ <span>0</span>
-                </button>
-
+                 
 
             </div>
 
@@ -541,14 +526,6 @@ a[href="#about"] {
                 <a class="read" href="kahani3.html">
                     पूरी कहानी पढ़ें →
                 </a>
-
-                 <div class="card-bottom">
-
-                <button
-                    class="like-btn"
-                    onclick="likeStory(this)">
-                    ❤️ <span>0</span>
-                </button>
 
 
             </div>
@@ -569,14 +546,6 @@ a[href="#about"] {
                     पूरी कहानी पढ़ें →
                 </a>
 
-                 <div class="card-bottom">
-
-                <button
-                    class="like-btn"
-                    onclick="likeStory(this)">
-                    ❤️ <span>0</span>
-                </button>
-
 
             </div>
 
@@ -596,14 +565,6 @@ a[href="#about"] {
                     पूरी कहानी पढ़ें →
                 </a>
 
-                 <div class="card-bottom">
-
-                <button
-                    class="like-btn"
-                    onclick="likeStory(this)">
-                    ❤️ <span>0</span>
-                </button>
-
 
             </div>
           <!-- STORY 6 -->
@@ -620,15 +581,6 @@ a[href="#about"] {
     <a class="read" href="kalpanik-duniya.html">
         पूरी कहानी पढ़ें →
     </a>
-
-     <div class="card-bottom">
-
-                <button
-                    class="like-btn"
-                    onclick="likeStory(this)">
-                    ❤️ <span>0</span>
-                </button>
-
 
 </div>
             
@@ -764,31 +716,54 @@ if (localStorage.getItem("darkMode") === "on") {
     <span class="counterapi" data-name="vichitra-kahaniyan-visitors"></span>
 </div>
 
-<script src="https://counterapi.com/c.js" async></script>
-    <script>
-function toggleLike(story) {
+ <div class="stats">
 
-    let count = Number(localStorage.getItem("likes-" + story)) || 0;
-    let liked = localStorage.getItem("liked-" + story);
+        <div class="stat">
+            ✍️ कहानी लेखक
+        </div>
 
-    if (liked === "yes") {
-        return;
-    }
+        <div class="stat">
+            ❤️ अपनी कहानियाँ
+        </div>
 
-    count++;
+        <div class="stat">
+            📅 2026
+        </div>
 
-    localStorage.setItem("likes-" + story, count);
-    localStorage.setItem("liked-" + story, "yes");
+    </div>
 
-    document.getElementById("like-" + story).textContent =
-        "Like " + count + " ❤️";
-}
 
-let savedLikes =
-    Number(localStorage.getItem("likes-kahani1")) || 0;
+    <a
+        class="whatsapp"
+        href="https://wa.me/919258938569"
+        target="_blank">
 
-document.getElementById("like-kahani1").textContent =
-    "Like " + savedLikes + " ❤️";
-</script>
+        🟢 WhatsApp पर सीधे बात करें
+
+    </a>
+
+
+    <div class="social-row">
+
+        <a
+            href="tel:+919258938569">
+
+            📞 9258938569
+
+        </a>
+
+
+        <a
+            href="#">
+
+            📷 Instagram
+        <a href="https://www.instagram.com/mr_abhishek_yadav6924/"
+           target="_blank">
+            @mr_abhishek_yadav6924
+        </a>
+
+    </div>
+
+
   
 </html>
