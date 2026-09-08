@@ -5,8 +5,7 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>विचित्र कहानियाँ | Abhishek Yadav</title>
 
@@ -17,8 +16,7 @@ content="विचित्र कहानियाँ — Abhishek Yadav द�
 href="https://abhi117-cyber.github.io/vichitra-kahaniyan7s/favicon.jpg?v=3"
 type="image/jpeg">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
 href="https://fonts.gstatic.com"
@@ -30,9 +28,9 @@ rel="stylesheet">
 
 <style>
 
-/* =========================================
+/* ==============================
    BASIC
-========================================= */
+============================== */
 
 *{
     box-sizing:border-box;
@@ -43,29 +41,19 @@ html{
 }
 
 body{
-
     margin:0;
-
     background:#f4f1ea;
-
     color:#222;
-
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
-
-    transition:
-    background .3s,
-    color .3s;
+    font-family:"Noto Serif Devanagari",serif;
+    transition:.3s;
 }
 
 
-/* =========================================
+/* ==============================
    HEADER
-========================================= */
+============================== */
 
 header{
-
     background:
     linear-gradient(
         135deg,
@@ -75,26 +63,21 @@ header{
     );
 
     color:white;
-
     text-align:center;
-
-    padding:45px 20px;
+    padding:42px 20px;
 
     box-shadow:
     0 5px 20px rgba(0,0,0,.18);
+
+    position:relative;
 }
 
 header h1{
-
     margin:0;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     font-size:48px;
-
-    letter-spacing:1px;
 
     text-shadow:
     0 2px 4px rgba(0,0,0,.5),
@@ -102,18 +85,58 @@ header h1{
 }
 
 header p{
-
-    margin-top:12px;
-
+    margin:12px 0 0;
     font-size:18px;
-
     opacity:.9;
 }
 
 
-/* =========================================
+/* ==============================
+   ADD STORY BUTTON
+============================== */
+
+.add-story-btn{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-family:"Noto Serif Devanagari",serif;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+    backdrop-filter:blur(5px);
+}
+
+.add-story-btn:hover{
+
+    background:white;
+
+    color:#182848;
+
+    transform:translateY(-2px);
+}
+
+
+/* ==============================
    NAV
-========================================= */
+============================== */
 
 nav{
 
@@ -133,7 +156,7 @@ nav{
 
     gap:12px;
 
-    padding:14px 10px;
+    padding:13px 10px;
 
     box-shadow:
     0 3px 10px rgba(0,0,0,.2);
@@ -159,14 +182,218 @@ nav a:hover{
     background:#263b64;
 
     color:#ffd166;
-
-    transform:translateY(-2px);
 }
 
 
-/* =========================================
+/* ==============================
+   ADD STORY PANEL
+============================== */
+
+.add-panel{
+
+    display:none;
+
+    max-width:850px;
+
+    margin:30px auto;
+
+    padding:30px 25px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 7px 25px rgba(0,0,0,.13);
+
+    border:2px solid #182848;
+}
+
+.add-panel.show{
+    display:block;
+}
+
+.add-panel h2{
+
+    margin-top:0;
+
+    text-align:center;
+
+    color:#182848;
+
+    font-family:"Yatra One",serif;
+
+    font-size:30px;
+}
+
+.password-area{
+
+    max-width:450px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+.password-area input{
+
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+    margin:10px 0;
+}
+
+.password-area button{
+
+    width:100%;
+
+    padding:12px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#182848;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-family:"Noto Serif Devanagari",serif;
+
+    font-weight:bold;
+}
+
+.password-area button:hover{
+    background:#294a78;
+}
+
+.password-error{
+
+    color:#e63946;
+
+    font-size:14px;
+
+    display:none;
+
+    margin-top:10px;
+}
+
+
+/* STORY FORM */
+
+.story-form{
+
+    display:none;
+
+    max-width:650px;
+
+    margin:25px auto 0;
+}
+
+.story-form label{
+
+    display:block;
+
+    margin:14px 0 6px;
+
+    font-weight:bold;
+}
+
+.story-form input,
+.story-form textarea{
+
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #d4d4d4;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+    outline:none;
+
+    font-family:"Noto Serif Devanagari",serif;
+
+    font-size:15px;
+}
+
+.story-form input:focus,
+.story-form textarea:focus{
+
+    border-color:#182848;
+
+    background:white;
+
+    box-shadow:
+    0 0 0 3px rgba(24,40,72,.08);
+}
+
+.story-form textarea{
+
+    min-height:180px;
+
+    resize:vertical;
+}
+
+.form-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.save-story-btn,
+.close-panel-btn{
+
+    flex:1;
+
+    border:0;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-family:"Noto Serif Devanagari",serif;
+
+    font-weight:bold;
+}
+
+.save-story-btn{
+
+    background:#182848;
+
+    color:white;
+}
+
+.close-panel-btn{
+
+    background:#eee;
+
+    color:#333;
+}
+
+
+/* ==============================
    CONTAINER
-========================================= */
+============================== */
 
 .container{
 
@@ -178,9 +405,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    INTRO
-========================================= */
+============================== */
 
 .intro{
 
@@ -191,9 +418,7 @@ nav a:hover{
 
 .intro h2{
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     color:#182848;
 
@@ -210,9 +435,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    INTRO PAGE
-========================================= */
+============================== */
 
 .intro-page{
 
@@ -236,9 +461,7 @@ nav a:hover{
 
     color:#182848;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     font-size:34px;
 }
@@ -247,9 +470,7 @@ nav a:hover{
 
     color:#182848;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     font-size:27px;
 }
@@ -280,9 +501,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    SEARCH
-========================================= */
+============================== */
 
 .search-box{
 
@@ -307,7 +528,6 @@ nav a:hover{
 }
 
 .search-box span{
-
     font-size:18px;
 }
 
@@ -325,25 +545,20 @@ nav a:hover{
 
     font-size:14px;
 
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
+    font-family:"Noto Serif Devanagari",serif;
 }
 
 
-/* =========================================
+/* ==============================
    STORIES
-========================================= */
+============================== */
 
 .stories{
 
     display:grid;
 
     grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(280px,1fr)
-    );
+    repeat(auto-fit,minmax(280px,1fr));
 
     gap:25px;
 
@@ -351,9 +566,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    STORY CARD
-========================================= */
+============================== */
 
 .story-card{
 
@@ -374,9 +589,7 @@ nav a:hover{
 
     min-width:0;
 
-    transition:
-    transform .25s,
-    box-shadow .25s;
+    transition:.25s;
 }
 
 .story-card:hover{
@@ -387,10 +600,18 @@ nav a:hover{
     0 10px 25px rgba(0,0,0,.15);
 }
 
+.story-card h3{
 
-/* =========================================
-   CARD TOP
-========================================= */
+    margin:8px 0;
+
+    color:#182848;
+
+    font-family:"Yatra One",serif;
+
+    font-size:25px;
+
+    line-height:1.4;
+}
 
 .card-top{
 
@@ -399,8 +620,6 @@ nav a:hover{
     justify-content:space-between;
 
     align-items:center;
-
-    margin-bottom:8px;
 }
 
 .story-number{
@@ -413,34 +632,8 @@ nav a:hover{
 }
 
 .card-icons{
-
     font-size:16px;
 }
-
-
-/* =========================================
-   STORY TITLE
-========================================= */
-
-.story-card h3{
-
-    margin:8px 0;
-
-    color:#182848;
-
-    font-family:
-    "Yatra One",
-    serif;
-
-    font-size:25px;
-
-    line-height:1.4;
-}
-
-
-/* =========================================
-   META
-========================================= */
 
 .meta{
 
@@ -450,11 +643,6 @@ nav a:hover{
 
     margin-bottom:10px;
 }
-
-
-/* =========================================
-   CARD TEXT
-========================================= */
 
 .story-card p{
 
@@ -466,11 +654,6 @@ nav a:hover{
 
     margin:8px 0 15px;
 }
-
-
-/* =========================================
-   QUOTE
-========================================= */
 
 .mini-quote{
 
@@ -491,11 +674,6 @@ nav a:hover{
     margin:5px 0 15px;
 }
 
-
-/* =========================================
-   CARD BOTTOM
-========================================= */
-
 .card-bottom{
 
     margin-top:auto;
@@ -514,9 +692,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    LIKE
-========================================= */
+============================== */
 
 .like-btn{
 
@@ -534,24 +712,13 @@ nav a:hover{
 
     cursor:pointer;
 
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
-
-    transition:.2s;
-}
-
-.like-btn:hover{
-
-    background:#ffe5e9;
-
-    transform:scale(1.04);
+    font-family:"Noto Serif Devanagari",serif;
 }
 
 
-/* =========================================
-   READ BUTTON
-========================================= */
+/* ==============================
+   READ
+============================== */
 
 .read{
 
@@ -572,21 +739,17 @@ nav a:hover{
     font-weight:bold;
 
     white-space:nowrap;
-
-    transition:.2s;
 }
 
 .read:hover{
 
     background:#294a78;
-
-    transform:translateY(-2px);
 }
 
 
-/* =========================================
+/* ==============================
    UPCOMING
-========================================= */
+============================== */
 
 .upcoming{
 
@@ -622,9 +785,37 @@ nav a:hover{
 }
 
 
-/* =========================================
-   AUTHOR SECTION
-========================================= */
+/* ==============================
+   USER STORY
+============================== */
+
+.user-story{
+
+    border:2px solid #d8e2f2;
+}
+
+.delete-story-btn{
+
+    border:0;
+
+    background:#fff0f0;
+
+    color:#d62828;
+
+    border-radius:8px;
+
+    padding:7px 10px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+}
+
+
+/* ==============================
+   AUTHOR
+============================== */
 
 .author-section{
 
@@ -648,48 +839,6 @@ nav a:hover{
     overflow:hidden;
 }
 
-.author-section::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-
-    height:180px;
-
-    background:#e8edf7;
-
-    border-radius:50%;
-
-    top:-90px;
-
-    left:-70px;
-
-    opacity:.7;
-}
-
-.author-section::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:140px;
-
-    height:140px;
-
-    background:#fff1cf;
-
-    border-radius:50%;
-
-    bottom:-70px;
-
-    right:-50px;
-
-    opacity:.7;
-}
-
 .author-section h2{
 
     position:relative;
@@ -700,9 +849,7 @@ nav a:hover{
 
     color:#182848;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     font-size:32px;
 }
@@ -713,9 +860,7 @@ nav a:hover{
 
     z-index:2;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     font-size:30px;
 
@@ -740,11 +885,6 @@ nav a:hover{
 
     color:#555;
 }
-
-
-/* =========================================
-   WHATSAPP BUTTON
-========================================= */
 
 .whatsapp-btn{
 
@@ -773,25 +913,7 @@ nav a:hover{
     text-decoration:none;
 
     font-weight:bold;
-
-    transition:.25s;
-
-    box-shadow:
-    0 5px 15px rgba(37,211,102,.25);
 }
-
-.whatsapp-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:
-    0 8px 20px rgba(37,211,102,.35);
-}
-
-
-/* =========================================
-   INSTAGRAM
-========================================= */
 
 .instagram-box{
 
@@ -833,16 +955,6 @@ nav a:hover{
     text-decoration:none;
 
     font-weight:bold;
-
-    transition:.25s;
-}
-
-.instagram-link:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:
-    0 7px 20px rgba(131,58,180,.3);
 }
 
 .instagram-text{
@@ -855,9 +967,9 @@ nav a:hover{
 }
 
 
-/* =========================================
-   CONTACT FORM
-========================================= */
+/* ==============================
+   CONTACT
+============================== */
 
 .contact-box{
 
@@ -883,14 +995,12 @@ nav a:hover{
 
     color:#182848;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     font-size:30px;
 }
 
-.contact-box .small-text{
+.small-text{
 
     color:#666;
 
@@ -902,9 +1012,6 @@ nav a:hover{
 
     margin:0 auto 25px;
 }
-
-
-/* FORM */
 
 .contact-form{
 
@@ -922,8 +1029,6 @@ nav a:hover{
     margin:15px 0 7px;
 
     font-weight:bold;
-
-    color:#333;
 }
 
 .contact-form input,
@@ -939,26 +1044,11 @@ nav a:hover{
 
     outline:none;
 
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
+    font-family:"Noto Serif Devanagari",serif;
 
     font-size:15px;
 
     background:#fafafa;
-
-    transition:.2s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus{
-
-    border-color:#182848;
-
-    background:white;
-
-    box-shadow:
-    0 0 0 3px rgba(24,40,72,.08);
 }
 
 .contact-form textarea{
@@ -967,9 +1057,6 @@ nav a:hover{
 
     resize:vertical;
 }
-
-
-/* BLACK SEND BUTTON */
 
 .send-btn{
 
@@ -987,33 +1074,14 @@ nav a:hover{
 
     color:white;
 
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
+    font-family:"Noto Serif Devanagari",serif;
 
     font-size:16px;
 
     font-weight:bold;
 
     cursor:pointer;
-
-    transition:.25s;
 }
-
-.send-btn:hover{
-
-    background:#182848;
-
-    transform:translateY(-2px);
-
-    box-shadow:
-    0 7px 15px rgba(0,0,0,.2);
-}
-
-
-/* =========================================
-   EMAIL
-========================================= */
 
 .email-box{
 
@@ -1039,15 +1107,10 @@ nav a:hover{
     font-size:16px;
 }
 
-.email-box a:hover{
 
-    text-decoration:underline;
-}
-
-
-/* =========================================
+/* ==============================
    ABOUT
-========================================= */
+============================== */
 
 .about{
 
@@ -1069,9 +1132,7 @@ nav a:hover{
 
     color:#182848;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 
     font-size:30px;
 }
@@ -1086,9 +1147,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    SHARE
-========================================= */
+============================== */
 
 .website-share{
 
@@ -1112,9 +1173,7 @@ nav a:hover{
 
     color:#182848;
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 }
 
 .website-share button{
@@ -1131,22 +1190,15 @@ nav a:hover{
 
     cursor:pointer;
 
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
+    font-family:"Noto Serif Devanagari",serif;
 
     font-size:14px;
 }
 
-.website-share button:hover{
 
-    background:#294a78;
-}
-
-
-/* =========================================
+/* ==============================
    VISITOR
-========================================= */
+============================== */
 
 .visitor-counter{
 
@@ -1175,9 +1227,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    FOOTER
-========================================= */
+============================== */
 
 footer{
 
@@ -1194,9 +1246,7 @@ footer{
 
 footer h3{
 
-    font-family:
-    "Yatra One",
-    serif;
+    font-family:"Yatra One",serif;
 }
 
 footer hr{
@@ -1211,9 +1261,9 @@ footer hr{
 }
 
 
-/* =========================================
-   DARK MODE BUTTON
-========================================= */
+/* ==============================
+   DARK BUTTON
+============================== */
 
 .dark-btn{
 
@@ -1246,9 +1296,9 @@ footer hr{
 }
 
 
-/* =========================================
+/* ==============================
    DARK MODE
-========================================= */
+============================== */
 
 body.dark-mode{
 
@@ -1258,12 +1308,10 @@ body.dark-mode{
 }
 
 body.dark-mode .intro h2{
-
     color:#dce6ff;
 }
 
 body.dark-mode .intro p{
-
     color:#bbb;
 }
 
@@ -1272,7 +1320,8 @@ body.dark-mode .intro-page,
 body.dark-mode .about,
 body.dark-mode .website-share,
 body.dark-mode .author-section,
-body.dark-mode .contact-box{
+body.dark-mode .contact-box,
+body.dark-mode .add-panel{
 
     background:#1c2432;
 
@@ -1288,7 +1337,8 @@ body.dark-mode .about h2,
 body.dark-mode .website-share h3,
 body.dark-mode .author-section h2,
 body.dark-mode .author-name,
-body.dark-mode .contact-box h2{
+body.dark-mode .contact-box h2,
+body.dark-mode .add-panel h2{
 
     color:#dbe7ff;
 }
@@ -1297,7 +1347,7 @@ body.dark-mode .story-card p,
 body.dark-mode .intro-page p,
 body.dark-mode .about p,
 body.dark-mode .author-text,
-body.dark-mode .contact-box .small-text{
+body.dark-mode .small-text{
 
     color:#c4c9d2;
 }
@@ -1317,27 +1367,22 @@ body.dark-mode .search-box{
 }
 
 body.dark-mode .search-box input{
-
     color:white;
 }
 
 body.dark-mode .card-bottom{
-
     border-top-color:#303b50;
 }
 
 body.dark-mode .visitor-counter{
-
     background:#202938;
 }
 
-body.dark-mode .contact-form label{
-
-    color:#ddd;
-}
-
 body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea{
+body.dark-mode .contact-form textarea,
+body.dark-mode .story-form input,
+body.dark-mode .story-form textarea,
+body.dark-mode .password-area input{
 
     background:#252d3b;
 
@@ -1347,35 +1392,41 @@ body.dark-mode .contact-form textarea{
 }
 
 body.dark-mode .email-box{
-
     border-top-color:#303b50;
 }
 
 body.dark-mode .email-box a{
-
     color:#dbe7ff;
 }
 
 
-/* =========================================
+/* ==============================
    MOBILE
-========================================= */
+============================== */
 
 @media(max-width:700px){
 
     header{
-
-        padding:35px 15px;
+        padding:70px 15px 35px;
     }
 
     header h1{
-
         font-size:36px;
     }
 
     header p{
-
         font-size:15px;
+    }
+
+    .add-story-btn{
+
+        top:15px;
+
+        right:15px;
+
+        font-size:12px;
+
+        padding:8px 10px;
     }
 
     nav{
@@ -1393,25 +1444,7 @@ body.dark-mode .email-box a{
     }
 
     .container{
-
         padding:25px 12px;
-    }
-
-    .intro h2{
-
-        font-size:29px;
-    }
-
-    .intro-page{
-
-        padding:22px;
-
-        margin:20px auto;
-    }
-
-    .intro-page h1{
-
-        font-size:29px;
     }
 
     .stories{
@@ -1422,93 +1455,23 @@ body.dark-mode .email-box a{
     }
 
     .story-card{
-
         padding:20px;
     }
 
     .story-card h3{
-
         font-size:23px;
     }
 
-    .card-bottom{
-
-        gap:8px;
-    }
-
-    .read{
-
-        font-size:11px;
-
-        padding:8px 10px;
-    }
-
-    .like-btn{
-
-        font-size:11px;
-
-        padding:6px 8px;
-    }
-
     .author-section{
-
         padding:30px 18px;
     }
 
-    .author-section h2{
-
-        font-size:27px;
-    }
-
-    .author-name{
-
-        font-size:26px;
-    }
-
-    .author-text{
-
-        font-size:15px;
-    }
-
     .contact-box{
-
         padding:28px 17px;
     }
 
-}
-
-
-/* =========================================
-   VERY SMALL
-========================================= */
-
-@media(max-width:380px){
-
-    header h1{
-
-        font-size:31px;
-    }
-
-    nav a{
-
-        font-size:11px;
-
-        padding:7px 7px;
-    }
-
-    .card-bottom{
-
+    .form-buttons{
         flex-direction:column;
-
-        align-items:stretch;
-    }
-
-    .like-btn,
-    .read{
-
-        text-align:center;
-
-        width:100%;
     }
 
 }
@@ -1537,6 +1500,14 @@ title="Dark Mode">
 
 <header id="home">
 
+    <button
+    class="add-story-btn"
+    onclick="openAddStory()">
+
+        ➕ नई कहानी जोड़ें
+
+    </button>
+
     <h1>
         📖 विचित्र कहानियाँ
     </h1>
@@ -1548,7 +1519,7 @@ title="Dark Mode">
 </header>
 
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 
 <nav>
 
@@ -1569,6 +1540,127 @@ title="Dark Mode">
     </a>
 
 </nav>
+
+
+<!-- ==============================
+     ADD STORY PANEL
+============================== -->
+
+<section
+class="add-panel"
+id="addPanel">
+
+    <h2>
+        ➕ नई कहानी जोड़ें
+    </h2>
+
+
+    <!-- PASSWORD -->
+
+    <div
+    class="password-area"
+    id="passwordArea">
+
+        <p>
+            🔐 नई कहानी जोड़ने के लिए Password डालें
+        </p>
+
+        <input
+        type="password"
+        id="storyPassword"
+        placeholder="Password डालें">
+
+        <button
+        onclick="checkPassword()">
+
+            🔓 Unlock करें
+
+        </button>
+
+        <div
+        class="password-error"
+        id="passwordError">
+
+            ❌ गलत Password!
+
+        </div>
+
+    </div>
+
+
+    <!-- STORY FORM -->
+
+    <form
+    class="story-form"
+    id="storyForm"
+    onsubmit="addNewStory(event)">
+
+        <label>
+            कहानी का नाम
+        </label>
+
+        <input
+        type="text"
+        id="newTitle"
+        placeholder="जैसे — मेरी नई कहानी"
+        required>
+
+
+        <label>
+            कहानी का छोटा परिचय
+        </label>
+
+        <textarea
+        id="newDescription"
+        placeholder="कहानी के बारे में छोटा सा परिचय..."
+        required></textarea>
+
+
+        <label>
+            कहानी
+        </label>
+
+        <textarea
+        id="newStory"
+        placeholder="अपनी पूरी कहानी यहाँ लिखें..."
+        required></textarea>
+
+
+        <label>
+            कहानी का Icon
+        </label>
+
+        <input
+        type="text"
+        id="newIcon"
+        value="📖"
+        maxlength="4">
+
+
+        <div class="form-buttons">
+
+            <button
+            type="submit"
+            class="save-story-btn">
+
+                💾 कहानी Save करें
+
+            </button>
+
+            <button
+            type="button"
+            class="close-panel-btn"
+            onclick="closeAddStory()">
+
+                ✖ बंद करें
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
 
 
 <main class="container">
@@ -1643,15 +1735,13 @@ title="Dark Mode">
 
 <div class="search-box">
 
-    <span>
-        🔎
-    </span>
+    <span>🔎</span>
 
     <input
-        type="text"
-        id="searchInput"
-        placeholder="कहानी, नाम या शब्द खोजें..."
-        oninput="searchStories()">
+    type="text"
+    id="searchInput"
+    placeholder="कहानी, नाम या शब्द खोजें..."
+    oninput="searchStories()">
 
 </div>
 
@@ -2070,9 +2160,7 @@ data-search="कुछ यादें तस्वीरें फोटो">
 </section>
 
 
-<!-- =========================================
-     AUTHOR INTRODUCTION
-========================================= -->
+<!-- AUTHOR -->
 
 <section class="author-section">
 
@@ -2093,9 +2181,6 @@ data-search="कुछ यादें तस्वीरें फोटो">
 
     </p>
 
-
-    <!-- WHATSAPP -->
-
     <a
     class="whatsapp-btn"
     href="https://wa.me/919258938569?text=नमस्ते%20अभिषेक%20यादव%2C%20मैंने%20आपकी%20वेबसाइट%20पर%20कहानियाँ%20पढ़ीं।"
@@ -2104,9 +2189,6 @@ data-search="कुछ यादें तस्वीरें फोटो">
         💬 WhatsApp पर सीधा मैसेज भेजें
 
     </a>
-
-
-    <!-- INSTAGRAM -->
 
     <div class="instagram-box">
 
@@ -2120,9 +2202,7 @@ data-search="कुछ यादें तस्वीरें फोटो">
         </a>
 
         <p class="instagram-text">
-
             Instagram पर सीधे Abhishek Yadav से जुड़ें
-
         </p>
 
     </div>
@@ -2130,9 +2210,7 @@ data-search="कुछ यादें तस्वीरें फोटो">
 </section>
 
 
-<!-- =========================================
-     CONTACT
-========================================= -->
+<!-- CONTACT -->
 
 <section
 class="contact-box"
@@ -2151,18 +2229,12 @@ id="contact">
 
     </p>
 
-
     <form
     class="contact-form"
     onsubmit="sendMessage(event)">
 
-
-        <!-- NAME -->
-
-        <label for="name">
-
+        <label>
             आपका नाम
-
         </label>
 
         <input
@@ -2171,22 +2243,14 @@ id="contact">
         placeholder="अपना नाम लिखें"
         required>
 
-
-        <!-- MESSAGE -->
-
-        <label for="message">
-
+        <label>
             आपका Message या विचार
-
         </label>
 
         <textarea
         id="message"
         placeholder="अपना message या विचार यहाँ लिखें..."
         required></textarea>
-
-
-        <!-- SEND -->
 
         <button
         type="submit"
@@ -2199,19 +2263,14 @@ id="contact">
     </form>
 
 
-    <!-- EMAIL -->
-
     <div class="email-box">
 
         <div>
             📧 Email
         </div>
 
-        <a
-        href="mailto:ay2174459@gmail.com">
-
+        <a href="mailto:ay2174459@gmail.com">
             ay2174459@gmail.com
-
         </a>
 
     </div>
@@ -2222,9 +2281,7 @@ id="contact">
 </main>
 
 
-<!-- =========================================
-     SHARE
-========================================= -->
+<!-- SHARE -->
 
 <div class="website-share">
 
@@ -2241,9 +2298,7 @@ id="contact">
 </div>
 
 
-<!-- =========================================
-     VISITOR COUNTER
-========================================= -->
+<!-- VISITOR -->
 
 <div class="visitor-counter">
 
@@ -2253,7 +2308,6 @@ id="contact">
     class="counterapi"
     data-name="vichitra-kahaniyan-visitors">
     </span>
-
 
     <p class="copyright">
 
@@ -2268,9 +2322,7 @@ id="contact">
 </div>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -2338,15 +2390,570 @@ async>
 
 <script>
 
-/* =========================================
+/* ==============================
+   PASSWORD
+============================== */
+
+const STORY_PASSWORD = "ABHI7S";
+
+
+/* ==============================
+   OPEN ADD STORY
+============================== */
+
+function openAddStory(){
+
+    const panel =
+        document.getElementById("addPanel");
+
+    panel.classList.add("show");
+
+    panel.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* ==============================
+   CLOSE ADD STORY
+============================== */
+
+function closeAddStory(){
+
+    document
+    .getElementById("addPanel")
+    .classList.remove("show");
+
+}
+
+
+/* ==============================
+   CHECK PASSWORD
+============================== */
+
+function checkPassword(){
+
+    const password =
+        document
+        .getElementById("storyPassword")
+        .value;
+
+    const error =
+        document
+        .getElementById("passwordError");
+
+    if(password === STORY_PASSWORD){
+
+        error.style.display="none";
+
+        document
+        .getElementById("passwordArea")
+        .style.display="none";
+
+        document
+        .getElementById("storyForm")
+        .style.display="block";
+
+    }else{
+
+        error.style.display="block";
+
+    }
+
+}
+
+
+/* ENTER KEY */
+
+document
+.getElementById("storyPassword")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            checkPassword();
+
+        }
+
+    }
+);
+
+
+/* ==============================
+   SAVE NEW STORY
+============================== */
+
+function addNewStory(event){
+
+    event.preventDefault();
+
+
+    const title =
+        document
+        .getElementById("newTitle")
+        .value
+        .trim();
+
+
+    const description =
+        document
+        .getElementById("newDescription")
+        .value
+        .trim();
+
+
+    const story =
+        document
+        .getElementById("newStory")
+        .value
+        .trim();
+
+
+    const icon =
+        document
+        .getElementById("newIcon")
+        .value
+        .trim()
+        || "📖";
+
+
+    if(!title || !description || !story){
+
+        alert("कृपया सभी जरूरी जानकारी भरें।");
+
+        return;
+
+    }
+
+
+    const savedStories =
+        JSON.parse(
+            localStorage.getItem(
+                "myAddedStories"
+            )
+        ) || [];
+
+
+    const newStory = {
+
+        id:Date.now(),
+
+        title:title,
+
+        description:description,
+
+        story:story,
+
+        icon:icon
+
+    };
+
+
+    savedStories.push(newStory);
+
+
+    localStorage.setItem(
+        "myAddedStories",
+        JSON.stringify(savedStories)
+    );
+
+
+    alert(
+        "✅ नई कहानी सफलतापूर्वक जोड़ दी गई!"
+    );
+
+
+    document
+    .getElementById("storyForm")
+    .reset();
+
+
+    document
+    .getElementById("newIcon")
+    .value="📖";
+
+
+    closeAddStory();
+
+
+    loadAddedStories();
+
+}
+
+
+/* ==============================
+   LOAD SAVED STORIES
+============================== */
+
+function loadAddedStories(){
+
+    const savedStories =
+        JSON.parse(
+            localStorage.getItem(
+                "myAddedStories"
+            )
+        ) || [];
+
+
+    const storiesContainer =
+        document.getElementById("stories");
+
+
+    savedStories.forEach(
+        story => {
+
+            if(
+                document.getElementById(
+                    "user-story-" + story.id
+                )
+            ){
+
+                return;
+
+            }
+
+
+            const card =
+                document.createElement("article");
+
+
+            card.className =
+                "story-card user-story";
+
+
+            card.id =
+                "user-story-" + story.id;
+
+
+            card.dataset.search =
+                story.title +
+                " " +
+                story.description +
+                " " +
+                story.story;
+
+
+            card.innerHTML = `
+
+                <div class="card-top">
+
+                    <span class="story-number">
+                        #नई
+                    </span>
+
+                    <span class="card-icons">
+                        ${escapeHTML(story.icon)}
+                    </span>
+
+                </div>
+
+                <span class="upcoming-badge">
+                    ✨ मेरी नई कहानी
+                </span>
+
+                <h3>
+                    ${escapeHTML(story.title)}
+                </h3>
+
+                <div class="meta">
+                    👤 ABHISHEK YADAV
+                </div>
+
+                <p>
+                    ${escapeHTML(story.description)}
+                </p>
+
+                <div class="mini-quote">
+
+                    ${escapeHTML(
+                        story.story.substring(0,180)
+                    )}${story.story.length > 180 ? "..." : ""}
+
+                </div>
+
+                <div class="card-bottom">
+
+                    <button
+                    class="delete-story-btn"
+                    onclick="deleteStory(${story.id})">
+
+                        🗑️ हटाएँ
+
+                    </button>
+
+                    <button
+                    class="read"
+                    onclick="readAddedStory(${story.id})">
+
+                        पूरी कहानी पढ़ें →
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            storiesContainer.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* ==============================
+   READ SAVED STORY
+============================== */
+
+function readAddedStory(id){
+
+    const savedStories =
+        JSON.parse(
+            localStorage.getItem(
+                "myAddedStories"
+            )
+        ) || [];
+
+
+    const story =
+        savedStories.find(
+            item => item.id === id
+        );
+
+
+    if(!story){
+        return;
+    }
+
+
+    const popup =
+        window.open(
+            "",
+            "_blank"
+        );
+
+
+    popup.document.write(`
+
+        <!DOCTYPE html>
+
+        <html lang="hi">
+
+        <head>
+
+            <meta charset="UTF-8">
+
+            <meta name="viewport"
+            content="width=device-width,initial-scale=1.0">
+
+            <title>
+                ${escapeHTML(story.title)}
+                | विचित्र कहानियाँ
+            </title>
+
+            <style>
+
+                body{
+
+                    margin:0;
+
+                    background:#f4f1ea;
+
+                    color:#222;
+
+                    font-family:
+                    Arial,
+                    sans-serif;
+
+                }
+
+                .page{
+
+                    max-width:800px;
+
+                    margin:40px auto;
+
+                    background:white;
+
+                    padding:35px;
+
+                    border-radius:20px;
+
+                    box-shadow:
+                    0 8px 30px rgba(0,0,0,.12);
+
+                }
+
+                h1{
+
+                    color:#182848;
+
+                    text-align:center;
+
+                }
+
+                .author{
+
+                    text-align:center;
+
+                    color:#777;
+
+                    margin-bottom:30px;
+
+                }
+
+                .story{
+
+                    white-space:pre-wrap;
+
+                    line-height:2;
+
+                    font-size:18px;
+
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <div class="page">
+
+                <h1>
+                    ${escapeHTML(story.icon)}
+                    ${escapeHTML(story.title)}
+                </h1>
+
+                <div class="author">
+                    ✍️ ABHISHEK YADAV
+                </div>
+
+                <div class="story">
+                    ${escapeHTML(story.story)}
+                </div>
+
+            </div>
+
+        </body>
+
+        </html>
+
+    `);
+
+    popup.document.close();
+
+}
+
+
+/* ==============================
+   DELETE STORY
+============================== */
+
+function deleteStory(id){
+
+    const password =
+        prompt(
+            "🔐 कहानी हटाने के लिए Password डालें:"
+        );
+
+
+    if(password !== STORY_PASSWORD){
+
+        alert("❌ गलत Password!");
+
+        return;
+
+    }
+
+
+    if(
+        !confirm(
+            "क्या आप यह कहानी हटाना चाहते हैं?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    let savedStories =
+        JSON.parse(
+            localStorage.getItem(
+                "myAddedStories"
+            )
+        ) || [];
+
+
+    savedStories =
+        savedStories.filter(
+            story => story.id !== id
+        );
+
+
+    localStorage.setItem(
+        "myAddedStories",
+        JSON.stringify(savedStories)
+    );
+
+
+    const card =
+        document.getElementById(
+            "user-story-" + id
+        );
+
+
+    if(card){
+        card.remove();
+    }
+
+
+    alert(
+        "🗑️ कहानी हटा दी गई।"
+    );
+
+}
+
+
+/* ==============================
+   ESCAPE HTML
+============================== */
+
+function escapeHTML(text){
+
+    return String(text)
+
+        .replaceAll("&","&amp;")
+
+        .replaceAll("<","&lt;")
+
+        .replaceAll(">","&gt;")
+
+        .replaceAll('"',"&quot;")
+
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* ==============================
    DARK MODE
-========================================= */
+============================== */
 
 function toggleDarkMode(){
 
     document.body.classList.toggle(
         "dark-mode"
     );
+
 
     if(
         document.body.classList.contains(
@@ -2371,8 +2978,6 @@ function toggleDarkMode(){
 }
 
 
-/* LOAD DARK MODE */
-
 if(
     localStorage.getItem(
         "darkMode"
@@ -2386,49 +2991,55 @@ if(
 }
 
 
-/* =========================================
+/* ==============================
    LIKE SYSTEM
-========================================= */
+============================== */
 
 function likeStory(id){
 
     const key =
         "story-like-" + id;
 
+
     let count =
         Number(
             localStorage.getItem(key)
         ) || 0;
+
 
     const liked =
         localStorage.getItem(
             key + "-done"
         );
 
-    if(
-        liked === "yes"
-    ){
+
+    if(liked === "yes"){
 
         return;
 
     }
 
+
     count++;
+
 
     localStorage.setItem(
         key,
         count
     );
 
+
     localStorage.setItem(
         key + "-done",
         "yes"
     );
 
+
     const element =
         document.getElementById(
             "like" + id
         );
+
 
     if(element){
 
@@ -2440,13 +3051,13 @@ function likeStory(id){
 }
 
 
-/* =========================================
+/* ==============================
    LOAD LIKES
-========================================= */
+============================== */
 
 for(
-    let i = 1;
-    i <= 7;
+    let i=1;
+    i<=7;
     i++
 ){
 
@@ -2457,10 +3068,12 @@ for(
             )
         ) || 0;
 
+
     const element =
         document.getElementById(
             "like" + i
         );
+
 
     if(element){
 
@@ -2472,9 +3085,9 @@ for(
 }
 
 
-/* =========================================
+/* ==============================
    SEARCH
-========================================= */
+============================== */
 
 function searchStories(){
 
@@ -2487,10 +3100,12 @@ function searchStories(){
         .toLowerCase()
         .trim();
 
+
     const cards =
         document.querySelectorAll(
             ".story-card"
         );
+
 
     cards.forEach(
         card => {
@@ -2505,6 +3120,7 @@ function searchStories(){
                     )
                 )
                 .toLowerCase();
+
 
             if(
                 text.includes(input)
@@ -2526,14 +3142,15 @@ function searchStories(){
 }
 
 
-/* =========================================
-   SHARE WEBSITE
-========================================= */
+/* ==============================
+   SHARE
+============================== */
 
 function shareWebsite(){
 
     const url =
         window.location.href;
+
 
     if(
         navigator.share
@@ -2571,9 +3188,9 @@ function shareWebsite(){
 }
 
 
-/* =========================================
-   CONTACT MESSAGE
-========================================= */
+/* ==============================
+   CONTACT
+============================== */
 
 function sendMessage(event){
 
@@ -2634,35 +3251,11 @@ function sendMessage(event){
 }
 
 
-/* =========================================
-   LOGIN PROTECTION
-========================================= */
+/* ==============================
+   LOAD USER STORIES
+============================== */
 
-const loggedIn =
-
-    localStorage.getItem(
-        "loggedIn"
-    ) === "true"
-
-    ||
-
-    sessionStorage.getItem(
-        "loggedIn"
-    ) === "true";
-
-
-/*
-   अगर login system लगा हुआ है
-   तो protection काम करेगा।
-*/
-
-if(!loggedIn){
-
-    window.location.replace(
-        "login.html"
-    );
-
-}
+loadAddedStories();
 
 </script>
 
