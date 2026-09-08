@@ -1,221 +1,400 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>कुछ यादें | विचित्र कहानियाँ</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,sans-serif;
-  color:#222;
-  background:
-    radial-gradient(circle at 10% 15%,rgba(255,255,255,.9),transparent 25%),
-    radial-gradient(circle at 90% 85%,rgba(255,255,255,.8),transparent 25%),
-    #f4f1ea;
-  overflow-x:hidden;
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
-.memory-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
-.memory-bg span{position:absolute;bottom:-60px;font-size:25px;opacity:0;animation:floatMemory linear infinite}
-.memory-bg span:nth-child(1){left:8%;animation-duration:12s}
-.memory-bg span:nth-child(2){left:25%;animation-duration:16s;animation-delay:2s}
-.memory-bg span:nth-child(3){left:45%;animation-duration:13s;animation-delay:4s}
-.memory-bg span:nth-child(4){left:65%;animation-duration:18s;animation-delay:1s}
-.memory-bg span:nth-child(5){left:82%;animation-duration:14s;animation-delay:3s}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.8), transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,.7), transparent 25%),
+        #f4f1ea;
+    color:#222;
+    overflow-x:hidden;
+}
+
+.memory-bg{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.memory-bg span{
+    position:absolute;
+    bottom:-50px;
+    font-size:25px;
+    opacity:.25;
+    animation:floatMemory linear infinite;
+}
+
+.memory-bg span:nth-child(1){left:8%;animation-duration:12s;}
+.memory-bg span:nth-child(2){left:25%;animation-duration:16s;animation-delay:2s;}
+.memory-bg span:nth-child(3){left:45%;animation-duration:13s;animation-delay:4s;}
+.memory-bg span:nth-child(4){left:65%;animation-duration:18s;animation-delay:1s;}
+.memory-bg span:nth-child(5){left:82%;animation-duration:14s;animation-delay:3s;}
+
 @keyframes floatMemory{
-  0%{transform:translateY(0) rotate(0);opacity:0}
-  15%{opacity:.3}
-  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+    0%{transform:translateY(0) rotate(0deg);opacity:0;}
+    15%{opacity:.3;}
+    100%{transform:translateY(-110vh) rotate(360deg);opacity:0;}
 }
 
 header{
-  position:relative;
-  overflow:hidden;
-  text-align:center;
-  color:#fff;
-  padding:60px 20px 70px;
-  background:linear-gradient(135deg,#182848,#304878,#182848);
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
+    position:relative;
+    background:linear-gradient(135deg,#182848,#304878,#182848);
+    color:white;
+    text-align:center;
+    padding:65px 20px 75px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
-header h1{position:relative;z-index:2;font-size:46px;margin-bottom:12px;animation:titleIn 1s ease}
-header p{position:relative;z-index:2;font-size:18px;opacity:.92;animation:titleIn 1.4s ease}
-@keyframes titleIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 
-.top-actions{position:relative;z-index:3;margin-top:25px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{
-  border:1px solid rgba(255,255,255,.35);
-  background:rgba(255,255,255,.13);
-  color:#fff;
-  padding:12px 20px;
-  border-radius:30px;
-  cursor:pointer;
-  text-decoration:none;
-  font-size:15px;
-  transition:.3s;
-  backdrop-filter:blur(6px);
+header::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    top:-150px;
+    left:-80px;
+    animation:rotateCircle 15s linear infinite;
 }
-.btn:hover{background:#fff;color:#182848;transform:translateY(-3px)}
-.btn.add{background:#fff;color:#182848;font-weight:bold}
 
-.container{width:92%;max-width:1100px;margin:auto;padding:55px 0}
-.intro{text-align:center;margin-bottom:35px}
-.intro h2{color:#182848;font-size:34px;margin-bottom:10px}
-.intro h2:after{content:"";display:block;width:70px;height:4px;background:#182848;border-radius:10px;margin:14px auto}
-.intro p{color:#666;font-size:17px}
-
-.status{
-  margin:0 auto 35px;
-  max-width:760px;
-  padding:14px 18px;
-  border-radius:14px;
-  background:#fff;
-  box-shadow:0 5px 18px rgba(0,0,0,.08);
-  text-align:center;
-  color:#555;
+header::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+    bottom:-250px;
+    right:-100px;
+    animation:rotateCircle 20s linear infinite reverse;
 }
-.status.ok{border-left:5px solid #27ae60}
-.status.err{border-left:5px solid #e74c3c;color:#b3261e}
 
-.memory-count{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:35px}
-.count-box{background:#fff;padding:16px 28px;border-radius:15px;box-shadow:0 5px 18px rgba(0,0,0,.1);text-align:center}
-.count-box strong{display:block;font-size:27px;color:#182848}
-.count-box span{color:#777;font-size:14px}
+@keyframes rotateCircle{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+header h1{
+    position:relative;
+    z-index:2;
+    font-size:46px;
+    margin-bottom:15px;
+    animation:titleAppear 1s ease;
+}
+
+header p{
+    position:relative;
+    z-index:2;
+    font-size:19px;
+    opacity:.9;
+    animation:titleAppear 1.5s ease;
+}
+
+@keyframes titleAppear{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.back{
+    position:relative;
+    z-index:2;
+    display:inline-block;
+    margin-top:25px;
+    color:white;
+    text-decoration:none;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.3);
+    padding:12px 22px;
+    border-radius:30px;
+    transition:.3s;
+    backdrop-filter:blur(5px);
+}
+
+.back:hover{
+    background:white;
+    color:#182848;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+    padding:60px 0;
+}
+
+.intro{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.intro h2{
+    color:#182848;
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.intro h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:4px;
+    background:#182848;
+    border-radius:10px;
+    margin:15px auto;
+}
+
+.intro p{
+    color:#666;
+    font-size:18px;
+}
+
+.memory-count{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:45px;
+    flex-wrap:wrap;
+}
+
+.count-box{
+    background:white;
+    padding:18px 30px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,.1);
+    text-align:center;
+    transition:.3s;
+}
+
+.count-box:hover{
+    transform:translateY(-5px);
+}
+
+.count-box strong{
+    display:block;
+    font-size:27px;
+    color:#182848;
+}
+
+.count-box span{
+    color:#777;
+    font-size:14px;
+}
 
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:28px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
 }
+
 .photo-card{
-  position:relative;
-  background:#fff;
-  padding:12px;
-  border-radius:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
-  overflow:hidden;
-  cursor:pointer;
-  animation:cardIn .7s ease both;
+    position:relative;
+    background:white;
+    padding:12px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    overflow:hidden;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(40px);
+    animation:cardAppear .8s forwards;
 }
-@keyframes cardIn{from{opacity:0;transform:translateY(35px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.photo-card:nth-child(1){animation-delay:.1s;}
+.photo-card:nth-child(2){animation-delay:.25s;}
+.photo-card:nth-child(3){animation-delay:.4s;}
+.photo-card:nth-child(4){animation-delay:.55s;}
+.photo-card:nth-child(5){animation-delay:.7s;}
+
+@keyframes cardAppear{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 .photo-card img{
-  width:100%;
-  height:330px;
-  object-fit:contain;
-  background:#eee;
-  border-radius:15px;
-  display:block;
-  transition:.6s;
+    width:100%;
+    height:330px;
+    object-fit:contain;
+    background:#eee;
+    border-radius:15px;
+    display:block;
+    transition:transform .6s ease,filter .6s ease;
 }
-.photo-card:hover img{transform:scale(1.035);filter:brightness(.78)}
-.photo-card:after{
-  content:"🔍 याद देखें";
-  position:absolute;
-  left:50%;top:43%;
-  transform:translate(-50%,-50%) scale(.75);
-  background:rgba(24,40,72,.92);
-  color:#fff;
-  padding:11px 18px;
-  border-radius:30px;
-  opacity:0;
-  transition:.35s;
-  pointer-events:none;
+
+.photo-card:hover img{
+    transform:scale(1.05);
+    filter:brightness(.75);
 }
-.photo-card:hover:after{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.photo-card p{text-align:center;font-size:16px;margin:16px 8px 7px;color:#444}
-.photo-card p:before{content:"♡ ";color:#182848}
+
+.photo-card::after{
+    content:"🔍  याद देखें";
+    position:absolute;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%) scale(.7);
+    background:rgba(24,40,72,.9);
+    color:white;
+    padding:12px 20px;
+    border-radius:30px;
+    opacity:0;
+    transition:.4s;
+    pointer-events:none;
+}
+
+.photo-card:hover::after{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+}
+
+.photo-card p{
+    text-align:center;
+    font-size:17px;
+    margin:18px 8px 10px;
+    color:#444;
+}
+
+.photo-card p::before{
+    content:"♡ ";
+    color:#182848;
+}
 
 .memory-message{
-  margin-top:55px;
-  background:#fff;
-  padding:32px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 6px 25px rgba(0,0,0,.1)
-}
-.memory-message h3{color:#182848;font-size:27px;margin-bottom:14px}
-.memory-message p{color:#666;font-size:17px;line-height:1.8}
-.memory-message .line{font-size:21px;color:#182848;margin-top:18px;font-weight:bold}
-
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  background:#fff;
-  border-radius:20px;
-  padding:45px 20px;
-  color:#777;
-  box-shadow:0 5px 20px rgba(0,0,0,.08)
+    margin-top:65px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 6px 25px rgba(0,0,0,.1);
 }
 
-/* Add panel */
-.panel-backdrop{
-  position:fixed;inset:0;background:rgba(5,10,20,.78);
-  display:none;align-items:center;justify-content:center;
-  z-index:9000;padding:18px;
-  backdrop-filter:blur(8px);
+.memory-message h3{
+    color:#182848;
+    font-size:27px;
+    margin-bottom:15px;
 }
-.panel-backdrop.show{display:flex;animation:fade .25s ease}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-.panel{
-  width:min(520px,100%);
-  background:#fff;
-  border-radius:24px;
-  padding:28px;
-  box-shadow:0 20px 80px rgba(0,0,0,.45);
-  animation:panelIn .35s ease;
+
+.memory-message p{
+    color:#666;
+    font-size:18px;
+    line-height:1.8;
 }
-@keyframes panelIn{from{transform:translateY(25px) scale(.95);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
-.panel h2{color:#182848;margin-bottom:8px}
-.panel .small{color:#777;font-size:13px;margin-bottom:20px}
-.field{margin:14px 0}
-.field label{display:block;font-weight:bold;color:#333;margin-bottom:7px}
-.field input[type=password],.field input[type=text]{
-  width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:12px;outline:none;font-size:15px
+
+.memory-message .line{
+    font-size:22px;
+    color:#182848;
+    margin-top:20px;
+    font-weight:bold;
 }
-.field input:focus{border-color:#304878;box-shadow:0 0 0 3px rgba(48,72,120,.1)}
-.file{
-  width:100%;padding:14px;border:2px dashed #ccd3df;border-radius:14px;background:#f8f9fb;cursor:pointer
-}
-.panel-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
-.action{
-  border:0;padding:12px 18px;border-radius:12px;cursor:pointer;font-weight:bold
-}
-.cancel{background:#eee;color:#333}
-.upload{background:#182848;color:#fff}
-.upload:disabled{opacity:.5;cursor:not-allowed}
-.progress{display:none;margin-top:16px}
-.progress.show{display:block}
-.progress-bar{height:9px;background:#e8e8e8;border-radius:10px;overflow:hidden}
-.progress-bar span{display:block;width:0;height:100%;background:#304878;transition:.2s}
-#uploadMsg{margin-top:10px;font-size:14px;color:#555}
 
 .viewer{
-  position:fixed;inset:0;background:rgba(0,0,0,.9);
-  display:none;justify-content:center;align-items:center;
-  z-index:9999;padding:25px
-}
-.viewer.active{display:flex;animation:fade .25s ease}
-.viewer img{max-width:95%;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 10px 50px rgba(0,0,0,.6);animation:imageZoom .35s ease}
-@keyframes imageZoom{from{transform:scale(.75)}to{transform:scale(1)}}
-.close{
-  position:absolute;top:18px;right:22px;width:45px;height:45px;border-radius:50%;
-  border:0;background:#fff;color:#182848;font-size:26px;cursor:pointer
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.88);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    padding:25px;
 }
 
-footer{background:#182848;color:#fff;text-align:center;padding:32px 20px;margin-top:25px}
-footer p{margin:7px;opacity:.9}.footer-title{font-size:20px;font-weight:bold}
+.viewer.active{
+    display:flex;
+    animation:viewerShow .3s ease;
+}
+
+@keyframes viewerShow{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.viewer img{
+    max-width:95%;
+    max-height:88vh;
+    object-fit:contain;
+    border-radius:12px;
+    box-shadow:0 10px 50px rgba(0,0,0,.6);
+    animation:imageZoom .4s ease;
+}
+
+@keyframes imageZoom{
+    from{transform:scale(.7);}
+    to{transform:scale(1);}
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:25px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:white;
+    color:#182848;
+    font-size:25px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.close:hover{
+    transform:rotate(90deg) scale(1.1);
+}
+
+footer{
+    background:#182848;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    margin-top:30px;
+}
+
+footer p{
+    margin:8px;
+    opacity:.9;
+}
+
+.footer-title{
+    font-size:20px;
+    font-weight:bold;
+}
 
 @media(max-width:600px){
-  header{padding:44px 15px 52px}
-  header h1{font-size:34px}
-  header p{font-size:15px;line-height:1.5}
-  .container{width:94%;padding:40px 0}
-  .intro h2{font-size:28px}
-  .photo-card img{height:270px}
-  .memory-message{padding:25px 18px}
-  .memory-message h3{font-size:23px}
-  .memory-message p{font-size:16px}
+    header{padding:45px 15px 55px;}
+    header h1{font-size:34px;}
+    header p{font-size:16px;}
+    .container{width:94%;padding:40px 0;}
+    .intro h2{font-size:28px;}
+    .intro p{font-size:16px;}
+    .photo-card img{height:270px;}
+    .memory-message{padding:25px 18px;}
+    .memory-message h3{font-size:23px;}
+    .memory-message p{font-size:16px;}
 }
 </style>
 </head>
@@ -223,337 +402,230 @@ footer p{margin:7px;opacity:.9}.footer-title{font-size:20px;font-weight:bold}
 <body>
 
 <div class="memory-bg">
-  <span>❤️</span><span>✨</span><span>📸</span><span>💭</span><span>❤️</span>
+    <span>❤️</span>
+    <span>✨</span>
+    <span>📸</span>
+    <span>💭</span>
+    <span>❤️</span>
 </div>
 
 <header>
-  <h1>📸 कुछ यादें</h1>
-  <p>कुछ तस्वीरें... कुछ पल... और कुछ यादें जो कभी पुरानी नहीं होतीं। ❤️</p>
-  <div class="top-actions">
-    <a class="btn" href="index.html">← वापस Home Page</a>
-    <button class="btn add" onclick="openAddPanel()">＋ नई याद जोड़ें</button>
-  </div>
+
+    <h1>📸 कुछ यादें</h1>
+
+    <p>
+        कुछ तस्वीरें... कुछ पल... और कुछ यादें जो कभी पुरानी नहीं होतीं। ❤️
+    </p>
+
+    <a class="back" href="index.html">
+        ← वापस Home Page
+    </a>
+
 </header>
 
 <main class="container">
-  <div class="intro">
-    <h2>मेरी Memories</h2>
-    <p>यहाँ जो फोटो एक बार जोड़ोगे, वह Supabase Storage में सेव होगी और वेबसाइट खोलने वाले दूसरे मोबाइल पर भी दिखाई देगी।</p>
-  </div>
 
-  <div id="status" class="status">यादें लोड हो रही हैं…</div>
+    <div class="intro">
 
-  <div class="memory-count">
-    <div class="count-box"><strong id="memoryNumber">0</strong><span>Memories</span></div>
-    <div class="count-box"><strong>∞</strong><span>यादें</span></div>
-  </div>
+        <h2>मेरी Memories</h2>
 
-  <div id="gallery" class="gallery"></div>
+        <p>
+            जिंदगी के कुछ खूबसूरत पल तस्वीरों में हमेशा के लिए कैद हैं।
+        </p>
 
-  <div class="memory-message">
-    <h3>💭 यादें कभी पुरानी नहीं होतीं</h3>
-    <p>समय बीत जाता है, लोग बदल जाते हैं, जगहें बदल जाती हैं... लेकिन कुछ पल हमारे अंदर हमेशा वैसे ही रहते हैं।</p>
-    <div class="line">“कुछ तस्वीरें सिर्फ तस्वीरें नहीं होतीं...<br>उनमें पूरा एक समय छुपा होता है।”</div>
-  </div>
+    </div>
+
+    <div class="memory-count">
+
+        <div class="count-box">
+            <strong>05</strong>
+            <span>Memories</span>
+        </div>
+
+        <div class="count-box">
+            <strong>∞</strong>
+            <span>यादें</span>
+        </div>
+
+    </div>
+
+    <div class="gallery">
+
+        <div class="photo-card"
+             onclick="openImage('first%20photo.jpg')">
+
+            <img
+                src="first%20photo.jpg"
+                alt="मेरी याद">
+
+            <p>
+                एक खूबसूरत याद ❤️
+            </p>
+
+        </div>
+
+        <div class="photo-card"
+             onclick="openImage('photo2.jpg')">
+
+            <img
+                src="photo2.jpg"
+                alt="मेरी याद">
+
+            <p>
+                कुछ पल हमेशा याद रहते हैं।
+            </p>
+
+        </div>
+
+        <div class="photo-card"
+             onclick="openImage('photo3.jpg')">
+
+            <img
+                src="photo3.jpg"
+                alt="मेरी याद">
+
+            <p>
+                वो दिन भी खास था ✨
+            </p>
+
+        </div>
+
+        <div class="photo-card"
+             onclick="openImage('photo4.jpg')">
+
+            <img
+                src="photo4.jpg"
+                alt="मेरी याद">
+
+            <p>
+                एक और खूबसूरत याद।
+            </p>
+
+        </div>
+
+        <div class="photo-card"
+             onclick="openImage('yaad1.jpg')">
+
+            <img
+                src="yaad1.jpg"
+                alt="मेरी याद">
+
+            <p>
+                कुछ यादें दिल के बहुत करीब होती हैं। ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="memory-message">
+
+        <h3>
+            💭 यादें कभी पुरानी नहीं होतीं
+        </h3>
+
+        <p>
+            समय बीत जाता है, लोग बदल जाते हैं,
+            जगहें बदल जाती हैं...
+            लेकिन कुछ पल हमारे अंदर हमेशा वैसे ही रहते हैं।
+        </p>
+
+        <div class="line">
+            “कुछ तस्वीरें सिर्फ तस्वीरें नहीं होतीं...<br>
+            उनमें पूरा एक समय छुपा होता है।”
+        </div>
+
+    </div>
+
 </main>
 
+<div class="viewer" id="viewer">
+
+    <button class="close"
+            onclick="closeImage()">
+        ×
+    </button>
+
+    <img
+        id="viewerImage"
+        src=""
+        alt="Memory">
+
+</div>
+
 <footer>
-  <p class="footer-title">📖 विचित्र कहानियाँ</p>
-  <p>कुछ यादें • कुछ कहानियाँ • कुछ पल</p>
-  <p>© 2026 विचित्र कहानियाँ</p>
-  <p>लेखक — ABHISHEK YADAV</p>
+
+    <p class="footer-title">
+        📖 विचित्र कहानियाँ
+    </p>
+
+    <p>
+        कुछ यादें • कुछ कहानियाँ • कुछ पल
+    </p>
+
+    <p>
+        © 2026 विचित्र कहानियाँ
+    </p>
+
+    <p>
+        लेखक — ABHISHEK YADAV
+    </p>
+
 </footer>
 
-<!-- ADD MEMORY PANEL -->
-<div class="panel-backdrop" id="addPanel">
-  <div class="panel" onclick="event.stopPropagation()">
-    <h2>🔐 नई याद जोड़ें</h2>
-    <p class="small">नई फोटो जोड़ने के लिए पासवर्ड डालें।</p>
-
-    <div class="field">
-      <label>पासवर्ड</label>
-      <input id="password" type="password" placeholder="Password">
-    </div>
-
-    <div class="field">
-      <label>फोटो</label>
-      <input id="photoFile" class="file" type="file" accept="image/*">
-    </div>
-
-    <div class="field">
-      <label>याद का नाम (वैकल्पिक)</label>
-      <input id="caption" type="text" placeholder="जैसे — एक खूबसूरत दिन ❤️">
-    </div>
-
-    <div class="progress" id="progress">
-      <div class="progress-bar"><span id="progressBar"></span></div>
-      <div id="uploadMsg">Upload हो रही है…</div>
-    </div>
-
-    <div class="panel-actions">
-      <button class="action cancel" onclick="closeAddPanel()">बंद करें</button>
-      <button class="action upload" id="uploadBtn" onclick="uploadMemory()">फोटो जोड़ें</button>
-    </div>
-  </div>
-</div>
-
-<!-- IMAGE VIEWER -->
-<div class="viewer" id="viewer">
-  <button class="close" onclick="closeImage()">×</button>
-  <img id="viewerImage" src="" alt="Memory">
-</div>
-
-<!-- Supabase browser client -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
-/* =========================================================
-   SUPABASE SETTINGS
-   ========================================================= */
 
-const SUPABASE_URL = "https://uhvstqieyyogjidfnhvu.supabase.co";
-const SUPABASE_KEY = "sb_publishable_cEbtfpMaQp1650sZ7W2O5g_-u2NUqQG";
-const BUCKET = "memories";
+function openImage(image){
 
-/* Add-memory panel password */
-const ADD_PASSWORD = "ABHI7S";
+    const viewer =
+        document.getElementById("viewer");
 
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+    const viewerImage =
+        document.getElementById("viewerImage");
 
-/* =========================================================
-   LOAD ALL MEMORIES FROM SUPABASE
-   ========================================================= */
+    viewerImage.src = image;
 
-async function loadMemories(){
-  const gallery = document.getElementById("gallery");
-  const status = document.getElementById("status");
-  const number = document.getElementById("memoryNumber");
+    viewer.classList.add("active");
 
-  status.className = "status";
-  status.textContent = "यादें लोड हो रही हैं…";
+    document.body.style.overflow = "hidden";
 
-  try{
-    const { data: files, error } = await supabaseClient
-      .storage
-      .from(BUCKET)
-      .list("", {
-        limit: 100,
-        offset: 0,
-        sortBy: { column: "created_at", order: "desc" }
-      });
-
-    if(error) throw error;
-
-    const images = (files || []).filter(file =>
-      file.name &&
-      /\.(jpg|jpeg|png|webp|gif|bmp|avif)$/i.test(file.name)
-    );
-
-    gallery.innerHTML = "";
-    number.textContent = images.length;
-
-    if(images.length === 0){
-      gallery.innerHTML = `
-        <div class="empty">
-          <div style="font-size:42px">📸</div>
-          <h3 style="margin:12px 0;color:#182848">अभी कोई नई याद नहीं है</h3>
-          <p>ऊपर <b>＋ नई याद जोड़ें</b> दबाकर पहली फोटो जोड़ो।</p>
-        </div>`;
-      status.className = "status ok";
-      status.textContent = "अभी 0 memories हैं।";
-      return;
-    }
-
-    images.forEach((file,index)=>{
-      const { data } = supabaseClient
-        .storage
-        .from(BUCKET)
-        .getPublicUrl(file.name);
-
-      const card = document.createElement("div");
-      card.className = "photo-card";
-      card.style.animationDelay = (index * 0.07) + "s";
-
-      const img = document.createElement("img");
-      img.src = data.publicUrl;
-      img.alt = "मेरी याद";
-      img.loading = "lazy";
-
-      img.onerror = () => {
-        card.style.display = "none";
-      };
-
-      card.onclick = () => openImage(data.publicUrl);
-
-      const p = document.createElement("p");
-      p.textContent = cleanCaption(file.name);
-
-      card.appendChild(img);
-      card.appendChild(p);
-      gallery.appendChild(card);
-    });
-
-    status.className = "status ok";
-    status.textContent = images.length + " यादें दिखाई जा रही हैं।";
-  }catch(error){
-    console.error(error);
-    status.className = "status err";
-    status.textContent = "यादें लोड नहीं हो पाईं: " + (error.message || error);
-    gallery.innerHTML = `
-      <div class="empty">
-        <div style="font-size:40px">⚠️</div>
-        <p>Supabase Storage की policy या bucket setting जाँचो।</p>
-      </div>`;
-  }
-}
-
-/* Filename को साफ करके caption जैसा दिखाना */
-function cleanCaption(filename){
-  let name = filename.replace(/\.[^/.]+$/,"");
-  name = name.replace(/^\d+-[a-z0-9]+-/i,"");
-  name = name.replace(/[-_]+/g," ");
-  return name || "एक खूबसूरत याद ❤️";
-}
-
-/* =========================================================
-   ADD PANEL
-   ========================================================= */
-
-function openAddPanel(){
-  document.getElementById("addPanel").classList.add("show");
-  document.getElementById("password").focus();
-}
-
-function closeAddPanel(){
-  document.getElementById("addPanel").classList.remove("show");
-  document.getElementById("password").value = "";
-  document.getElementById("photoFile").value = "";
-  document.getElementById("caption").value = "";
-  document.getElementById("progress").classList.remove("show");
-  document.getElementById("progressBar").style.width = "0%";
-}
-
-document.getElementById("addPanel").addEventListener("click",function(e){
-  if(e.target === this) closeAddPanel();
-});
-
-/* =========================================================
-   UPLOAD MEMORY
-   ========================================================= */
-
-async function uploadMemory(){
-  const password = document.getElementById("password").value;
-  const fileInput = document.getElementById("photoFile");
-  const caption = document.getElementById("caption").value.trim();
-  const btn = document.getElementById("uploadBtn");
-  const progress = document.getElementById("progress");
-  const msg = document.getElementById("uploadMsg");
-  const bar = document.getElementById("progressBar");
-
-  if(password !== ADD_PASSWORD){
-    alert("❌ पासवर्ड गलत है।");
-    return;
-  }
-
-  const file = fileInput.files[0];
-
-  if(!file){
-    alert("पहले फोटो चुनो।");
-    return;
-  }
-
-  if(!file.type.startsWith("image/")){
-    alert("सिर्फ image file चुनो।");
-    return;
-  }
-
-  /* Unique filename so two uploads don't overwrite each other */
-  const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
-  const safeCaption = (caption || file.name.replace(/\.[^/.]+$/,""))
-    .replace(/[^a-zA-Z0-9\u0900-\u097F]+/g,"-")
-    .replace(/^-+|-+$/g,"")
-    .slice(0,70) || "memory";
-
-  const uniqueName =
-    Date.now() + "-" +
-    Math.random().toString(36).slice(2,8) + "-" +
-    safeCaption + "." + ext;
-
-  btn.disabled = true;
-  progress.classList.add("show");
-  bar.style.width = "25%";
-  msg.textContent = "फोटो Supabase में सेव हो रही है…";
-
-  try{
-    const { error } = await supabaseClient
-      .storage
-      .from(BUCKET)
-      .upload(uniqueName, file, {
-        cacheControl: "3600",
-        upsert: false,
-        contentType: file.type
-      });
-
-    if(error) throw error;
-
-    bar.style.width = "100%";
-    msg.textContent = "✅ फोटो सेव हो गई!";
-
-    await loadMemories();
-
-    setTimeout(()=>{
-      closeAddPanel();
-      alert("✅ याद सफलतापूर्वक जोड़ दी गई। अब दूसरे मोबाइल में भी दिखेगी।");
-    },500);
-
-  }catch(error){
-    console.error(error);
-    msg.textContent = "❌ Upload failed: " + (error.message || error);
-    alert(
-      "फोटो upload नहीं हुई।\n\n" +
-      (error.message || error) +
-      "\n\nStorage > memories की INSERT policy जाँचो।"
-    );
-  }finally{
-    btn.disabled = false;
-  }
-}
-
-/* =========================================================
-   IMAGE VIEWER
-   ========================================================= */
-
-function openImage(url){
-  document.getElementById("viewerImage").src = url;
-  document.getElementById("viewer").classList.add("active");
-  document.body.style.overflow = "hidden";
 }
 
 function closeImage(){
-  document.getElementById("viewer").classList.remove("active");
-  document.getElementById("viewerImage").src = "";
-  document.body.style.overflow = "auto";
+
+    const viewer =
+        document.getElementById("viewer");
+
+    viewer.classList.remove("active");
+
+    document.body.style.overflow = "auto";
+
 }
 
-document.getElementById("viewer").addEventListener("click",function(e){
-  if(e.target === this) closeImage();
+document
+.getElementById("viewer")
+.addEventListener("click", function(e){
+
+    if(e.target === this){
+
+        closeImage();
+
+    }
+
 });
 
-document.addEventListener("keydown",function(e){
-  if(e.key === "Escape"){
-    closeImage();
-    closeAddPanel();
-  }
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "Escape"){
+
+        closeImage();
+
+    }
+
 });
 
-/* =========================================================
-   START
-   ========================================================= */
-loadMemories();
 </script>
 
 </body>
+
 </html>
