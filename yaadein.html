@@ -2,10 +2,32 @@
 <html lang="hi">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>कुछ यादें | विचित्र कहानियाँ</title>
+
+<meta name="description"
+content="Abhishek Yadav की यादों और तस्वीरों का संग्रह।">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Yatra+One&display=swap"
+rel="stylesheet">
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <style>
 
@@ -24,12 +46,32 @@ html{
 }
 
 body{
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+
+    min-height:100vh;
+
+    font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+    color:#202636;
+
     background:
-        radial-gradient(circle at 10% 10%,rgba(255,255,255,.9),transparent 25%),
-        radial-gradient(circle at 90% 90%,rgba(255,230,180,.45),transparent 25%),
-        #f4f1ea;
-    color:#222;
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255,255,255,.9),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(255,220,180,.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f5f1e8,
+            #e9edf5
+        );
+
     overflow-x:hidden;
 }
 
@@ -39,69 +81,87 @@ body{
 ===================================================== */
 
 .memory-bg{
+
     position:fixed;
+
     inset:0;
-    pointer-events:none;
+
     overflow:hidden;
+
+    pointer-events:none;
+
     z-index:-1;
 }
 
 .memory-bg span{
+
     position:absolute;
-    bottom:-60px;
-    font-size:28px;
+
+    bottom:-80px;
+
     opacity:0;
-    animation:memoryFloat linear infinite;
+
+    font-size:25px;
+
+    animation:
+        floatMemory
+        linear
+        infinite;
 }
 
 .memory-bg span:nth-child(1){
-    left:5%;
-    animation-duration:13s;
+    left:8%;
+    animation-duration:14s;
 }
 
 .memory-bg span:nth-child(2){
-    left:22%;
-    animation-duration:17s;
+    left:25%;
+    animation-duration:18s;
     animation-delay:3s;
 }
 
 .memory-bg span:nth-child(3){
-    left:43%;
-    animation-duration:14s;
+    left:44%;
+    animation-duration:15s;
     animation-delay:5s;
 }
 
 .memory-bg span:nth-child(4){
-    left:66%;
-    animation-duration:19s;
-    animation-delay:1s;
+    left:65%;
+    animation-duration:20s;
+    animation-delay:2s;
 }
 
 .memory-bg span:nth-child(5){
-    left:85%;
-    animation-duration:15s;
-    animation-delay:4s;
+    left:83%;
+    animation-duration:16s;
+    animation-delay:6s;
 }
 
-@keyframes memoryFloat{
+@keyframes floatMemory{
 
     0%{
-        transform:translateY(0) rotate(0deg) scale(.8);
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.7);
+
         opacity:0;
     }
 
     15%{
-        opacity:.28;
-    }
-
-    80%{
-        opacity:.18;
+        opacity:.35;
     }
 
     100%{
-        transform:translateY(-115vh) rotate(360deg) scale(1.3);
+        transform:
+            translateY(-115vh)
+            rotate(360deg)
+            scale(1.3);
+
         opacity:0;
     }
+
 }
 
 
@@ -110,26 +170,36 @@ body{
 ===================================================== */
 
 header{
-    position:relative;
-    overflow:hidden;
 
-    padding:70px 20px 80px;
+    position:relative;
+
+    padding:
+        65px
+        20px
+        75px;
 
     text-align:center;
+
     color:white;
+
+    overflow:hidden;
 
     background:
         linear-gradient(
-            125deg,
-            #111827,
-            #243b63,
-            #506da2,
-            #182848
+            135deg,
+            #101a32,
+            #263e6d,
+            #152344,
+            #314e80
         );
 
     background-size:300% 300%;
 
-    animation:headerGradient 12s ease infinite;
+    animation:
+        headerGradient
+        10s
+        ease
+        infinite;
 
     box-shadow:
         0 10px 35px rgba(0,0,0,.25);
@@ -148,48 +218,65 @@ header{
     100%{
         background-position:0% 50%;
     }
+
 }
 
 
-/* HEADER CIRCLES */
-
 header::before{
+
     content:"";
 
     position:absolute;
 
-    width:320px;
-    height:320px;
+    width:360px;
 
-    border:1px solid rgba(255,255,255,.16);
+    height:360px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
 
     border-radius:50%;
 
-    top:-170px;
-    left:-100px;
+    top:-180px;
 
-    animation:spin 18s linear infinite;
+    left:-80px;
+
+    animation:
+        spinCircle
+        18s
+        linear
+        infinite;
 }
 
 header::after{
+
     content:"";
 
     position:absolute;
 
-    width:420px;
-    height:420px;
+    width:450px;
 
-    border:1px solid rgba(255,255,255,.13);
+    height:450px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
 
     border-radius:50%;
 
-    bottom:-270px;
-    right:-130px;
+    bottom:-280px;
 
-    animation:spin 23s linear infinite reverse;
+    right:-100px;
+
+    animation:
+        spinCircle
+        22s
+        linear
+        infinite reverse;
 }
 
-@keyframes spin{
+@keyframes spinCircle{
 
     from{
         transform:rotate(0deg);
@@ -198,44 +285,58 @@ header::after{
     to{
         transform:rotate(360deg);
     }
+
 }
 
 
-/* HEADER TEXT */
-
 header h1{
+
     position:relative;
+
     z-index:2;
 
-    font-size:48px;
+    font-family:
+    "Yatra One",
+    serif;
 
-    margin-bottom:15px;
+    font-size:52px;
 
-    animation:headerTitle 1s ease;
+    margin-bottom:14px;
+
+    animation:
+        titleIn
+        1s
+        ease;
 }
 
 header p{
+
     position:relative;
+
     z-index:2;
 
     font-size:19px;
 
-    opacity:.92;
+    opacity:.9;
 
-    animation:headerTitle 1.5s ease;
+    animation:
+        titleIn
+        1.5s
+        ease;
 }
 
-@keyframes headerTitle{
+@keyframes titleIn{
 
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(25px);
     }
 
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 
@@ -244,23 +345,31 @@ header p{
 ===================================================== */
 
 .back{
+
     position:relative;
+
     z-index:3;
 
     display:inline-block;
 
-    margin-top:27px;
+    margin-top:28px;
 
-    padding:12px 23px;
-
-    border-radius:30px;
+    padding:
+        12px
+        24px;
 
     color:white;
+
     text-decoration:none;
 
-    background:rgba(255,255,255,.13);
+    border:
+        1px solid
+        rgba(255,255,255,.35);
 
-    border:1px solid rgba(255,255,255,.35);
+    background:
+        rgba(255,255,255,.12);
+
+    border-radius:30px;
 
     backdrop-filter:blur(8px);
 
@@ -268,150 +377,143 @@ header p{
 }
 
 .back:hover{
+
     background:white;
-    color:#182848;
 
-    transform:translateY(-4px);
+    color:#172342;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.2);
 }
 
 
 /* =====================================================
-   MAIN
+   CONTAINER
 ===================================================== */
 
 .container{
+
     width:92%;
-    max-width:1100px;
+
+    max-width:1150px;
 
     margin:auto;
 
-    padding:60px 0;
+    padding:
+        55px
+        0
+        70px;
 }
 
 
 /* =====================================================
-   INTRO
+   TOP AREA
 ===================================================== */
 
-.intro{
-    text-align:center;
+.top-area{
 
-    margin-bottom:40px;
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+    flex-wrap:wrap;
+}
+
+.intro{
+
+    flex:1;
+
+    min-width:250px;
 }
 
 .intro h2{
+
+    font-family:
+    "Yatra One",
+    serif;
+
+    font-size:38px;
+
     color:#182848;
 
-    font-size:36px;
-
-    margin-bottom:12px;
-}
-
-.intro h2::after{
-    content:"";
-
-    display:block;
-
-    width:80px;
-    height:4px;
-
-    margin:15px auto;
-
-    border-radius:20px;
-
-    background:#182848;
-
-    animation:lineGrow 1s ease;
-}
-
-@keyframes lineGrow{
-
-    from{
-        width:0;
-    }
-
-    to{
-        width:80px;
-    }
+    margin-bottom:8px;
 }
 
 .intro p{
+
     color:#666;
-    font-size:18px;
+
+    font-size:17px;
+
+    line-height:1.7;
 }
 
 
 /* =====================================================
-   ADD MEMORY BUTTON
+   ADD BUTTON
 ===================================================== */
-
-.add-memory-area{
-    text-align:center;
-
-    margin:35px 0 45px;
-}
 
 .add-memory-btn{
 
     border:none;
 
-    padding:15px 27px;
+    cursor:pointer;
 
-    border-radius:50px;
+    padding:
+        14px
+        22px;
+
+    border-radius:14px;
+
+    color:white;
 
     background:
         linear-gradient(
             135deg,
             #182848,
-            #426da8
+            #4269a4
         );
 
-    color:white;
+    font-family:
+    "Noto Serif Devanagari",
+    serif;
 
-    font-size:16px;
+    font-size:15px;
 
     font-weight:bold;
 
-    cursor:pointer;
-
     box-shadow:
-        0 8px 25px rgba(24,40,72,.25);
+        0 8px 20px
+        rgba(24,40,72,.25);
 
     transition:.3s;
-
-    animation:addButtonPulse 3s ease-in-out infinite;
-}
-
-@keyframes addButtonPulse{
-
-    0%,100%{
-        box-shadow:0 8px 25px rgba(24,40,72,.25);
-    }
-
-    50%{
-        box-shadow:0 10px 35px rgba(24,40,72,.45);
-    }
 }
 
 .add-memory-btn:hover{
 
     transform:
         translateY(-4px)
-        scale(1.03);
+        scale(1.02);
 
-    background:
-        linear-gradient(
-            135deg,
-            #294a78,
-            #5a7fba
-        );
+    box-shadow:
+        0 13px 28px
+        rgba(24,40,72,.32);
 }
 
 
 /* =====================================================
-   MEMORY COUNTER
+   COUNTER
 ===================================================== */
 
 .memory-count{
@@ -420,40 +522,49 @@ header p{
 
     justify-content:center;
 
-    gap:20px;
+    gap:18px;
 
     flex-wrap:wrap;
 
-    margin-bottom:45px;
+    margin-bottom:40px;
 }
 
 .count-box{
 
     min-width:150px;
 
-    padding:18px 28px;
+    padding:
+        17px
+        25px;
 
     background:white;
 
-    border-radius:18px;
+    border-radius:17px;
 
     text-align:center;
 
     box-shadow:
-        0 7px 22px rgba(0,0,0,.09);
+        0 7px 22px
+        rgba(0,0,0,.09);
+
+    border:
+        1px solid
+        rgba(0,0,0,.04);
 
     transition:.3s;
 }
 
 .count-box:hover{
-    transform:translateY(-6px) rotate(-1deg);
+
+    transform:
+        translateY(-5px);
 }
 
 .count-box strong{
 
     display:block;
 
-    font-size:29px;
+    font-size:28px;
 
     color:#182848;
 }
@@ -462,7 +573,50 @@ header p{
 
     color:#777;
 
-    font-size:14px;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+
+    text-align:center;
+
+    padding:45px 15px;
+
+    color:#666;
+
+    font-size:17px;
+}
+
+.loading-icon{
+
+    display:block;
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+    animation:
+        loadingSpin
+        1.2s
+        linear
+        infinite;
+}
+
+@keyframes loadingSpin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
 }
 
 
@@ -480,7 +634,7 @@ header p{
             minmax(280px,1fr)
         );
 
-    gap:30px;
+    gap:28px;
 }
 
 
@@ -501,11 +655,22 @@ header p{
     overflow:hidden;
 
     box-shadow:
-        0 8px 28px rgba(0,0,0,.12);
+        0 8px 28px
+        rgba(0,0,0,.12);
 
     cursor:pointer;
 
-    animation:cardIn .7s ease both;
+    opacity:0;
+
+    transform:
+        translateY(35px)
+        scale(.97);
+
+    animation:
+        cardIn
+        .7s
+        ease
+        forwards;
 
     transition:
         transform .35s,
@@ -515,29 +680,30 @@ header p{
 .photo-card:hover{
 
     transform:
-        translateY(-8px)
-        rotate(.5deg);
+        translateY(-7px)
+        scale(1.01);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.18);
+        0 18px 38px
+        rgba(0,0,0,.18);
 }
 
 @keyframes cardIn{
 
-    from{
-        opacity:0;
-        transform:translateY(35px) scale(.96);
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
 }
 
 
 /* =====================================================
-   PHOTO
+   IMAGE
 ===================================================== */
 
 .photo-card img{
@@ -546,13 +712,13 @@ header p{
 
     height:330px;
 
+    display:block;
+
     object-fit:contain;
 
-    background:#eeeeee;
+    background:#edf0f4;
 
     border-radius:16px;
-
-    display:block;
 
     transition:
         transform .6s,
@@ -563,45 +729,48 @@ header p{
 
     transform:scale(1.04);
 
-    filter:brightness(.72);
+    filter:
+        brightness(.78);
 }
 
 
 /* =====================================================
-   PHOTO OVERLAY
+   OVERLAY
 ===================================================== */
 
-.photo-overlay{
+.photo-card .zoom-text{
 
     position:absolute;
 
     left:50%;
-    top:43%;
+
+    top:42%;
 
     transform:
         translate(-50%,-50%)
-        scale(.6);
-
-    padding:12px 20px;
-
-    border-radius:40px;
-
-    background:rgba(24,40,72,.92);
-
-    color:white;
-
-    font-weight:bold;
+        scale(.7);
 
     opacity:0;
 
-    pointer-events:none;
+    padding:
+        11px
+        20px;
+
+    color:white;
+
+    background:
+        rgba(20,31,57,.92);
+
+    border-radius:30px;
+
+    font-size:13px;
 
     transition:.35s;
 
-    white-space:nowrap;
+    pointer-events:none;
 }
 
-.photo-card:hover .photo-overlay{
+.photo-card:hover .zoom-text{
 
     opacity:1;
 
@@ -612,134 +781,73 @@ header p{
 
 
 /* =====================================================
-   DELETE BUTTON
-===================================================== */
-
-.delete-memory{
-
-    position:absolute;
-
-    top:20px;
-
-    right:20px;
-
-    width:38px;
-    height:38px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.95);
-
-    color:#d6294b;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    opacity:0;
-
-    transform:scale(.7);
-
-    transition:.3s;
-
-    z-index:5;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.2);
-}
-
-.photo-card:hover .delete-memory{
-
-    opacity:1;
-
-    transform:scale(1);
-}
-
-.delete-memory:hover{
-
-    background:#d6294b;
-
-    color:white;
-
-    transform:scale(1.1);
-}
-
-
-/* =====================================================
    CAPTION
 ===================================================== */
 
-.photo-card p{
+.caption{
+
+    padding:
+        16px
+        8px
+        8px;
 
     text-align:center;
 
-    font-size:17px;
-
     color:#444;
 
-    margin:18px 8px 10px;
+    font-size:16px;
 
-    line-height:1.5;
+    line-height:1.7;
 }
 
-.photo-card p::before{
+.caption::before{
 
     content:"♡ ";
 
-    color:#182848;
+    color:#263e6d;
+
+    font-size:19px;
 }
 
 
 /* =====================================================
-   USER MEMORY BADGE
+   EMPTY
 ===================================================== */
 
-.user-memory-badge{
-
-    position:absolute;
-
-    left:20px;
-
-    top:20px;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    background:#182848;
-
-    color:white;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    opacity:.9;
-
-    z-index:3;
-}
-
-
-/* =====================================================
-   EMPTY MESSAGE
-===================================================== */
-
-.empty-message{
+.empty{
 
     display:none;
 
     text-align:center;
 
-    padding:35px;
+    padding:50px 20px;
 
     background:white;
 
     border-radius:20px;
 
-    color:#777;
+    box-shadow:
+        0 7px 20px
+        rgba(0,0,0,.08);
+}
 
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
+.empty .big{
+
+    font-size:50px;
+
+    margin-bottom:10px;
+}
+
+.empty h3{
+
+    color:#182848;
+
+    margin-bottom:8px;
+}
+
+.empty p{
+
+    color:#777;
 }
 
 
@@ -749,9 +857,11 @@ header p{
 
 .memory-message{
 
-    margin-top:65px;
+    margin-top:60px;
 
-    padding:38px 25px;
+    padding:
+        38px
+        25px;
 
     background:white;
 
@@ -760,43 +870,378 @@ header p{
     text-align:center;
 
     box-shadow:
-        0 7px 25px rgba(0,0,0,.1);
+        0 7px 25px
+        rgba(0,0,0,.09);
 }
 
 .memory-message h3{
 
+    font-family:
+    "Yatra One",
+    serif;
+
     color:#182848;
 
-    font-size:28px;
+    font-size:29px;
 
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
 .memory-message p{
 
+    max-width:750px;
+
+    margin:auto;
+
     color:#666;
 
-    font-size:18px;
+    font-size:17px;
 
-    line-height:1.8;
+    line-height:1.9;
 }
 
 .memory-message .line{
 
-    color:#182848;
+    margin-top:20px;
 
-    font-size:22px;
+    color:#182848;
 
     font-weight:bold;
 
-    margin-top:22px;
-
-    line-height:1.7;
+    font-size:20px;
 }
 
 
 /* =====================================================
-   FULLSCREEN VIEWER
+   MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(7,12,25,.78);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+.modal.active{
+
+    display:flex;
+
+    animation:
+        modalIn
+        .25s
+        ease;
+}
+
+@keyframes modalIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+.modal-box{
+
+    width:100%;
+
+    max-width:500px;
+
+    padding:28px;
+
+    background:white;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.35);
+
+    animation:
+        boxIn
+        .3s
+        ease;
+}
+
+@keyframes boxIn{
+
+    from{
+        transform:
+            translateY(30px)
+            scale(.95);
+
+        opacity:0;
+    }
+
+    to{
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity:1;
+    }
+
+}
+
+.modal-box h2{
+
+    color:#182848;
+
+    font-family:
+    "Yatra One",
+    serif;
+
+    margin-bottom:7px;
+}
+
+.modal-box .sub{
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group{
+
+    margin-bottom:16px;
+}
+
+.form-group label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+
+    color:#333;
+}
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+        1px solid
+        #d5d8de;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+    font-size:14px;
+
+    background:#fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+    border-color:#263e6d;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(38,62,109,.1);
+
+    background:white;
+}
+
+.form-group textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+
+/* =====================================================
+   FILE INPUT
+===================================================== */
+
+.file-box{
+
+    border:
+        2px dashed
+        #b9c4d8;
+
+    padding:20px;
+
+    border-radius:13px;
+
+    text-align:center;
+
+    background:#f7f9fc;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.file-box:hover{
+
+    border-color:#263e6d;
+
+    background:#f0f4fa;
+}
+
+.file-box input{
+
+    width:100%;
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+===================================================== */
+
+.form-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.cancel-btn,
+.upload-btn{
+
+    flex:1;
+
+    border:none;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+.cancel-btn{
+
+    background:#edf0f4;
+
+    color:#333;
+}
+
+.upload-btn{
+
+    background:#182848;
+
+    color:white;
+}
+
+.upload-btn:hover{
+
+    background:#294a78;
+}
+
+.upload-btn:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+}
+
+
+/* =====================================================
+   PASSWORD MODAL
+===================================================== */
+
+.password-box{
+
+    text-align:center;
+}
+
+.password-icon{
+
+    font-size:50px;
+
+    margin-bottom:8px;
+}
+
+.password-box input{
+
+    width:100%;
+
+    padding:13px;
+
+    border:
+        1px solid
+        #ccc;
+
+    border-radius:10px;
+
+    margin-top:15px;
+
+    outline:none;
+
+    font-size:16px;
+
+    text-align:center;
+}
+
+.password-box input:focus{
+
+    border-color:#182848;
+}
+
+.password-error{
+
+    color:#e63946;
+
+    font-size:13px;
+
+    min-height:20px;
+
+    margin-top:8px;
+}
+
+
+/* =====================================================
+   IMAGE VIEWER
 ===================================================== */
 
 .viewer{
@@ -805,34 +1250,31 @@ header p{
 
     inset:0;
 
+    z-index:20000;
+
     display:none;
 
-    justify-content:center;
-
     align-items:center;
+
+    justify-content:center;
 
     padding:25px;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(40,55,85,.7),
-            rgba(0,0,0,.94)
-        );
-
-    z-index:9999;
-
-    backdrop-filter:blur(8px);
+        rgba(0,0,0,.92);
 }
 
 .viewer.active{
 
     display:flex;
 
-    animation:viewerFade .3s ease;
+    animation:
+        viewerIn
+        .25s
+        ease;
 }
 
-@keyframes viewerFade{
+@keyframes viewerIn{
 
     from{
         opacity:0;
@@ -841,50 +1283,51 @@ header p{
     to{
         opacity:1;
     }
+
 }
 
 .viewer img{
 
-    max-width:94%;
+    max-width:95%;
 
-    max-height:84vh;
+    max-height:88vh;
 
     object-fit:contain;
 
-    border-radius:15px;
+    border-radius:12px;
 
     box-shadow:
-        0 15px 60px rgba(0,0,0,.7);
+        0 15px 60px
+        rgba(0,0,0,.6);
 
-    animation:viewerImage .45s cubic-bezier(.2,.8,.2,1);
+    animation:
+        imageIn
+        .35s
+        ease;
 }
 
-@keyframes viewerImage{
+@keyframes imageIn{
 
     from{
-        transform:scale(.65) rotate(-3deg);
-        opacity:0;
+        transform:scale(.75);
     }
 
     to{
-        transform:scale(1) rotate(0);
-        opacity:1;
+        transform:scale(1);
     }
+
 }
-
-
-/* =====================================================
-   VIEWER CLOSE
-===================================================== */
 
 .close{
 
     position:absolute;
 
-    top:20px;
-    right:25px;
+    right:22px;
+
+    top:18px;
 
     width:48px;
+
     height:48px;
 
     border:none;
@@ -898,445 +1341,12 @@ header p{
     font-size:27px;
 
     cursor:pointer;
-
-    transition:.3s;
-
-    z-index:10;
 }
 
 .close:hover{
 
     transform:
-        rotate(90deg)
-        scale(1.1);
-
-    background:#182848;
-
-    color:white;
-}
-
-
-/* =====================================================
-   PASSWORD MODAL
-===================================================== */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:20px;
-
-    background:rgba(0,0,0,.72);
-
-    backdrop-filter:blur(8px);
-
-    z-index:10000;
-}
-
-.modal.active{
-
-    display:flex;
-
-    animation:modalBackground .3s ease;
-}
-
-@keyframes modalBackground{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-}
-
-
-/* PASSWORD BOX */
-
-.password-box{
-
-    width:100%;
-
-    max-width:420px;
-
-    background:white;
-
-    padding:35px 28px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.4);
-
-    animation:passwordBoxIn .45s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes passwordBoxIn{
-
-    from{
-        transform:
-            translateY(40px)
-            scale(.8)
-            rotate(-2deg);
-
-        opacity:0;
-    }
-
-    to{
-        transform:
-            translateY(0)
-            scale(1)
-            rotate(0);
-
-        opacity:1;
-    }
-}
-
-.password-icon{
-
-    width:70px;
-    height:70px;
-
-    margin:0 auto 15px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#eef3fb;
-
-    font-size:32px;
-
-    animation:lockFloat 2s ease-in-out infinite;
-}
-
-@keyframes lockFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-6px);
-    }
-}
-
-.password-box h2{
-
-    color:#182848;
-
-    margin-bottom:8px;
-}
-
-.password-box p{
-
-    color:#777;
-
-    font-size:14px;
-
-    line-height:1.6;
-
-    margin-bottom:20px;
-}
-
-.password-input{
-
-    width:100%;
-
-    padding:14px;
-
-    border:2px solid #ddd;
-
-    border-radius:12px;
-
-    outline:none;
-
-    font-size:16px;
-
-    text-align:center;
-
-    letter-spacing:2px;
-
-    transition:.25s;
-}
-
-.password-input:focus{
-
-    border-color:#182848;
-
-    box-shadow:
-        0 0 0 4px rgba(24,40,72,.08);
-}
-
-.password-error{
-
-    min-height:22px;
-
-    margin:10px 0;
-
-    color:#d6294b;
-
-    font-size:13px;
-
-    font-weight:bold;
-}
-
-.modal-buttons{
-
-    display:flex;
-
-    gap:10px;
-}
-
-.modal-buttons button{
-
-    flex:1;
-
-    border:none;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-weight:bold;
-
-    font-size:14px;
-}
-
-.verify-btn{
-
-    background:#182848;
-
-    color:white;
-}
-
-.cancel-btn{
-
-    background:#eee;
-
-    color:#333;
-}
-
-.verify-btn:hover{
-
-    background:#294a78;
-}
-
-.cancel-btn:hover{
-
-    background:#ddd;
-}
-
-
-/* WRONG PASSWORD SHAKE */
-
-.password-box.shake{
-
-    animation:shake .35s ease;
-}
-
-@keyframes shake{
-
-    0%,100%{
-        transform:translateX(0);
-    }
-
-    25%{
-        transform:translateX(-10px);
-    }
-
-    50%{
-        transform:translateX(10px);
-    }
-
-    75%{
-        transform:translateX(-7px);
-    }
-}
-
-
-/* =====================================================
-   ADD MEMORY FORM
-===================================================== */
-
-.add-box{
-
-    width:100%;
-
-    max-width:520px;
-
-    background:white;
-
-    padding:32px 25px;
-
-    border-radius:25px;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.4);
-
-    animation:addBoxIn .5s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes addBoxIn{
-
-    from{
-        opacity:0;
-        transform:
-            translateY(50px)
-            scale(.8);
-    }
-
-    to{
-        opacity:1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-.add-box h2{
-
-    text-align:center;
-
-    color:#182848;
-
-    margin-bottom:8px;
-}
-
-.add-box .form-info{
-
-    text-align:center;
-
-    color:#777;
-
-    font-size:13px;
-
-    margin-bottom:22px;
-}
-
-.form-label{
-
-    display:block;
-
-    margin:14px 0 7px;
-
-    font-weight:bold;
-
-    color:#333;
-}
-
-.memory-file{
-
-    width:100%;
-
-    padding:12px;
-
-    border:1px dashed #9aa8bd;
-
-    border-radius:12px;
-
-    background:#f8f9fb;
-
-    cursor:pointer;
-}
-
-.memory-caption{
-
-    width:100%;
-
-    padding:13px;
-
-    border:1px solid #ddd;
-
-    border-radius:11px;
-
-    outline:none;
-
-    font-family:Arial,"Noto Sans Devanagari",sans-serif;
-
-    font-size:15px;
-
-    resize:vertical;
-
-    min-height:100px;
-}
-
-.memory-caption:focus{
-
-    border-color:#182848;
-
-    box-shadow:
-        0 0 0 3px rgba(24,40,72,.08);
-}
-
-.preview{
-
-    display:none;
-
-    margin-top:15px;
-
-    text-align:center;
-}
-
-.preview img{
-
-    max-width:100%;
-
-    max-height:220px;
-
-    border-radius:13px;
-
-    object-fit:contain;
-
-    background:#eee;
-}
-
-.save-memory{
-
-    width:100%;
-
-    margin-top:20px;
-
-    padding:14px;
-
-    border:none;
-
-    border-radius:11px;
-
-    background:#182848;
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.save-memory:hover{
-
-    background:#294a78;
-
-    transform:translateY(-2px);
+        rotate(90deg);
 }
 
 
@@ -1352,23 +1362,28 @@ footer{
 
     text-align:center;
 
-    padding:38px 20px;
+    padding:
+        35px
+        20px;
 
     margin-top:30px;
 }
 
 footer p{
 
-    margin:8px;
+    margin:7px;
 
     opacity:.9;
 }
 
 .footer-title{
 
-    font-size:21px;
+    font-family:
+    "Yatra One",
+    serif;
 
-    font-weight:bold;
+    font-size:22px;
+
 }
 
 
@@ -1376,11 +1391,14 @@ footer p{
    MOBILE
 ===================================================== */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
     header{
 
-        padding:50px 15px 60px;
+        padding:
+            45px
+            15px
+            55px;
     }
 
     header h1{
@@ -1390,15 +1408,24 @@ footer p{
 
     header p{
 
-        font-size:16px;
-        line-height:1.6;
+        font-size:15px;
     }
 
     .container{
 
         width:94%;
 
-        padding:40px 0;
+        padding:
+            40px
+            0
+            55px;
+    }
+
+    .top-area{
+
+        flex-direction:column;
+
+        text-align:center;
     }
 
     .intro h2{
@@ -1408,52 +1435,7 @@ footer p{
 
     .intro p{
 
-        font-size:16px;
-    }
-
-    .photo-card img{
-
-        height:270px;
-    }
-
-    .memory-message{
-
-        padding:28px 18px;
-    }
-
-    .memory-message h3{
-
-        font-size:23px;
-    }
-
-    .memory-message p{
-
-        font-size:16px;
-    }
-
-    .memory-message .line{
-
-        font-size:18px;
-    }
-
-    .password-box,
-    .add-box{
-
-        padding:28px 18px;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media(max-width:380px){
-
-    header h1{
-
-        font-size:31px;
+        font-size:15px;
     }
 
     .add-memory-btn{
@@ -1461,9 +1443,57 @@ footer p{
         width:100%;
     }
 
-    .modal-buttons{
+    .gallery{
 
-        flex-direction:column;
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+    .photo-card img{
+
+        height:280px;
+    }
+
+    .memory-message{
+
+        padding:
+            28px
+            18px;
+    }
+
+    .memory-message h3{
+
+        font-size:24px;
+    }
+
+    .memory-message p{
+
+        font-size:15px;
+    }
+
+    .modal-box{
+
+        padding:22px 17px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL
+===================================================== */
+
+@media(max-width:380px){
+
+    header h1{
+
+        font-size:30px;
+    }
+
+    .photo-card img{
+
+        height:245px;
     }
 
 }
@@ -1491,7 +1521,6 @@ footer p{
 </div>
 
 
-
 <!-- =====================================================
      HEADER
 ===================================================== -->
@@ -1503,15 +1532,19 @@ footer p{
     </h1>
 
     <p>
-        कुछ तस्वीरें... कुछ पल... और कुछ यादें जो कभी पुरानी नहीं होतीं। ❤️
+        कुछ तस्वीरें... कुछ पल...
+        और कुछ यादें जो कभी पुरानी नहीं होतीं। ❤️
     </p>
 
-    <a class="back" href="index.html">
+    <a
+        class="back"
+        href="index.html">
+
         ← वापस Home Page
+
     </a>
 
 </header>
-
 
 
 <!-- =====================================================
@@ -1521,29 +1554,29 @@ footer p{
 <main class="container">
 
 
-    <div class="intro">
+    <!-- TOP -->
 
-        <h2>
-            मेरी Memories
-        </h2>
+    <div class="top-area">
 
-        <p>
-            जिंदगी के कुछ खूबसूरत पल तस्वीरों में हमेशा के लिए कैद हैं।
-        </p>
+        <div class="intro">
 
-    </div>
+            <h2>
+                मेरी Memories
+            </h2>
+
+            <p>
+                जिंदगी के कुछ खूबसूरत पल
+                तस्वीरों में हमेशा के लिए कैद हैं।
+            </p>
+
+        </div>
 
 
-
-    <!-- =================================================
-         ADD MEMORY BUTTON
-    ================================================== -->
-
-    <div class="add-memory-area">
+        <!-- ADD MEMORY -->
 
         <button
             class="add-memory-btn"
-            onclick="startAddMemory()">
+            onclick="openPassword()">
 
             ➕ नई याद जोड़ें
 
@@ -1552,17 +1585,16 @@ footer p{
     </div>
 
 
-
     <!-- =================================================
          COUNTER
-    ================================================== -->
+    ================================================= -->
 
     <div class="memory-count">
 
         <div class="count-box">
 
-            <strong id="memoryTotal">
-                05
+            <strong id="memoryNumber">
+                0
             </strong>
 
             <span>
@@ -1586,144 +1618,58 @@ footer p{
     </div>
 
 
+    <!-- =================================================
+         LOADING
+    ================================================= -->
+
+    <div
+        class="loading"
+        id="loading">
+
+        <span class="loading-icon">
+            📸
+        </span>
+
+        यादें लोड हो रही हैं...
+
+    </div>
+
 
     <!-- =================================================
          GALLERY
-    ================================================== -->
+    ================================================= -->
 
     <div
         class="gallery"
         id="gallery">
 
-
-        <!-- MEMORY 1 -->
-
-        <div
-            class="photo-card"
-            onclick="openImage('first%20photo.jpg')">
-
-            <img
-                src="first%20photo.jpg"
-                alt="मेरी याद">
-
-            <div class="photo-overlay">
-                🔍 याद देखें
-            </div>
-
-            <p>
-                एक खूबसूरत याद ❤️
-            </p>
-
-        </div>
-
-
-
-        <!-- MEMORY 2 -->
-
-        <div
-            class="photo-card"
-            onclick="openImage('photo2.jpg')">
-
-            <img
-                src="photo2.jpg"
-                alt="मेरी याद">
-
-            <div class="photo-overlay">
-                🔍 याद देखें
-            </div>
-
-            <p>
-                कुछ पल हमेशा याद रहते हैं।
-            </p>
-
-        </div>
-
-
-
-        <!-- MEMORY 3 -->
-
-        <div
-            class="photo-card"
-            onclick="openImage('photo3.jpg')">
-
-            <img
-                src="photo3.jpg"
-                alt="मेरी याद">
-
-            <div class="photo-overlay">
-                🔍 याद देखें
-            </div>
-
-            <p>
-                वो दिन भी खास था ✨
-            </p>
-
-        </div>
-
-
-
-        <!-- MEMORY 4 -->
-
-        <div
-            class="photo-card"
-            onclick="openImage('photo4.jpg')">
-
-            <img
-                src="photo4.jpg"
-                alt="मेरी याद">
-
-            <div class="photo-overlay">
-                🔍 याद देखें
-            </div>
-
-            <p>
-                एक और खूबसूरत याद।
-            </p>
-
-        </div>
-
-
-
-        <!-- MEMORY 5 -->
-
-        <div
-            class="photo-card"
-            onclick="openImage('yaad1.jpg')">
-
-            <img
-                src="yaad1.jpg"
-                alt="मेरी याद">
-
-            <div class="photo-overlay">
-                🔍 याद देखें
-            </div>
-
-            <p>
-                कुछ यादें दिल के बहुत करीब होती हैं। ❤️
-            </p>
-
-        </div>
-
-
     </div>
 
 
-
-    <!-- EMPTY MESSAGE -->
+    <!-- EMPTY -->
 
     <div
-        class="empty-message"
-        id="emptyMessage">
+        class="empty"
+        id="empty">
 
-        📸 अभी कोई नई याद नहीं जोड़ी गई है।
+        <div class="big">
+            📸
+        </div>
+
+        <h3>
+            अभी कोई नई याद नहीं है
+        </h3>
+
+        <p>
+            ऊपर “नई याद जोड़ें” से पहली याद जोड़ें।
+        </p>
 
     </div>
-
 
 
     <!-- =================================================
          MESSAGE
-    ================================================== -->
+    ================================================= -->
 
     <div class="memory-message">
 
@@ -1734,7 +1680,8 @@ footer p{
         <p>
             समय बीत जाता है, लोग बदल जाते हैं,
             जगहें बदल जाती हैं...
-            लेकिन कुछ पल हमारे अंदर हमेशा वैसे ही रहते हैं।
+            लेकिन कुछ पल हमारे अंदर
+            हमेशा वैसे ही रहते हैं।
         </p>
 
         <div class="line">
@@ -1751,9 +1698,150 @@ footer p{
 </main>
 
 
+<!-- =====================================================
+     PASSWORD MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="passwordModal">
+
+    <div class="modal-box password-box">
+
+        <div class="password-icon">
+            🔐
+        </div>
+
+        <h2>
+            नई याद जोड़ें
+        </h2>
+
+        <p class="sub">
+            आगे बढ़ने के लिए Password डालें
+        </p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Password डालें"
+            autocomplete="off">
+
+        <div
+            class="password-error"
+            id="passwordError">
+        </div>
+
+        <div class="form-buttons">
+
+            <button
+                class="cancel-btn"
+                onclick="closePassword()">
+
+                Cancel
+
+            </button>
+
+            <button
+                class="upload-btn"
+                onclick="checkPassword()">
+
+                🔓 आगे बढ़ें
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <!-- =====================================================
-     FULLSCREEN VIEWER
+     ADD MEMORY MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="addModal">
+
+    <div class="modal-box">
+
+        <h2>
+            📸 नई याद जोड़ें
+        </h2>
+
+        <p class="sub">
+            फोटो और उसकी छोटी-सी याद लिखें।
+        </p>
+
+
+        <!-- PHOTO -->
+
+        <div class="form-group">
+
+            <label>
+                फोटो चुनें
+            </label>
+
+            <div class="file-box">
+
+                <input
+                    type="file"
+                    id="memoryFile"
+                    accept="image/*">
+
+            </div>
+
+        </div>
+
+
+        <!-- CAPTION -->
+
+        <div class="form-group">
+
+            <label>
+                याद का नाम / Caption
+            </label>
+
+            <input
+                type="text"
+                id="memoryCaption"
+                maxlength="150"
+                placeholder="जैसे — एक खूबसूरत दिन ❤️">
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="form-buttons">
+
+            <button
+                class="cancel-btn"
+                onclick="closeAddModal()">
+
+                Cancel
+
+            </button>
+
+            <button
+                class="upload-btn"
+                id="uploadButton"
+                onclick="uploadMemory()">
+
+                ☁️ याद जोड़ें
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE VIEWER
 ===================================================== -->
 
 <div
@@ -1774,145 +1862,6 @@ footer p{
         alt="Memory">
 
 </div>
-
-
-
-<!-- =====================================================
-     PASSWORD MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="passwordModal">
-
-    <div
-        class="password-box"
-        id="passwordBox">
-
-        <div class="password-icon">
-            🔐
-        </div>
-
-        <h2>
-            नई याद जोड़ें
-        </h2>
-
-        <p>
-            नई memory जोड़ने के लिए password डालें।
-        </p>
-
-        <input
-            type="password"
-            class="password-input"
-            id="passwordInput"
-            placeholder="Password"
-            autocomplete="off">
-
-        <div
-            class="password-error"
-            id="passwordError">
-        </div>
-
-        <div class="modal-buttons">
-
-            <button
-                class="cancel-btn"
-                onclick="closePasswordModal()">
-
-                Cancel
-
-            </button>
-
-            <button
-                class="verify-btn"
-                onclick="checkPassword()">
-
-                🔓 आगे बढ़ें
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     ADD MEMORY MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="addMemoryModal">
-
-    <div class="add-box">
-
-        <h2>
-            📸 नई याद जोड़ें
-        </h2>
-
-        <p class="form-info">
-            अपनी फोटो और उस याद से जुड़ा caption लिखें।
-        </p>
-
-
-        <label class="form-label">
-            🖼️ फोटो चुनें
-        </label>
-
-        <input
-            type="file"
-            id="memoryFile"
-            class="memory-file"
-            accept="image/*">
-
-
-        <div
-            class="preview"
-            id="preview">
-
-            <img
-                id="previewImage"
-                src=""
-                alt="Preview">
-
-        </div>
-
-
-        <label class="form-label">
-            ✍️ इस याद का नाम / Caption
-        </label>
-
-        <textarea
-            id="memoryCaption"
-            class="memory-caption"
-            placeholder="जैसे — एक खूबसूरत दिन ❤️"></textarea>
-
-
-        <button
-            class="save-memory"
-            onclick="saveMemory()">
-
-            💾 याद सेव करें
-
-        </button>
-
-
-        <button
-            class="cancel-btn"
-            onclick="closeAddMemoryModal()"
-            style="width:100%;margin-top:10px;">
-
-            वापस जाएँ
-
-        </button>
-
-    </div>
-
-</div>
-
 
 
 <!-- =====================================================
@@ -1940,373 +1889,263 @@ footer p{
 </footer>
 
 
-
 <script>
+
+/* =====================================================
+   SUPABASE SETTINGS
+===================================================== */
+
+const SUPABASE_URL =
+    "https://uhvstqieyyogjidfnhvu.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_cEbtfpMaQp1650sZ7W2O5g_-u2NUqQG";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+const BUCKET =
+    "memories";
+
 
 /* =====================================================
    PASSWORD
 ===================================================== */
 
-const MEMORY_PASSWORD = "ABHI7S";
+const ADD_PASSWORD =
+    "ABHI7S";
 
 
 /* =====================================================
-   START ADD MEMORY
+   LOAD MEMORIES
 ===================================================== */
 
-function startAddMemory(){
+async function loadMemories(){
 
-    document
-        .getElementById("passwordModal")
-        .classList.add("active");
-
-    document
-        .getElementById("passwordInput")
-        .value = "";
-
-    document
-        .getElementById("passwordError")
-        .innerText = "";
-
-    setTimeout(function(){
-
-        document
-            .getElementById("passwordInput")
-            .focus();
-
-    },300);
-
-}
-
-
-/* =====================================================
-   CHECK PASSWORD
-===================================================== */
-
-function checkPassword(){
-
-    const input =
-        document
-        .getElementById("passwordInput")
-        .value
-        .trim();
-
-    const box =
-        document
-        .getElementById("passwordBox");
-
-    if(input === MEMORY_PASSWORD){
-
-        document
-            .getElementById("passwordModal")
-            .classList.remove("active");
-
-        document
-            .getElementById("addMemoryModal")
-            .classList.add("active");
-
-        return;
-
-    }
-
-
-    document
-        .getElementById("passwordError")
-        .innerText =
-        "❌ Password गलत है।";
-
-
-    box.classList.remove("shake");
-
-    void box.offsetWidth;
-
-    box.classList.add("shake");
-
-}
-
-
-/* =====================================================
-   PASSWORD ENTER KEY
-===================================================== */
-
-document
-.getElementById("passwordInput")
-.addEventListener(
-    "keydown",
-    function(e){
-
-        if(e.key === "Enter"){
-
-            checkPassword();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   CLOSE PASSWORD
-===================================================== */
-
-function closePasswordModal(){
-
-    document
-        .getElementById("passwordModal")
-        .classList.remove("active");
-
-}
-
-
-/* =====================================================
-   CLOSE ADD MEMORY
-===================================================== */
-
-function closeAddMemoryModal(){
-
-    document
-        .getElementById("addMemoryModal")
-        .classList.remove("active");
-
-    document
-        .getElementById("memoryFile")
-        .value = "";
-
-    document
-        .getElementById("memoryCaption")
-        .value = "";
-
-    document
-        .getElementById("preview")
-        .style.display = "none";
-
-}
-
-
-/* =====================================================
-   IMAGE PREVIEW
-===================================================== */
-
-document
-.getElementById("memoryFile")
-.addEventListener(
-    "change",
-    function(){
-
-        const file = this.files[0];
-
-        if(!file){
-
-            return;
-
-        }
-
-        if(!file.type.startsWith("image/")){
-
-            alert("कृपया केवल image file चुनें।");
-
-            this.value = "";
-
-            return;
-
-        }
-
-        const reader =
-            new FileReader();
-
-        reader.onload =
-            function(e){
-
-                document
-                    .getElementById("previewImage")
-                    .src = e.target.result;
-
-                document
-                    .getElementById("preview")
-                    .style.display = "block";
-
-            };
-
-        reader.readAsDataURL(file);
-
-    }
-);
-
-
-/* =====================================================
-   SAVE MEMORY
-===================================================== */
-
-function saveMemory(){
-
-    const file =
-        document
-        .getElementById("memoryFile")
-        .files[0];
-
-    const caption =
-        document
-        .getElementById("memoryCaption")
-        .value
-        .trim();
-
-
-    if(!file){
-
-        alert("📸 पहले फोटो चुनें।");
-
-        return;
-
-    }
-
-
-    if(!caption){
-
-        alert("✍️ अपनी याद का caption लिखें।");
-
-        return;
-
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(e){
-
-            const memory = {
-
-                id:
-                    Date.now(),
-
-                image:
-                    e.target.result,
-
-                caption:
-                    caption
-
-            };
-
-
-            let memories =
-                JSON.parse(
-                    localStorage.getItem(
-                        "myMemories"
-                    )
-                ) || [];
-
-
-            memories.push(memory);
-
-
-            try{
-
-                localStorage.setItem(
-                    "myMemories",
-                    JSON.stringify(memories)
-                );
-
-            }catch(error){
-
-                alert(
-                    "❌ फोटो बहुत बड़ी है। छोटी फोटो चुनकर फिर कोशिश करें।"
-                );
-
-                return;
-
-            }
-
-
-            addMemoryToPage(memory);
-
-
-            updateMemoryCount();
-
-
-            closeAddMemoryModal();
-
-
-            alert(
-                "✅ नई याद सफलतापूर्वक जोड़ दी गई!"
-            );
-
-        };
-
-
-    reader.readAsDataURL(file);
-
-}
-
-
-/* =====================================================
-   ADD MEMORY TO PAGE
-===================================================== */
-
-function addMemoryToPage(memory){
+    const loading =
+        document.getElementById("loading");
 
     const gallery =
+        document.getElementById("gallery");
+
+    const empty =
+        document.getElementById("empty");
+
+    try{
+
+        loading.style.display =
+            "block";
+
+        gallery.innerHTML =
+            "";
+
+        empty.style.display =
+            "none";
+
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+        .storage
+        .from(BUCKET)
+        .list("", {
+
+            limit:100,
+
+            offset:0,
+
+            sort:{
+                column:"created_at",
+                order:"desc"
+            }
+
+        });
+
+
+        if(error){
+
+            console.error(error);
+
+            throw error;
+
+        }
+
+
+        const files =
+            (data || [])
+            .filter(file => {
+
+                return file.name &&
+                    !file.name.endsWith("/");
+
+            });
+
+
+        loading.style.display =
+            "none";
+
+
         document
-        .getElementById("gallery");
+        .getElementById("memoryNumber")
+        .innerText =
+            files.length;
+
+
+        if(files.length === 0){
+
+            empty.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        files.forEach(
+            (file,index) => {
+
+                createMemoryCard(
+                    file,
+                    index
+                );
+
+            }
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Memory loading error:",
+            error
+        );
+
+        loading.innerHTML = `
+
+            <span style="font-size:35px;">
+                ⚠️
+            </span>
+
+            <br>
+
+            यादें लोड नहीं हो सकीं।
+
+            <br><br>
+
+            <small>
+                कृपया Internet connection और
+                Supabase policies check करें।
+            </small>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   CREATE CARD
+===================================================== */
+
+function createMemoryCard(
+    file,
+    index
+){
+
+    const gallery =
+        document.getElementById(
+            "gallery"
+        );
+
+
+    const {
+        data
+    } =
+    supabaseClient
+    .storage
+    .from(BUCKET)
+    .getPublicUrl(
+        file.name
+    );
+
+
+    const imageUrl =
+        data.publicUrl;
+
+
+    /*
+       Filename से caption बनाना।
+       Upload के समय caption filename
+       में save किया गया है।
+    */
+
+    let caption =
+        decodeURIComponent(
+            file.name
+        )
+        .replace(
+            /\.[^/.]+$/,
+            ""
+        );
+
+
+    caption =
+        caption
+        .replace(
+            /^\d+_+/,
+            ""
+        )
+        .replace(
+            /_/g,
+            " "
+        );
 
 
     const card =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     card.className =
         "photo-card";
 
 
-    card.style.animation =
-        "cardIn .7s ease both";
+    card.style.animationDelay =
+        (index * .08) + "s";
 
 
     card.innerHTML = `
 
-        <span class="user-memory-badge">
-            MY MEMORY
-        </span>
-
-        <button
-            class="delete-memory"
-            onclick="deleteMemory(event, ${memory.id})">
-
-            🗑️
-
-        </button>
-
         <img
-            src="${memory.image}"
-            alt="${escapeHtml(memory.caption)}">
+            src="${escapeHtml(imageUrl)}"
+            alt="${escapeHtml(caption)}"
+            loading="lazy">
 
-        <div class="photo-overlay">
+        <div class="zoom-text">
             🔍 याद देखें
         </div>
 
-        <p>
-            ${escapeHtml(memory.caption)}
-        </p>
+        <div class="caption">
+            ${escapeHtml(caption)}
+        </div>
 
     `;
 
 
     card.addEventListener(
         "click",
-        function(e){
+        function(){
 
-            if(
-                e.target.closest(
-                    ".delete-memory"
-                )
-            ){
-
-                return;
-
-            }
-
-            openImage(memory.image);
+            openImage(imageUrl);
 
         }
     );
@@ -2318,138 +2157,391 @@ function addMemoryToPage(memory){
 
 
 /* =====================================================
-   LOAD SAVED MEMORIES
-===================================================== */
-
-function loadMemories(){
-
-    const memories =
-        JSON.parse(
-            localStorage.getItem(
-                "myMemories"
-            )
-        ) || [];
-
-
-    memories.forEach(
-        function(memory){
-
-            addMemoryToPage(memory);
-
-        }
-    );
-
-
-    updateMemoryCount();
-
-}
-
-
-/* =====================================================
-   DELETE MEMORY
-===================================================== */
-
-function deleteMemory(event,id){
-
-    event.stopPropagation();
-
-
-    const password =
-        prompt(
-            "🔐 याद हटाने के लिए password डालें:"
-        );
-
-
-    if(password !== MEMORY_PASSWORD){
-
-        if(password !== null){
-
-            alert(
-                "❌ Password गलत है।"
-            );
-
-        }
-
-        return;
-
-    }
-
-
-    if(
-        !confirm(
-            "क्या आप इस याद को हटाना चाहते हैं?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    let memories =
-        JSON.parse(
-            localStorage.getItem(
-                "myMemories"
-            )
-        ) || [];
-
-
-    memories =
-        memories.filter(
-            memory =>
-                memory.id !== id
-        );
-
-
-    localStorage.setItem(
-        "myMemories",
-        JSON.stringify(memories)
-    );
-
-
-    location.reload();
-
-}
-
-
-/* =====================================================
-   MEMORY COUNT
-===================================================== */
-
-function updateMemoryCount(){
-
-    const userMemories =
-        JSON.parse(
-            localStorage.getItem(
-                "myMemories"
-            )
-        ) || [];
-
-
-    const total =
-        5 + userMemories.length;
-
-
-    document
-        .getElementById("memoryTotal")
-        .innerText =
-        String(total).padStart(2,"0");
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
+   HTML SAFETY
 ===================================================== */
 
 function escapeHtml(text){
 
-    const div =
-        document.createElement("div");
+    return String(text)
 
-    div.innerText = text;
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-    return div.innerHTML;
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   PASSWORD OPEN
+===================================================== */
+
+function openPassword(){
+
+    const modal =
+        document.getElementById(
+            "passwordModal"
+        );
+
+    const input =
+        document.getElementById(
+            "passwordInput"
+        );
+
+    const error =
+        document.getElementById(
+            "passwordError"
+        );
+
+
+    error.innerText =
+        "";
+
+    input.value =
+        "";
+
+    modal.classList.add(
+        "active"
+    );
+
+
+    setTimeout(
+        () => input.focus(),
+        200
+    );
+
+}
+
+
+/* =====================================================
+   PASSWORD CLOSE
+===================================================== */
+
+function closePassword(){
+
+    document
+    .getElementById(
+        "passwordModal"
+    )
+    .classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =====================================================
+   CHECK PASSWORD
+===================================================== */
+
+function checkPassword(){
+
+    const input =
+        document.getElementById(
+            "passwordInput"
+        );
+
+    const error =
+        document.getElementById(
+            "passwordError"
+        );
+
+
+    if(
+        input.value ===
+        ADD_PASSWORD
+    ){
+
+        closePassword();
+
+        document
+        .getElementById(
+            "addModal"
+        )
+        .classList.add(
+            "active"
+        );
+
+    }else{
+
+        error.innerText =
+            "❌ Password गलत है।";
+
+
+        input.value =
+            "";
+
+        input.focus();
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE ADD MODAL
+===================================================== */
+
+function closeAddModal(){
+
+    document
+    .getElementById(
+        "addModal"
+    )
+    .classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =====================================================
+   UPLOAD MEMORY
+===================================================== */
+
+async function uploadMemory(){
+
+    const fileInput =
+        document.getElementById(
+            "memoryFile"
+        );
+
+    const captionInput =
+        document.getElementById(
+            "memoryCaption"
+        );
+
+    const uploadButton =
+        document.getElementById(
+            "uploadButton"
+        );
+
+
+    const file =
+        fileInput.files[0];
+
+
+    const caption =
+        captionInput.value.trim();
+
+
+    if(!file){
+
+        alert(
+            "पहले फोटो चुनें।"
+        );
+
+        return;
+
+    }
+
+
+    if(!caption){
+
+        alert(
+            "कृपया फोटो की याद / Caption लिखें।"
+        );
+
+        return;
+
+    }
+
+
+    /*
+       केवल image files
+    */
+
+    if(
+        !file.type.startsWith(
+            "image/"
+        )
+    ){
+
+        alert(
+            "कृपया केवल फोटो चुनें।"
+        );
+
+        return;
+
+    }
+
+
+    /*
+       10 MB से बड़ी फोटो रोकना
+    */
+
+    if(
+        file.size >
+        10 * 1024 * 1024
+    ){
+
+        alert(
+            "फोटो 10 MB से छोटी रखें।"
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        uploadButton.disabled =
+            true;
+
+        uploadButton.innerText =
+            "⏳ Upload हो रही है...";
+
+
+        /*
+           Unique filename
+        */
+
+        const extension =
+            file.name
+            .split(".")
+            .pop()
+            .toLowerCase();
+
+
+        const cleanCaption =
+            caption
+
+            .replace(
+                /[^\u0900-\u097Fa-zA-Z0-9 ]/g,
+                ""
+            )
+
+            .trim()
+
+            .replace(
+                /\s+/g,
+                "_"
+            );
+
+
+        const fileName =
+
+            Date.now() +
+            "_" +
+            cleanCaption +
+            "." +
+            extension;
+
+
+        /*
+           SUPABASE UPLOAD
+        */
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+        .storage
+        .from(BUCKET)
+        .upload(
+            fileName,
+            file,
+            {
+
+                cacheControl:
+                    "3600",
+
+                contentType:
+                    file.type,
+
+                upsert:
+                    false
+
+            }
+        );
+
+
+        if(error){
+
+            console.error(
+                error
+            );
+
+            throw error;
+
+        }
+
+
+        alert(
+            "✅ नई याद सफलतापूर्वक जोड़ दी गई!"
+        );
+
+
+        /*
+           Form clear
+        */
+
+        fileInput.value =
+            "";
+
+        captionInput.value =
+            "";
+
+
+        closeAddModal();
+
+
+        /*
+           Gallery reload
+        */
+
+        await loadMemories();
+
+
+    }catch(error){
+
+        console.error(
+            "Upload error:",
+            error
+        );
+
+
+        alert(
+
+            "❌ फोटो upload नहीं हुई।\n\n" +
+
+            "Supabase Storage policy check करें।\n\n" +
+
+            error.message
+
+        );
+
+    }finally{
+
+        uploadButton.disabled =
+            false;
+
+        uploadButton.innerText =
+            "☁️ याद जोड़ें";
+
+    }
 
 }
 
@@ -2458,18 +2550,21 @@ function escapeHtml(text){
    IMAGE VIEWER
 ===================================================== */
 
-function openImage(image){
+function openImage(url){
 
     const viewer =
-        document
-        .getElementById("viewer");
+        document.getElementById(
+            "viewer"
+        );
 
-    const viewerImage =
-        document
-        .getElementById("viewerImage");
+    const image =
+        document.getElementById(
+            "viewerImage"
+        );
 
 
-    viewerImage.src = image;
+    image.src =
+        url;
 
 
     viewer.classList.add(
@@ -2483,11 +2578,16 @@ function openImage(image){
 }
 
 
+/* =====================================================
+   CLOSE IMAGE
+===================================================== */
+
 function closeImage(){
 
     const viewer =
-        document
-        .getElementById("viewer");
+        document.getElementById(
+            "viewer"
+        );
 
 
     viewer.classList.remove(
@@ -2502,16 +2602,19 @@ function closeImage(){
 
 
 /* =====================================================
-   CLICK OUTSIDE IMAGE
+   CLICK OUTSIDE
 ===================================================== */
 
 document
 .getElementById("viewer")
 .addEventListener(
     "click",
-    function(e){
+    function(event){
 
-        if(e.target === this){
+        if(
+            event.target ===
+            this
+        ){
 
             closeImage();
 
@@ -2527,15 +2630,42 @@ document
 
 document.addEventListener(
     "keydown",
-    function(e){
+    function(event){
 
-        if(e.key === "Escape"){
+        if(
+            event.key ===
+            "Escape"
+        ){
 
             closeImage();
 
-            closePasswordModal();
+            closePassword();
 
-            closeAddMemoryModal();
+            closeAddModal();
+
+        }
+
+
+        if(
+            event.key ===
+            "Enter"
+        ){
+
+            const passwordModal =
+                document.getElementById(
+                    "passwordModal"
+                );
+
+
+            if(
+                passwordModal
+                .classList
+                .contains("active")
+            ){
+
+                checkPassword();
+
+            }
 
         }
 
@@ -2544,10 +2674,63 @@ document.addEventListener(
 
 
 /* =====================================================
-   LOAD
+   MODAL OUTSIDE CLICK
 ===================================================== */
 
-loadMemories();
+document
+.getElementById(
+    "passwordModal"
+)
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            this
+        ){
+
+            closePassword();
+
+        }
+
+    }
+);
+
+
+document
+.getElementById(
+    "addModal"
+)
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            this
+        ){
+
+            closeAddModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD ON PAGE START
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadMemories();
+
+    }
+);
 
 </script>
 
