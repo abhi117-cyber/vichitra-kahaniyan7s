@@ -1,2740 +1,559 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>कुछ यादें | विचित्र कहानियाँ</title>
 
-<meta name="description"
-content="Abhishek Yadav की यादों और तस्वीरों का संग्रह।">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Yatra+One&display=swap"
-rel="stylesheet">
-
-
-<!-- SUPABASE -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
 <style>
-
-/* =====================================================
-   BASIC
-===================================================== */
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-
-    min-height:100vh;
-
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
-
-    color:#202636;
-
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(255,255,255,.9),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 90% 90%,
-            rgba(255,220,180,.35),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #f5f1e8,
-            #e9edf5
-        );
-
-    overflow-x:hidden;
+  font-family:Arial,sans-serif;
+  color:#222;
+  background:
+    radial-gradient(circle at 10% 15%,rgba(255,255,255,.9),transparent 25%),
+    radial-gradient(circle at 90% 85%,rgba(255,255,255,.8),transparent 25%),
+    #f4f1ea;
+  overflow-x:hidden;
 }
-
-
-/* =====================================================
-   FLOATING BACKGROUND
-===================================================== */
-
-.memory-bg{
-
-    position:fixed;
-
-    inset:0;
-
-    overflow:hidden;
-
-    pointer-events:none;
-
-    z-index:-1;
-}
-
-.memory-bg span{
-
-    position:absolute;
-
-    bottom:-80px;
-
-    opacity:0;
-
-    font-size:25px;
-
-    animation:
-        floatMemory
-        linear
-        infinite;
-}
-
-.memory-bg span:nth-child(1){
-    left:8%;
-    animation-duration:14s;
-}
-
-.memory-bg span:nth-child(2){
-    left:25%;
-    animation-duration:18s;
-    animation-delay:3s;
-}
-
-.memory-bg span:nth-child(3){
-    left:44%;
-    animation-duration:15s;
-    animation-delay:5s;
-}
-
-.memory-bg span:nth-child(4){
-    left:65%;
-    animation-duration:20s;
-    animation-delay:2s;
-}
-
-.memory-bg span:nth-child(5){
-    left:83%;
-    animation-duration:16s;
-    animation-delay:6s;
-}
-
+.memory-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+.memory-bg span{position:absolute;bottom:-60px;font-size:25px;opacity:0;animation:floatMemory linear infinite}
+.memory-bg span:nth-child(1){left:8%;animation-duration:12s}
+.memory-bg span:nth-child(2){left:25%;animation-duration:16s;animation-delay:2s}
+.memory-bg span:nth-child(3){left:45%;animation-duration:13s;animation-delay:4s}
+.memory-bg span:nth-child(4){left:65%;animation-duration:18s;animation-delay:1s}
+.memory-bg span:nth-child(5){left:82%;animation-duration:14s;animation-delay:3s}
 @keyframes floatMemory{
-
-    0%{
-        transform:
-            translateY(0)
-            rotate(0deg)
-            scale(.7);
-
-        opacity:0;
-    }
-
-    15%{
-        opacity:.35;
-    }
-
-    100%{
-        transform:
-            translateY(-115vh)
-            rotate(360deg)
-            scale(1.3);
-
-        opacity:0;
-    }
-
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  15%{opacity:.3}
+  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
 }
-
-
-/* =====================================================
-   HEADER
-===================================================== */
 
 header{
-
-    position:relative;
-
-    padding:
-        65px
-        20px
-        75px;
-
-    text-align:center;
-
-    color:white;
-
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            #101a32,
-            #263e6d,
-            #152344,
-            #314e80
-        );
-
-    background-size:300% 300%;
-
-    animation:
-        headerGradient
-        10s
-        ease
-        infinite;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.25);
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  color:#fff;
+  padding:60px 20px 70px;
+  background:linear-gradient(135deg,#182848,#304878,#182848);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
+header h1{position:relative;z-index:2;font-size:46px;margin-bottom:12px;animation:titleIn 1s ease}
+header p{position:relative;z-index:2;font-size:18px;opacity:.92;animation:titleIn 1.4s ease}
+@keyframes titleIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 
-@keyframes headerGradient{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-
+.top-actions{position:relative;z-index:3;margin-top:25px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{
+  border:1px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.13);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:30px;
+  cursor:pointer;
+  text-decoration:none;
+  font-size:15px;
+  transition:.3s;
+  backdrop-filter:blur(6px);
 }
+.btn:hover{background:#fff;color:#182848;transform:translateY(-3px)}
+.btn.add{background:#fff;color:#182848;font-weight:bold}
 
+.container{width:92%;max-width:1100px;margin:auto;padding:55px 0}
+.intro{text-align:center;margin-bottom:35px}
+.intro h2{color:#182848;font-size:34px;margin-bottom:10px}
+.intro h2:after{content:"";display:block;width:70px;height:4px;background:#182848;border-radius:10px;margin:14px auto}
+.intro p{color:#666;font-size:17px}
 
-header::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:360px;
-
-    height:360px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    border-radius:50%;
-
-    top:-180px;
-
-    left:-80px;
-
-    animation:
-        spinCircle
-        18s
-        linear
-        infinite;
+.status{
+  margin:0 auto 35px;
+  max-width:760px;
+  padding:14px 18px;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+  text-align:center;
+  color:#555;
 }
-
-header::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-
-    height:450px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    border-radius:50%;
-
-    bottom:-280px;
-
-    right:-100px;
-
-    animation:
-        spinCircle
-        22s
-        linear
-        infinite reverse;
-}
-
-@keyframes spinCircle{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-header h1{
-
-    position:relative;
-
-    z-index:2;
-
-    font-family:
-    "Yatra One",
-    serif;
-
-    font-size:52px;
-
-    margin-bottom:14px;
-
-    animation:
-        titleIn
-        1s
-        ease;
-}
-
-header p{
-
-    position:relative;
-
-    z-index:2;
-
-    font-size:19px;
-
-    opacity:.9;
-
-    animation:
-        titleIn
-        1.5s
-        ease;
-}
-
-@keyframes titleIn{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-
-/* =====================================================
-   BACK BUTTON
-===================================================== */
-
-.back{
-
-    position:relative;
-
-    z-index:3;
-
-    display:inline-block;
-
-    margin-top:28px;
-
-    padding:
-        12px
-        24px;
-
-    color:white;
-
-    text-decoration:none;
-
-    border:
-        1px solid
-        rgba(255,255,255,.35);
-
-    background:
-        rgba(255,255,255,.12);
-
-    border-radius:30px;
-
-    backdrop-filter:blur(8px);
-
-    transition:.3s;
-}
-
-.back:hover{
-
-    background:white;
-
-    color:#172342;
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 10px 25px
-        rgba(0,0,0,.2);
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container{
-
-    width:92%;
-
-    max-width:1150px;
-
-    margin:auto;
-
-    padding:
-        55px
-        0
-        70px;
-}
-
-
-/* =====================================================
-   TOP AREA
-===================================================== */
-
-.top-area{
-
-    display:flex;
-
-    justify-content:
-        space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-    margin-bottom:35px;
-
-    flex-wrap:wrap;
-}
-
-.intro{
-
-    flex:1;
-
-    min-width:250px;
-}
-
-.intro h2{
-
-    font-family:
-    "Yatra One",
-    serif;
-
-    font-size:38px;
-
-    color:#182848;
-
-    margin-bottom:8px;
-}
-
-.intro p{
-
-    color:#666;
-
-    font-size:17px;
-
-    line-height:1.7;
-}
-
-
-/* =====================================================
-   ADD BUTTON
-===================================================== */
-
-.add-memory-btn{
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:
-        14px
-        22px;
-
-    border-radius:14px;
-
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #182848,
-            #4269a4
-        );
-
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    box-shadow:
-        0 8px 20px
-        rgba(24,40,72,.25);
-
-    transition:.3s;
-}
-
-.add-memory-btn:hover{
-
-    transform:
-        translateY(-4px)
-        scale(1.02);
-
-    box-shadow:
-        0 13px 28px
-        rgba(24,40,72,.32);
-}
-
-
-/* =====================================================
-   COUNTER
-===================================================== */
-
-.memory-count{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:18px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:40px;
-}
-
-.count-box{
-
-    min-width:150px;
-
-    padding:
-        17px
-        25px;
-
-    background:white;
-
-    border-radius:17px;
-
-    text-align:center;
-
-    box-shadow:
-        0 7px 22px
-        rgba(0,0,0,.09);
-
-    border:
-        1px solid
-        rgba(0,0,0,.04);
-
-    transition:.3s;
-}
-
-.count-box:hover{
-
-    transform:
-        translateY(-5px);
-}
-
-.count-box strong{
-
-    display:block;
-
-    font-size:28px;
-
-    color:#182848;
-}
-
-.count-box span{
-
-    color:#777;
-
-    font-size:13px;
-}
-
-
-/* =====================================================
-   LOADING
-===================================================== */
-
-.loading{
-
-    text-align:center;
-
-    padding:45px 15px;
-
-    color:#666;
-
-    font-size:17px;
-}
-
-.loading-icon{
-
-    display:block;
-
-    font-size:40px;
-
-    margin-bottom:10px;
-
-    animation:
-        loadingSpin
-        1.2s
-        linear
-        infinite;
-}
-
-@keyframes loadingSpin{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-/* =====================================================
-   GALLERY
-===================================================== */
+.status.ok{border-left:5px solid #27ae60}
+.status.err{border-left:5px solid #e74c3c;color:#b3261e}
+
+.memory-count{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:35px}
+.count-box{background:#fff;padding:16px 28px;border-radius:15px;box-shadow:0 5px 18px rgba(0,0,0,.1);text-align:center}
+.count-box strong{display:block;font-size:27px;color:#182848}
+.count-box span{color:#777;font-size:14px}
 
 .gallery{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(280px,1fr)
-        );
-
-    gap:28px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
 }
-
-
-/* =====================================================
-   PHOTO CARD
-===================================================== */
-
 .photo-card{
-
-    position:relative;
-
-    background:white;
-
-    padding:12px;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 8px 28px
-        rgba(0,0,0,.12);
-
-    cursor:pointer;
-
-    opacity:0;
-
-    transform:
-        translateY(35px)
-        scale(.97);
-
-    animation:
-        cardIn
-        .7s
-        ease
-        forwards;
-
-    transition:
-        transform .35s,
-        box-shadow .35s;
+  position:relative;
+  background:#fff;
+  padding:12px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+  overflow:hidden;
+  cursor:pointer;
+  animation:cardIn .7s ease both;
 }
-
-.photo-card:hover{
-
-    transform:
-        translateY(-7px)
-        scale(1.01);
-
-    box-shadow:
-        0 18px 38px
-        rgba(0,0,0,.18);
-}
-
-@keyframes cardIn{
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
+@keyframes cardIn{from{opacity:0;transform:translateY(35px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 .photo-card img{
-
-    width:100%;
-
-    height:330px;
-
-    display:block;
-
-    object-fit:contain;
-
-    background:#edf0f4;
-
-    border-radius:16px;
-
-    transition:
-        transform .6s,
-        filter .6s;
+  width:100%;
+  height:330px;
+  object-fit:contain;
+  background:#eee;
+  border-radius:15px;
+  display:block;
+  transition:.6s;
 }
-
-.photo-card:hover img{
-
-    transform:scale(1.04);
-
-    filter:
-        brightness(.78);
+.photo-card:hover img{transform:scale(1.035);filter:brightness(.78)}
+.photo-card:after{
+  content:"🔍 याद देखें";
+  position:absolute;
+  left:50%;top:43%;
+  transform:translate(-50%,-50%) scale(.75);
+  background:rgba(24,40,72,.92);
+  color:#fff;
+  padding:11px 18px;
+  border-radius:30px;
+  opacity:0;
+  transition:.35s;
+  pointer-events:none;
 }
-
-
-/* =====================================================
-   OVERLAY
-===================================================== */
-
-.photo-card .zoom-text{
-
-    position:absolute;
-
-    left:50%;
-
-    top:42%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.7);
-
-    opacity:0;
-
-    padding:
-        11px
-        20px;
-
-    color:white;
-
-    background:
-        rgba(20,31,57,.92);
-
-    border-radius:30px;
-
-    font-size:13px;
-
-    transition:.35s;
-
-    pointer-events:none;
-}
-
-.photo-card:hover .zoom-text{
-
-    opacity:1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
-}
-
-
-/* =====================================================
-   CAPTION
-===================================================== */
-
-.caption{
-
-    padding:
-        16px
-        8px
-        8px;
-
-    text-align:center;
-
-    color:#444;
-
-    font-size:16px;
-
-    line-height:1.7;
-}
-
-.caption::before{
-
-    content:"♡ ";
-
-    color:#263e6d;
-
-    font-size:19px;
-}
-
-
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.empty{
-
-    display:none;
-
-    text-align:center;
-
-    padding:50px 20px;
-
-    background:white;
-
-    border-radius:20px;
-
-    box-shadow:
-        0 7px 20px
-        rgba(0,0,0,.08);
-}
-
-.empty .big{
-
-    font-size:50px;
-
-    margin-bottom:10px;
-}
-
-.empty h3{
-
-    color:#182848;
-
-    margin-bottom:8px;
-}
-
-.empty p{
-
-    color:#777;
-}
-
-
-/* =====================================================
-   MEMORY MESSAGE
-===================================================== */
+.photo-card:hover:after{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.photo-card p{text-align:center;font-size:16px;margin:16px 8px 7px;color:#444}
+.photo-card p:before{content:"♡ ";color:#182848}
 
 .memory-message{
+  margin-top:55px;
+  background:#fff;
+  padding:32px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 6px 25px rgba(0,0,0,.1)
+}
+.memory-message h3{color:#182848;font-size:27px;margin-bottom:14px}
+.memory-message p{color:#666;font-size:17px;line-height:1.8}
+.memory-message .line{font-size:21px;color:#182848;margin-top:18px;font-weight:bold}
 
-    margin-top:60px;
-
-    padding:
-        38px
-        25px;
-
-    background:white;
-
-    border-radius:22px;
-
-    text-align:center;
-
-    box-shadow:
-        0 7px 25px
-        rgba(0,0,0,.09);
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  background:#fff;
+  border-radius:20px;
+  padding:45px 20px;
+  color:#777;
+  box-shadow:0 5px 20px rgba(0,0,0,.08)
 }
 
-.memory-message h3{
-
-    font-family:
-    "Yatra One",
-    serif;
-
-    color:#182848;
-
-    font-size:29px;
-
-    margin-bottom:14px;
+/* Add panel */
+.panel-backdrop{
+  position:fixed;inset:0;background:rgba(5,10,20,.78);
+  display:none;align-items:center;justify-content:center;
+  z-index:9000;padding:18px;
+  backdrop-filter:blur(8px);
 }
-
-.memory-message p{
-
-    max-width:750px;
-
-    margin:auto;
-
-    color:#666;
-
-    font-size:17px;
-
-    line-height:1.9;
+.panel-backdrop.show{display:flex;animation:fade .25s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.panel{
+  width:min(520px,100%);
+  background:#fff;
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 20px 80px rgba(0,0,0,.45);
+  animation:panelIn .35s ease;
 }
-
-.memory-message .line{
-
-    margin-top:20px;
-
-    color:#182848;
-
-    font-weight:bold;
-
-    font-size:20px;
+@keyframes panelIn{from{transform:translateY(25px) scale(.95);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+.panel h2{color:#182848;margin-bottom:8px}
+.panel .small{color:#777;font-size:13px;margin-bottom:20px}
+.field{margin:14px 0}
+.field label{display:block;font-weight:bold;color:#333;margin-bottom:7px}
+.field input[type=password],.field input[type=text]{
+  width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:12px;outline:none;font-size:15px
 }
-
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:10000;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-        rgba(7,12,25,.78);
-
-    backdrop-filter:
-        blur(8px);
+.field input:focus{border-color:#304878;box-shadow:0 0 0 3px rgba(48,72,120,.1)}
+.file{
+  width:100%;padding:14px;border:2px dashed #ccd3df;border-radius:14px;background:#f8f9fb;cursor:pointer
 }
-
-.modal.active{
-
-    display:flex;
-
-    animation:
-        modalIn
-        .25s
-        ease;
+.panel-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
+.action{
+  border:0;padding:12px 18px;border-radius:12px;cursor:pointer;font-weight:bold
 }
-
-@keyframes modalIn{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-
-}
-
-.modal-box{
-
-    width:100%;
-
-    max-width:500px;
-
-    padding:28px;
-
-    background:white;
-
-    border-radius:22px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.35);
-
-    animation:
-        boxIn
-        .3s
-        ease;
-}
-
-@keyframes boxIn{
-
-    from{
-        transform:
-            translateY(30px)
-            scale(.95);
-
-        opacity:0;
-    }
-
-    to{
-        transform:
-            translateY(0)
-            scale(1);
-
-        opacity:1;
-    }
-
-}
-
-.modal-box h2{
-
-    color:#182848;
-
-    font-family:
-    "Yatra One",
-    serif;
-
-    margin-bottom:7px;
-}
-
-.modal-box .sub{
-
-    color:#777;
-
-    font-size:13px;
-
-    margin-bottom:20px;
-}
-
-
-/* =====================================================
-   FORM
-===================================================== */
-
-.form-group{
-
-    margin-bottom:16px;
-}
-
-.form-group label{
-
-    display:block;
-
-    font-weight:bold;
-
-    margin-bottom:7px;
-
-    color:#333;
-}
-
-.form-group input,
-.form-group textarea{
-
-    width:100%;
-
-    padding:12px;
-
-    border:
-        1px solid
-        #d5d8de;
-
-    border-radius:10px;
-
-    outline:none;
-
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
-
-    font-size:14px;
-
-    background:#fafafa;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-
-    border-color:#263e6d;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(38,62,109,.1);
-
-    background:white;
-}
-
-.form-group textarea{
-
-    min-height:90px;
-
-    resize:vertical;
-}
-
-
-/* =====================================================
-   FILE INPUT
-===================================================== */
-
-.file-box{
-
-    border:
-        2px dashed
-        #b9c4d8;
-
-    padding:20px;
-
-    border-radius:13px;
-
-    text-align:center;
-
-    background:#f7f9fc;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.file-box:hover{
-
-    border-color:#263e6d;
-
-    background:#f0f4fa;
-}
-
-.file-box input{
-
-    width:100%;
-}
-
-
-/* =====================================================
-   FORM BUTTONS
-===================================================== */
-
-.form-buttons{
-
-    display:flex;
-
-    gap:10px;
-
-    margin-top:20px;
-}
-
-.cancel-btn,
-.upload-btn{
-
-    flex:1;
-
-    border:none;
-
-    padding:13px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-family:
-    "Noto Serif Devanagari",
-    serif;
-
-    font-weight:bold;
-
-    font-size:14px;
-}
-
-.cancel-btn{
-
-    background:#edf0f4;
-
-    color:#333;
-}
-
-.upload-btn{
-
-    background:#182848;
-
-    color:white;
-}
-
-.upload-btn:hover{
-
-    background:#294a78;
-}
-
-.upload-btn:disabled{
-
-    opacity:.55;
-
-    cursor:not-allowed;
-}
-
-
-/* =====================================================
-   PASSWORD MODAL
-===================================================== */
-
-.password-box{
-
-    text-align:center;
-}
-
-.password-icon{
-
-    font-size:50px;
-
-    margin-bottom:8px;
-}
-
-.password-box input{
-
-    width:100%;
-
-    padding:13px;
-
-    border:
-        1px solid
-        #ccc;
-
-    border-radius:10px;
-
-    margin-top:15px;
-
-    outline:none;
-
-    font-size:16px;
-
-    text-align:center;
-}
-
-.password-box input:focus{
-
-    border-color:#182848;
-}
-
-.password-error{
-
-    color:#e63946;
-
-    font-size:13px;
-
-    min-height:20px;
-
-    margin-top:8px;
-}
-
-
-/* =====================================================
-   IMAGE VIEWER
-===================================================== */
+.cancel{background:#eee;color:#333}
+.upload{background:#182848;color:#fff}
+.upload:disabled{opacity:.5;cursor:not-allowed}
+.progress{display:none;margin-top:16px}
+.progress.show{display:block}
+.progress-bar{height:9px;background:#e8e8e8;border-radius:10px;overflow:hidden}
+.progress-bar span{display:block;width:0;height:100%;background:#304878;transition:.2s}
+#uploadMsg{margin-top:10px;font-size:14px;color:#555}
 
 .viewer{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:20000;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:25px;
-
-    background:
-        rgba(0,0,0,.92);
+  position:fixed;inset:0;background:rgba(0,0,0,.9);
+  display:none;justify-content:center;align-items:center;
+  z-index:9999;padding:25px
 }
-
-.viewer.active{
-
-    display:flex;
-
-    animation:
-        viewerIn
-        .25s
-        ease;
-}
-
-@keyframes viewerIn{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-
-}
-
-.viewer img{
-
-    max-width:95%;
-
-    max-height:88vh;
-
-    object-fit:contain;
-
-    border-radius:12px;
-
-    box-shadow:
-        0 15px 60px
-        rgba(0,0,0,.6);
-
-    animation:
-        imageIn
-        .35s
-        ease;
-}
-
-@keyframes imageIn{
-
-    from{
-        transform:scale(.75);
-    }
-
-    to{
-        transform:scale(1);
-    }
-
-}
-
+.viewer.active{display:flex;animation:fade .25s ease}
+.viewer img{max-width:95%;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 10px 50px rgba(0,0,0,.6);animation:imageZoom .35s ease}
+@keyframes imageZoom{from{transform:scale(.75)}to{transform:scale(1)}}
 .close{
-
-    position:absolute;
-
-    right:22px;
-
-    top:18px;
-
-    width:48px;
-
-    height:48px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:white;
-
-    color:#182848;
-
-    font-size:27px;
-
-    cursor:pointer;
+  position:absolute;top:18px;right:22px;width:45px;height:45px;border-radius:50%;
+  border:0;background:#fff;color:#182848;font-size:26px;cursor:pointer
 }
 
-.close:hover{
+footer{background:#182848;color:#fff;text-align:center;padding:32px 20px;margin-top:25px}
+footer p{margin:7px;opacity:.9}.footer-title{font-size:20px;font-weight:bold}
 
-    transform:
-        rotate(90deg);
+@media(max-width:600px){
+  header{padding:44px 15px 52px}
+  header h1{font-size:34px}
+  header p{font-size:15px;line-height:1.5}
+  .container{width:94%;padding:40px 0}
+  .intro h2{font-size:28px}
+  .photo-card img{height:270px}
+  .memory-message{padding:25px 18px}
+  .memory-message h3{font-size:23px}
+  .memory-message p{font-size:16px}
 }
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-    background:#182848;
-
-    color:white;
-
-    text-align:center;
-
-    padding:
-        35px
-        20px;
-
-    margin-top:30px;
-}
-
-footer p{
-
-    margin:7px;
-
-    opacity:.9;
-}
-
-.footer-title{
-
-    font-family:
-    "Yatra One",
-    serif;
-
-    font-size:22px;
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:700px){
-
-    header{
-
-        padding:
-            45px
-            15px
-            55px;
-    }
-
-    header h1{
-
-        font-size:35px;
-    }
-
-    header p{
-
-        font-size:15px;
-    }
-
-    .container{
-
-        width:94%;
-
-        padding:
-            40px
-            0
-            55px;
-    }
-
-    .top-area{
-
-        flex-direction:column;
-
-        text-align:center;
-    }
-
-    .intro h2{
-
-        font-size:29px;
-    }
-
-    .intro p{
-
-        font-size:15px;
-    }
-
-    .add-memory-btn{
-
-        width:100%;
-    }
-
-    .gallery{
-
-        grid-template-columns:1fr;
-
-        gap:20px;
-    }
-
-    .photo-card img{
-
-        height:280px;
-    }
-
-    .memory-message{
-
-        padding:
-            28px
-            18px;
-    }
-
-    .memory-message h3{
-
-        font-size:24px;
-    }
-
-    .memory-message p{
-
-        font-size:15px;
-    }
-
-    .modal-box{
-
-        padding:22px 17px;
-    }
-
-}
-
-
-/* =====================================================
-   VERY SMALL
-===================================================== */
-
-@media(max-width:380px){
-
-    header h1{
-
-        font-size:30px;
-    }
-
-    .photo-card img{
-
-        height:245px;
-    }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     FLOATING BACKGROUND
-===================================================== -->
-
 <div class="memory-bg">
-
-    <span>❤️</span>
-    <span>✨</span>
-    <span>📸</span>
-    <span>💭</span>
-    <span>❤️</span>
-
+  <span>❤️</span><span>✨</span><span>📸</span><span>💭</span><span>❤️</span>
 </div>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header>
-
-    <h1>
-        📸 कुछ यादें
-    </h1>
-
-    <p>
-        कुछ तस्वीरें... कुछ पल...
-        और कुछ यादें जो कभी पुरानी नहीं होतीं। ❤️
-    </p>
-
-    <a
-        class="back"
-        href="index.html">
-
-        ← वापस Home Page
-
-    </a>
-
+  <h1>📸 कुछ यादें</h1>
+  <p>कुछ तस्वीरें... कुछ पल... और कुछ यादें जो कभी पुरानी नहीं होतीं। ❤️</p>
+  <div class="top-actions">
+    <a class="btn" href="index.html">← वापस Home Page</a>
+    <button class="btn add" onclick="openAddPanel()">＋ नई याद जोड़ें</button>
+  </div>
 </header>
 
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main class="container">
+  <div class="intro">
+    <h2>मेरी Memories</h2>
+    <p>यहाँ जो फोटो एक बार जोड़ोगे, वह Supabase Storage में सेव होगी और वेबसाइट खोलने वाले दूसरे मोबाइल पर भी दिखाई देगी।</p>
+  </div>
 
+  <div id="status" class="status">यादें लोड हो रही हैं…</div>
 
-    <!-- TOP -->
+  <div class="memory-count">
+    <div class="count-box"><strong id="memoryNumber">0</strong><span>Memories</span></div>
+    <div class="count-box"><strong>∞</strong><span>यादें</span></div>
+  </div>
 
-    <div class="top-area">
+  <div id="gallery" class="gallery"></div>
 
-        <div class="intro">
-
-            <h2>
-                मेरी Memories
-            </h2>
-
-            <p>
-                जिंदगी के कुछ खूबसूरत पल
-                तस्वीरों में हमेशा के लिए कैद हैं।
-            </p>
-
-        </div>
-
-
-        <!-- ADD MEMORY -->
-
-        <button
-            class="add-memory-btn"
-            onclick="openPassword()">
-
-            ➕ नई याद जोड़ें
-
-        </button>
-
-    </div>
-
-
-    <!-- =================================================
-         COUNTER
-    ================================================= -->
-
-    <div class="memory-count">
-
-        <div class="count-box">
-
-            <strong id="memoryNumber">
-                0
-            </strong>
-
-            <span>
-                Memories
-            </span>
-
-        </div>
-
-        <div class="count-box">
-
-            <strong>
-                ∞
-            </strong>
-
-            <span>
-                यादें
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         LOADING
-    ================================================= -->
-
-    <div
-        class="loading"
-        id="loading">
-
-        <span class="loading-icon">
-            📸
-        </span>
-
-        यादें लोड हो रही हैं...
-
-    </div>
-
-
-    <!-- =================================================
-         GALLERY
-    ================================================= -->
-
-    <div
-        class="gallery"
-        id="gallery">
-
-    </div>
-
-
-    <!-- EMPTY -->
-
-    <div
-        class="empty"
-        id="empty">
-
-        <div class="big">
-            📸
-        </div>
-
-        <h3>
-            अभी कोई नई याद नहीं है
-        </h3>
-
-        <p>
-            ऊपर “नई याद जोड़ें” से पहली याद जोड़ें।
-        </p>
-
-    </div>
-
-
-    <!-- =================================================
-         MESSAGE
-    ================================================= -->
-
-    <div class="memory-message">
-
-        <h3>
-            💭 यादें कभी पुरानी नहीं होतीं
-        </h3>
-
-        <p>
-            समय बीत जाता है, लोग बदल जाते हैं,
-            जगहें बदल जाती हैं...
-            लेकिन कुछ पल हमारे अंदर
-            हमेशा वैसे ही रहते हैं।
-        </p>
-
-        <div class="line">
-
-            “कुछ तस्वीरें सिर्फ तस्वीरें नहीं होतीं...<br>
-
-            उनमें पूरा एक समय छुपा होता है।”
-
-        </div>
-
-    </div>
-
-
+  <div class="memory-message">
+    <h3>💭 यादें कभी पुरानी नहीं होतीं</h3>
+    <p>समय बीत जाता है, लोग बदल जाते हैं, जगहें बदल जाती हैं... लेकिन कुछ पल हमारे अंदर हमेशा वैसे ही रहते हैं।</p>
+    <div class="line">“कुछ तस्वीरें सिर्फ तस्वीरें नहीं होतीं...<br>उनमें पूरा एक समय छुपा होता है।”</div>
+  </div>
 </main>
 
-
-<!-- =====================================================
-     PASSWORD MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="passwordModal">
-
-    <div class="modal-box password-box">
-
-        <div class="password-icon">
-            🔐
-        </div>
-
-        <h2>
-            नई याद जोड़ें
-        </h2>
-
-        <p class="sub">
-            आगे बढ़ने के लिए Password डालें
-        </p>
-
-        <input
-            type="password"
-            id="passwordInput"
-            placeholder="Password डालें"
-            autocomplete="off">
-
-        <div
-            class="password-error"
-            id="passwordError">
-        </div>
-
-        <div class="form-buttons">
-
-            <button
-                class="cancel-btn"
-                onclick="closePassword()">
-
-                Cancel
-
-            </button>
-
-            <button
-                class="upload-btn"
-                onclick="checkPassword()">
-
-                🔓 आगे बढ़ें
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     ADD MEMORY MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="addModal">
-
-    <div class="modal-box">
-
-        <h2>
-            📸 नई याद जोड़ें
-        </h2>
-
-        <p class="sub">
-            फोटो और उसकी छोटी-सी याद लिखें।
-        </p>
-
-
-        <!-- PHOTO -->
-
-        <div class="form-group">
-
-            <label>
-                फोटो चुनें
-            </label>
-
-            <div class="file-box">
-
-                <input
-                    type="file"
-                    id="memoryFile"
-                    accept="image/*">
-
-            </div>
-
-        </div>
-
-
-        <!-- CAPTION -->
-
-        <div class="form-group">
-
-            <label>
-                याद का नाम / Caption
-            </label>
-
-            <input
-                type="text"
-                id="memoryCaption"
-                maxlength="150"
-                placeholder="जैसे — एक खूबसूरत दिन ❤️">
-
-        </div>
-
-
-        <!-- BUTTONS -->
-
-        <div class="form-buttons">
-
-            <button
-                class="cancel-btn"
-                onclick="closeAddModal()">
-
-                Cancel
-
-            </button>
-
-            <button
-                class="upload-btn"
-                id="uploadButton"
-                onclick="uploadMemory()">
-
-                ☁️ याद जोड़ें
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     IMAGE VIEWER
-===================================================== -->
-
-<div
-    class="viewer"
-    id="viewer">
-
-    <button
-        class="close"
-        onclick="closeImage()">
-
-        ×
-
-    </button>
-
-    <img
-        id="viewerImage"
-        src=""
-        alt="Memory">
-
-</div>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
-
-    <p class="footer-title">
-        📖 विचित्र कहानियाँ
-    </p>
-
-    <p>
-        कुछ यादें • कुछ कहानियाँ • कुछ पल
-    </p>
-
-    <p>
-        © 2026 विचित्र कहानियाँ
-    </p>
-
-    <p>
-        लेखक — ABHISHEK YADAV
-    </p>
-
+  <p class="footer-title">📖 विचित्र कहानियाँ</p>
+  <p>कुछ यादें • कुछ कहानियाँ • कुछ पल</p>
+  <p>© 2026 विचित्र कहानियाँ</p>
+  <p>लेखक — ABHISHEK YADAV</p>
 </footer>
 
+<!-- ADD MEMORY PANEL -->
+<div class="panel-backdrop" id="addPanel">
+  <div class="panel" onclick="event.stopPropagation()">
+    <h2>🔐 नई याद जोड़ें</h2>
+    <p class="small">नई फोटो जोड़ने के लिए पासवर्ड डालें।</p>
+
+    <div class="field">
+      <label>पासवर्ड</label>
+      <input id="password" type="password" placeholder="Password">
+    </div>
+
+    <div class="field">
+      <label>फोटो</label>
+      <input id="photoFile" class="file" type="file" accept="image/*">
+    </div>
+
+    <div class="field">
+      <label>याद का नाम (वैकल्पिक)</label>
+      <input id="caption" type="text" placeholder="जैसे — एक खूबसूरत दिन ❤️">
+    </div>
+
+    <div class="progress" id="progress">
+      <div class="progress-bar"><span id="progressBar"></span></div>
+      <div id="uploadMsg">Upload हो रही है…</div>
+    </div>
+
+    <div class="panel-actions">
+      <button class="action cancel" onclick="closeAddPanel()">बंद करें</button>
+      <button class="action upload" id="uploadBtn" onclick="uploadMemory()">फोटो जोड़ें</button>
+    </div>
+  </div>
+</div>
+
+<!-- IMAGE VIEWER -->
+<div class="viewer" id="viewer">
+  <button class="close" onclick="closeImage()">×</button>
+  <img id="viewerImage" src="" alt="Memory">
+</div>
+
+<!-- Supabase browser client -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-
-/* =====================================================
+/* =========================================================
    SUPABASE SETTINGS
-===================================================== */
+   ========================================================= */
 
-const SUPABASE_URL =
-    "https://uhvstqieyyogjidfnhvu.supabase.co";
+const SUPABASE_URL = "https://uhvstqieyyogjidfnhvu.supabase.co";
+const SUPABASE_KEY = "sb_publishable_cEbtfpMaQp1650sZ7W2O5g_-u2NUqQG";
+const BUCKET = "memories";
 
-const SUPABASE_KEY =
-    "sb_publishable_cEbtfpMaQp1650sZ7W2O5g_-u2NUqQG";
+/* Add-memory panel password */
+const ADD_PASSWORD = "ABHI7S";
 
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
-
-
-const BUCKET =
-    "memories";
-
-
-/* =====================================================
-   PASSWORD
-===================================================== */
-
-const ADD_PASSWORD =
-    "ABHI7S";
-
-
-/* =====================================================
-   LOAD MEMORIES
-===================================================== */
+/* =========================================================
+   LOAD ALL MEMORIES FROM SUPABASE
+   ========================================================= */
 
 async function loadMemories(){
+  const gallery = document.getElementById("gallery");
+  const status = document.getElementById("status");
+  const number = document.getElementById("memoryNumber");
 
-    const loading =
-        document.getElementById("loading");
+  status.className = "status";
+  status.textContent = "यादें लोड हो रही हैं…";
 
-    const gallery =
-        document.getElementById("gallery");
+  try{
+    const { data: files, error } = await supabaseClient
+      .storage
+      .from(BUCKET)
+      .list("", {
+        limit: 100,
+        offset: 0,
+        sortBy: { column: "created_at", order: "desc" }
+      });
 
-    const empty =
-        document.getElementById("empty");
+    if(error) throw error;
 
-    try{
+    const images = (files || []).filter(file =>
+      file.name &&
+      /\.(jpg|jpeg|png|webp|gif|bmp|avif)$/i.test(file.name)
+    );
 
-        loading.style.display =
-            "block";
+    gallery.innerHTML = "";
+    number.textContent = images.length;
 
-        gallery.innerHTML =
-            "";
+    if(images.length === 0){
+      gallery.innerHTML = `
+        <div class="empty">
+          <div style="font-size:42px">📸</div>
+          <h3 style="margin:12px 0;color:#182848">अभी कोई नई याद नहीं है</h3>
+          <p>ऊपर <b>＋ नई याद जोड़ें</b> दबाकर पहली फोटो जोड़ो।</p>
+        </div>`;
+      status.className = "status ok";
+      status.textContent = "अभी 0 memories हैं।";
+      return;
+    }
 
-        empty.style.display =
-            "none";
-
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
+    images.forEach((file,index)=>{
+      const { data } = supabaseClient
         .storage
         .from(BUCKET)
-        .list("", {
+        .getPublicUrl(file.name);
 
-            limit:100,
+      const card = document.createElement("div");
+      card.className = "photo-card";
+      card.style.animationDelay = (index * 0.07) + "s";
 
-            offset:0,
+      const img = document.createElement("img");
+      img.src = data.publicUrl;
+      img.alt = "मेरी याद";
+      img.loading = "lazy";
 
-            sort:{
-                column:"created_at",
-                order:"desc"
-            }
+      img.onerror = () => {
+        card.style.display = "none";
+      };
 
-        });
+      card.onclick = () => openImage(data.publicUrl);
 
+      const p = document.createElement("p");
+      p.textContent = cleanCaption(file.name);
 
-        if(error){
+      card.appendChild(img);
+      card.appendChild(p);
+      gallery.appendChild(card);
+    });
 
-            console.error(error);
-
-            throw error;
-
-        }
-
-
-        const files =
-            (data || [])
-            .filter(file => {
-
-                return file.name &&
-                    !file.name.endsWith("/");
-
-            });
-
-
-        loading.style.display =
-            "none";
-
-
-        document
-        .getElementById("memoryNumber")
-        .innerText =
-            files.length;
-
-
-        if(files.length === 0){
-
-            empty.style.display =
-                "block";
-
-            return;
-
-        }
-
-
-        files.forEach(
-            (file,index) => {
-
-                createMemoryCard(
-                    file,
-                    index
-                );
-
-            }
-        );
-
-
-    }catch(error){
-
-        console.error(
-            "Memory loading error:",
-            error
-        );
-
-        loading.innerHTML = `
-
-            <span style="font-size:35px;">
-                ⚠️
-            </span>
-
-            <br>
-
-            यादें लोड नहीं हो सकीं।
-
-            <br><br>
-
-            <small>
-                कृपया Internet connection और
-                Supabase policies check करें।
-            </small>
-
-        `;
-
-    }
-
+    status.className = "status ok";
+    status.textContent = images.length + " यादें दिखाई जा रही हैं।";
+  }catch(error){
+    console.error(error);
+    status.className = "status err";
+    status.textContent = "यादें लोड नहीं हो पाईं: " + (error.message || error);
+    gallery.innerHTML = `
+      <div class="empty">
+        <div style="font-size:40px">⚠️</div>
+        <p>Supabase Storage की policy या bucket setting जाँचो।</p>
+      </div>`;
+  }
 }
 
-
-/* =====================================================
-   CREATE CARD
-===================================================== */
-
-function createMemoryCard(
-    file,
-    index
-){
-
-    const gallery =
-        document.getElementById(
-            "gallery"
-        );
-
-
-    const {
-        data
-    } =
-    supabaseClient
-    .storage
-    .from(BUCKET)
-    .getPublicUrl(
-        file.name
-    );
-
-
-    const imageUrl =
-        data.publicUrl;
-
-
-    /*
-       Filename से caption बनाना।
-       Upload के समय caption filename
-       में save किया गया है।
-    */
-
-    let caption =
-        decodeURIComponent(
-            file.name
-        )
-        .replace(
-            /\.[^/.]+$/,
-            ""
-        );
-
-
-    caption =
-        caption
-        .replace(
-            /^\d+_+/,
-            ""
-        )
-        .replace(
-            /_/g,
-            " "
-        );
-
-
-    const card =
-        document.createElement(
-            "div"
-        );
-
-
-    card.className =
-        "photo-card";
-
-
-    card.style.animationDelay =
-        (index * .08) + "s";
-
-
-    card.innerHTML = `
-
-        <img
-            src="${escapeHtml(imageUrl)}"
-            alt="${escapeHtml(caption)}"
-            loading="lazy">
-
-        <div class="zoom-text">
-            🔍 याद देखें
-        </div>
-
-        <div class="caption">
-            ${escapeHtml(caption)}
-        </div>
-
-    `;
-
-
-    card.addEventListener(
-        "click",
-        function(){
-
-            openImage(imageUrl);
-
-        }
-    );
-
-
-    gallery.appendChild(card);
-
+/* Filename को साफ करके caption जैसा दिखाना */
+function cleanCaption(filename){
+  let name = filename.replace(/\.[^/.]+$/,"");
+  name = name.replace(/^\d+-[a-z0-9]+-/i,"");
+  name = name.replace(/[-_]+/g," ");
+  return name || "एक खूबसूरत याद ❤️";
 }
 
+/* =========================================================
+   ADD PANEL
+   ========================================================= */
 
-/* =====================================================
-   HTML SAFETY
-===================================================== */
-
-function escapeHtml(text){
-
-    return String(text)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
+function openAddPanel(){
+  document.getElementById("addPanel").classList.add("show");
+  document.getElementById("password").focus();
 }
 
-
-/* =====================================================
-   PASSWORD OPEN
-===================================================== */
-
-function openPassword(){
-
-    const modal =
-        document.getElementById(
-            "passwordModal"
-        );
-
-    const input =
-        document.getElementById(
-            "passwordInput"
-        );
-
-    const error =
-        document.getElementById(
-            "passwordError"
-        );
-
-
-    error.innerText =
-        "";
-
-    input.value =
-        "";
-
-    modal.classList.add(
-        "active"
-    );
-
-
-    setTimeout(
-        () => input.focus(),
-        200
-    );
-
+function closeAddPanel(){
+  document.getElementById("addPanel").classList.remove("show");
+  document.getElementById("password").value = "";
+  document.getElementById("photoFile").value = "";
+  document.getElementById("caption").value = "";
+  document.getElementById("progress").classList.remove("show");
+  document.getElementById("progressBar").style.width = "0%";
 }
 
+document.getElementById("addPanel").addEventListener("click",function(e){
+  if(e.target === this) closeAddPanel();
+});
 
-/* =====================================================
-   PASSWORD CLOSE
-===================================================== */
-
-function closePassword(){
-
-    document
-    .getElementById(
-        "passwordModal"
-    )
-    .classList.remove(
-        "active"
-    );
-
-}
-
-
-/* =====================================================
-   CHECK PASSWORD
-===================================================== */
-
-function checkPassword(){
-
-    const input =
-        document.getElementById(
-            "passwordInput"
-        );
-
-    const error =
-        document.getElementById(
-            "passwordError"
-        );
-
-
-    if(
-        input.value ===
-        ADD_PASSWORD
-    ){
-
-        closePassword();
-
-        document
-        .getElementById(
-            "addModal"
-        )
-        .classList.add(
-            "active"
-        );
-
-    }else{
-
-        error.innerText =
-            "❌ Password गलत है।";
-
-
-        input.value =
-            "";
-
-        input.focus();
-
-    }
-
-}
-
-
-/* =====================================================
-   CLOSE ADD MODAL
-===================================================== */
-
-function closeAddModal(){
-
-    document
-    .getElementById(
-        "addModal"
-    )
-    .classList.remove(
-        "active"
-    );
-
-}
-
-
-/* =====================================================
+/* =========================================================
    UPLOAD MEMORY
-===================================================== */
+   ========================================================= */
 
 async function uploadMemory(){
-
-    const fileInput =
-        document.getElementById(
-            "memoryFile"
-        );
-
-    const captionInput =
-        document.getElementById(
-            "memoryCaption"
-        );
-
-    const uploadButton =
-        document.getElementById(
-            "uploadButton"
-        );
-
-
-    const file =
-        fileInput.files[0];
-
-
-    const caption =
-        captionInput.value.trim();
-
-
-    if(!file){
-
-        alert(
-            "पहले फोटो चुनें।"
-        );
-
-        return;
-
-    }
-
-
-    if(!caption){
-
-        alert(
-            "कृपया फोटो की याद / Caption लिखें।"
-        );
-
-        return;
-
-    }
-
-
-    /*
-       केवल image files
-    */
-
-    if(
-        !file.type.startsWith(
-            "image/"
-        )
-    ){
-
-        alert(
-            "कृपया केवल फोटो चुनें।"
-        );
-
-        return;
-
-    }
-
-
-    /*
-       10 MB से बड़ी फोटो रोकना
-    */
-
-    if(
-        file.size >
-        10 * 1024 * 1024
-    ){
-
-        alert(
-            "फोटो 10 MB से छोटी रखें।"
-        );
-
-        return;
-
-    }
-
-
-    try{
-
-        uploadButton.disabled =
-            true;
-
-        uploadButton.innerText =
-            "⏳ Upload हो रही है...";
-
-
-        /*
-           Unique filename
-        */
-
-        const extension =
-            file.name
-            .split(".")
-            .pop()
-            .toLowerCase();
-
-
-        const cleanCaption =
-            caption
-
-            .replace(
-                /[^\u0900-\u097Fa-zA-Z0-9 ]/g,
-                ""
-            )
-
-            .trim()
-
-            .replace(
-                /\s+/g,
-                "_"
-            );
-
-
-        const fileName =
-
-            Date.now() +
-            "_" +
-            cleanCaption +
-            "." +
-            extension;
-
-
-        /*
-           SUPABASE UPLOAD
-        */
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-        .storage
-        .from(BUCKET)
-        .upload(
-            fileName,
-            file,
-            {
-
-                cacheControl:
-                    "3600",
-
-                contentType:
-                    file.type,
-
-                upsert:
-                    false
-
-            }
-        );
-
-
-        if(error){
-
-            console.error(
-                error
-            );
-
-            throw error;
-
-        }
-
-
-        alert(
-            "✅ नई याद सफलतापूर्वक जोड़ दी गई!"
-        );
-
-
-        /*
-           Form clear
-        */
-
-        fileInput.value =
-            "";
-
-        captionInput.value =
-            "";
-
-
-        closeAddModal();
-
-
-        /*
-           Gallery reload
-        */
-
-        await loadMemories();
-
-
-    }catch(error){
-
-        console.error(
-            "Upload error:",
-            error
-        );
-
-
-        alert(
-
-            "❌ फोटो upload नहीं हुई।\n\n" +
-
-            "Supabase Storage policy check करें।\n\n" +
-
-            error.message
-
-        );
-
-    }finally{
-
-        uploadButton.disabled =
-            false;
-
-        uploadButton.innerText =
-            "☁️ याद जोड़ें";
-
-    }
-
+  const password = document.getElementById("password").value;
+  const fileInput = document.getElementById("photoFile");
+  const caption = document.getElementById("caption").value.trim();
+  const btn = document.getElementById("uploadBtn");
+  const progress = document.getElementById("progress");
+  const msg = document.getElementById("uploadMsg");
+  const bar = document.getElementById("progressBar");
+
+  if(password !== ADD_PASSWORD){
+    alert("❌ पासवर्ड गलत है।");
+    return;
+  }
+
+  const file = fileInput.files[0];
+
+  if(!file){
+    alert("पहले फोटो चुनो।");
+    return;
+  }
+
+  if(!file.type.startsWith("image/")){
+    alert("सिर्फ image file चुनो।");
+    return;
+  }
+
+  /* Unique filename so two uploads don't overwrite each other */
+  const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
+  const safeCaption = (caption || file.name.replace(/\.[^/.]+$/,""))
+    .replace(/[^a-zA-Z0-9\u0900-\u097F]+/g,"-")
+    .replace(/^-+|-+$/g,"")
+    .slice(0,70) || "memory";
+
+  const uniqueName =
+    Date.now() + "-" +
+    Math.random().toString(36).slice(2,8) + "-" +
+    safeCaption + "." + ext;
+
+  btn.disabled = true;
+  progress.classList.add("show");
+  bar.style.width = "25%";
+  msg.textContent = "फोटो Supabase में सेव हो रही है…";
+
+  try{
+    const { error } = await supabaseClient
+      .storage
+      .from(BUCKET)
+      .upload(uniqueName, file, {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: file.type
+      });
+
+    if(error) throw error;
+
+    bar.style.width = "100%";
+    msg.textContent = "✅ फोटो सेव हो गई!";
+
+    await loadMemories();
+
+    setTimeout(()=>{
+      closeAddPanel();
+      alert("✅ याद सफलतापूर्वक जोड़ दी गई। अब दूसरे मोबाइल में भी दिखेगी।");
+    },500);
+
+  }catch(error){
+    console.error(error);
+    msg.textContent = "❌ Upload failed: " + (error.message || error);
+    alert(
+      "फोटो upload नहीं हुई।\n\n" +
+      (error.message || error) +
+      "\n\nStorage > memories की INSERT policy जाँचो।"
+    );
+  }finally{
+    btn.disabled = false;
+  }
 }
 
-
-/* =====================================================
+/* =========================================================
    IMAGE VIEWER
-===================================================== */
+   ========================================================= */
 
 function openImage(url){
-
-    const viewer =
-        document.getElementById(
-            "viewer"
-        );
-
-    const image =
-        document.getElementById(
-            "viewerImage"
-        );
-
-
-    image.src =
-        url;
-
-
-    viewer.classList.add(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
-
+  document.getElementById("viewerImage").src = url;
+  document.getElementById("viewer").classList.add("active");
+  document.body.style.overflow = "hidden";
 }
-
-
-/* =====================================================
-   CLOSE IMAGE
-===================================================== */
 
 function closeImage(){
-
-    const viewer =
-        document.getElementById(
-            "viewer"
-        );
-
-
-    viewer.classList.remove(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "auto";
-
+  document.getElementById("viewer").classList.remove("active");
+  document.getElementById("viewerImage").src = "";
+  document.body.style.overflow = "auto";
 }
 
+document.getElementById("viewer").addEventListener("click",function(e){
+  if(e.target === this) closeImage();
+});
 
-/* =====================================================
-   CLICK OUTSIDE
-===================================================== */
+document.addEventListener("keydown",function(e){
+  if(e.key === "Escape"){
+    closeImage();
+    closeAddPanel();
+  }
+});
 
-document
-.getElementById("viewer")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closeImage();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   ESC KEY
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key ===
-            "Escape"
-        ){
-
-            closeImage();
-
-            closePassword();
-
-            closeAddModal();
-
-        }
-
-
-        if(
-            event.key ===
-            "Enter"
-        ){
-
-            const passwordModal =
-                document.getElementById(
-                    "passwordModal"
-                );
-
-
-            if(
-                passwordModal
-                .classList
-                .contains("active")
-            ){
-
-                checkPassword();
-
-            }
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   MODAL OUTSIDE CLICK
-===================================================== */
-
-document
-.getElementById(
-    "passwordModal"
-)
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closePassword();
-
-        }
-
-    }
-);
-
-
-document
-.getElementById(
-    "addModal"
-)
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closeAddModal();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   LOAD ON PAGE START
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        loadMemories();
-
-    }
-);
-
+/* =========================================================
+   START
+   ========================================================= */
+loadMemories();
 </script>
 
-
 </body>
-
 </html>
