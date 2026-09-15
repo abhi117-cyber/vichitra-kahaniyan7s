@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>विचित्र कहानियाँ | Abhishek Yadav</title>
+
+<meta name="description"
+content="विचित्र कहानियाँ — शब्दों में छुपी यादों और कहानियों की दुनिया।">
+
+<meta name="keywords"
+content="विचित्र कहानियाँ, हिंदी कहानियाँ, Abhishek Yadav">
 
 <link rel="icon"
 href="https://abhi117-cyber.github.io/vichitra-kahaniyan7s/favicon.jpg?v=3">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Yatra+One&display=swap"
+rel="stylesheet">
 
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+/* =========================================================
+   BASIC RESET
+========================================================= */
 
 *{
     margin:0;
@@ -33,11 +47,19 @@ html{
 }
 
 body{
-    font-family:"Noto Serif Devanagari",serif;
+    font-family:
+        "Noto Serif Devanagari",
+        serif;
+
     background:#f4f7fb;
+
     color:#182848;
+
     overflow-x:hidden;
-    transition:.4s ease;
+
+    transition:
+        background .5s ease,
+        color .5s ease;
 }
 
 button,
@@ -46,110 +68,175 @@ textarea{
     font-family:inherit;
 }
 
+a{
+    -webkit-tap-highlight-color:transparent;
+}
 
-/* =====================================================
-   LOADING SCREEN
-===================================================== */
 
-.loader{
+/* =========================================================
+   PAGE LOADER
+========================================================= */
+
+#loader{
+
     position:fixed;
+
     inset:0;
+
     z-index:99999;
 
     display:flex;
-    flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
 
+    flex-direction:column;
+
     background:
-        radial-gradient(circle at center,#203b68,#071225 70%);
+        radial-gradient(
+            circle at center,
+            #254c7c,
+            #071225 72%
+        );
 
     color:white;
 
-    transition:.7s ease;
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
 }
 
-.loader.hide{
+#loader.hide{
+
     opacity:0;
+
     visibility:hidden;
 }
 
 .loader-book{
-    font-size:65px;
-    animation:bookFloat 1.5s ease-in-out infinite;
+
+    font-size:70px;
+
+    animation:
+        bookFloat 1.5s ease-in-out infinite;
 }
 
-.loader h2{
+#loader h2{
+
     margin-top:15px;
-    font-family:"Yatra One",cursive;
+
+    font-family:
+        "Yatra One",
+        cursive;
+
     font-size:28px;
+
+    letter-spacing:1px;
 }
 
-.loader-bar{
-    width:180px;
+.loader-line{
+
+    width:190px;
+
     height:4px;
+
     margin-top:22px;
+
     overflow:hidden;
+
     border-radius:20px;
-    background:rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.12);
 }
 
-.loader-bar span{
+.loader-line span{
+
     display:block;
-    width:50%;
+
+    width:45%;
+
     height:100%;
+
     border-radius:20px;
+
     background:#7dd3fc;
-    animation:loaderMove 1.2s infinite;
+
+    animation:
+        loading 1.2s linear infinite;
 }
 
-@keyframes loaderMove{
-    from{transform:translateX(-120%);}
-    to{transform:translateX(300%);}
+@keyframes loading{
+
+    from{
+        transform:translateX(-150%);
+    }
+
+    to{
+        transform:translateX(350%);
+    }
 }
 
 @keyframes bookFloat{
+
     0%,100%{
-        transform:translateY(0) rotate(-5deg);
+        transform:
+            translateY(0)
+            rotate(-5deg);
     }
 
     50%{
-        transform:translateY(-12px) rotate(5deg);
+        transform:
+            translateY(-13px)
+            rotate(5deg);
     }
 }
 
 
-/* =====================================================
-   PARTICLES
-===================================================== */
+/* =========================================================
+   BACKGROUND PARTICLES
+========================================================= */
 
-.particles{
+#particles{
+
     position:fixed;
+
     inset:0;
-    pointer-events:none;
+
     overflow:hidden;
+
+    pointer-events:none;
+
     z-index:-1;
 }
 
 .particle{
+
     position:absolute;
+
     bottom:-50px;
-    color:#496cff;
+
+    color:#5274ff;
+
     opacity:.12;
 
     animation:
-        particleUp linear infinite;
+        particleMove linear infinite;
 }
 
-@keyframes particleUp{
+@keyframes particleMove{
 
     0%{
-        transform:translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0deg);
+
         opacity:0;
     }
 
     15%{
-        opacity:.18;
+        opacity:.16;
     }
 
     100%{
@@ -159,19 +246,19 @@ textarea{
 
         opacity:0;
     }
-
 }
 
 
-/* =====================================================
-   NAVBAR
-===================================================== */
+/* =========================================================
+   PREMIUM NAVBAR
+========================================================= */
 
 .navbar{
 
     position:fixed;
 
     top:0;
+
     left:0;
 
     width:100%;
@@ -179,19 +266,30 @@ textarea{
     z-index:5000;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    padding:14px 5%;
+    padding:
+        13px 5%;
 
     background:
-        rgba(7,18,37,.72);
+        rgba(7,18,37,.70);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 
     border-bottom:
-        1px solid rgba(255,255,255,.08);
+        1px solid
+        rgba(255,255,255,.08);
 
+    box-shadow:
+        0 8px 35px
+        rgba(0,0,0,.08);
 }
 
 .logo{
@@ -200,23 +298,32 @@ textarea{
 
     text-decoration:none;
 
-    font-family:"Yatra One",cursive;
+    font-family:
+        "Yatra One",
+        cursive;
 
-    font-size:23px;
+    font-size:22px;
 
+    transition:.3s;
 }
 
-.nav-actions{
+.logo:hover{
+
+    transform:
+        scale(1.04);
+}
+
+.nav-tools{
 
     display:flex;
 
     gap:8px;
-
 }
 
-.nav-button{
+.nav-btn{
 
     width:43px;
+
     height:43px;
 
     border:none;
@@ -225,42 +332,50 @@ textarea{
 
     cursor:pointer;
 
-    background:
-        rgba(255,255,255,.1);
-
     color:white;
 
-    font-size:19px;
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
 
     transition:.35s;
 
+    font-size:18px;
 }
 
-.nav-button:hover{
+.nav-btn:hover{
 
     background:white;
 
-    color:#17233d;
+    color:#182848;
 
     transform:
         translateY(-3px)
         rotate(8deg);
 
+    box-shadow:
+        0 10px 25px
+        rgba(255,255,255,.15);
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
 
-    min-height:94vh;
-
     position:relative;
 
+    min-height:96vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -276,24 +391,23 @@ textarea{
     background:
 
         radial-gradient(
-            circle at 15% 20%,
-            rgba(125,211,252,.18),
-            transparent 30%
+            circle at 12% 18%,
+            rgba(125,211,252,.17),
+            transparent 28%
         ),
 
         radial-gradient(
-            circle at 85% 75%,
-            rgba(99,102,241,.22),
+            circle at 90% 78%,
+            rgba(99,102,241,.20),
             transparent 30%
         ),
 
         linear-gradient(
             135deg,
-            #071225,
-            #18345d,
-            #08152b
+            #061124,
+            #18375f,
+            #08152c
         );
-
 }
 
 .hero::before{
@@ -303,17 +417,17 @@ textarea{
     position:absolute;
 
     width:550px;
+
     height:550px;
 
     border:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.09);
 
     border-radius:50%;
 
     animation:
-        circleRotate 25s linear infinite;
-
+        rotateCircle 24s linear infinite;
 }
 
 .hero::after{
@@ -322,30 +436,29 @@ textarea{
 
     position:absolute;
 
-    width:850px;
-    height:850px;
+    width:820px;
+
+    height:820px;
 
     border:
         1px solid
-        rgba(255,255,255,.05);
+        rgba(255,255,255,.045);
 
     border-radius:50%;
 
     animation:
-        circleRotate 35s linear infinite reverse;
-
+        rotateCircle 34s linear infinite reverse;
 }
 
-@keyframes circleRotate{
+@keyframes rotateCircle{
 
     from{
-        transform:rotate(0deg);
+        transform:rotate(0);
     }
 
     to{
         transform:rotate(360deg);
     }
-
 }
 
 .hero-content{
@@ -356,9 +469,28 @@ textarea{
 
     max-width:900px;
 
+    animation:
+        heroIn 1s ease;
 }
 
-.badge{
+@keyframes heroIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(35px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.hero-badge{
 
     display:inline-flex;
 
@@ -378,57 +510,67 @@ textarea{
         1px solid
         rgba(255,255,255,.18);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:
+        blur(12px);
 
-    animation:
-        fadeDown 1s ease;
-
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.12);
 }
 
 .hero h1{
 
     margin-top:22px;
 
-    font-family:"Yatra One",cursive;
+    font-family:
+        "Yatra One",
+        cursive;
 
     font-size:
-        clamp(48px,9vw,92px);
+        clamp(48px,9vw,94px);
 
     line-height:1.15;
 
     background:
-
         linear-gradient(
             90deg,
-            #fff,
-            #9de6ff,
-            #fff
+            #ffffff,
+            #7dd3fc,
+            #ffffff
         );
 
-    background-size:200% auto;
+    background-size:
+        200% auto;
 
     color:transparent;
 
-    background-clip:text;
     -webkit-background-clip:text;
 
-    animation:
-        titleAppear 1s ease,
-        textShine 5s linear infinite;
+    background-clip:text;
 
+    animation:
+        shine 5s linear infinite;
+}
+
+@keyframes shine{
+
+    to{
+        background-position:
+            200% center;
+    }
 }
 
 .hero h1 span{
 
     color:#7dd3fc;
-
 }
 
 .hero p{
 
-    max-width:720px;
+    max-width:730px;
 
-    margin:20px auto;
+    margin:
+        20px auto;
 
     color:
         rgba(255,255,255,.82);
@@ -436,13 +578,9 @@ textarea{
     font-size:18px;
 
     line-height:1.9;
-
-    animation:
-        fadeUp 1.5s ease;
-
 }
 
-.hero-buttons{
+.hero-actions{
 
     display:flex;
 
@@ -453,13 +591,9 @@ textarea{
     gap:13px;
 
     margin-top:30px;
-
-    animation:
-        fadeUp 1.8s ease;
-
 }
 
-.hero-button{
+.hero-btn{
 
     display:inline-flex;
 
@@ -479,30 +613,27 @@ textarea{
     font-weight:800;
 
     transition:.35s;
-
 }
 
-.primary{
-
-    color:#17233d;
+.hero-btn.primary{
 
     background:white;
 
-    box-shadow:
-        0 12px 35px
-        rgba(0,0,0,.2);
+    color:#182848;
 
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.20);
 }
 
-.primary:hover{
+.hero-btn.primary:hover{
 
     transform:
         translateY(-5px)
         scale(1.03);
-
 }
 
-.secondary{
+.hero-btn.secondary{
 
     color:white;
 
@@ -511,22 +642,20 @@ textarea{
 
     border:
         1px solid
-        rgba(255,255,255,.25);
-
+        rgba(255,255,255,.22);
 }
 
-.secondary:hover{
+.hero-btn.secondary:hover{
+
+    color:#182848;
 
     background:white;
 
-    color:#17233d;
-
     transform:
         translateY(-5px);
-
 }
 
-.scroll-down{
+.scroll-indicator{
 
     position:absolute;
 
@@ -534,92 +663,16 @@ textarea{
 
     left:50%;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     font-size:28px;
 
     animation:
-        scrollBounce 1.5s infinite;
-
+        scrollDown 1.5s infinite;
 }
 
-@keyframes titleAppear{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(35px)
-            scale(.95);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
-}
-
-@keyframes fadeDown{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(-20px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-
-    }
-
-}
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(25px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-
-    }
-
-}
-
-@keyframes textShine{
-
-    to{
-        background-position:200% center;
-    }
-
-}
-
-@keyframes scrollBounce{
+@keyframes scrollDown{
 
     0%,100%{
         transform:
@@ -630,50 +683,53 @@ textarea{
         transform:
             translate(-50%,10px);
     }
-
 }
 
 
-/* =====================================================
-   SECTION
-===================================================== */
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-.section{
+.container{
 
     width:92%;
 
     max-width:1180px;
 
     margin:auto;
-
-    padding:90px 0;
-
 }
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
 .section-title{
 
     text-align:center;
 
-    margin-bottom:45px;
-
+    margin-bottom:42px;
 }
 
 .section-title small{
 
     color:#64748b;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 
+    font-size:12px;
+
+    font-weight:800;
 }
 
 .section-title h2{
 
     margin-top:8px;
 
-    font-size:40px;
+    font-size:
+        clamp(30px,5vw,43px);
 
     color:#182848;
-
 }
 
 .section-title h2::after{
@@ -686,17 +742,17 @@ textarea{
 
     height:4px;
 
-    margin:15px auto;
+    margin:
+        14px auto;
 
-    border-radius:20px;
+    border-radius:50px;
 
     background:
         linear-gradient(
             90deg,
             #182848,
-            #526dff
+            #627cff
         );
-
 }
 
 .section-title p{
@@ -704,23 +760,139 @@ textarea{
     color:#64748b;
 
     font-size:17px;
-
 }
 
 
-/* =====================================================
-   SEARCH
-===================================================== */
+/* =========================================================
+   INTRO
+========================================================= */
 
-.search-box{
+.intro-section{
 
-    max-width:700px;
+    padding:
+        90px 0
+        35px;
+}
 
-    margin:
-        0 auto 45px;
+.intro-card{
 
     position:relative;
 
+    overflow:hidden;
+
+    max-width:760px;
+
+    margin:auto;
+
+    padding:
+        38px 30px;
+
+    text-align:center;
+
+    background:
+        rgba(255,255,255,.82);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    border-radius:28px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(15,23,42,.08);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.intro-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    top:-100px;
+
+    left:-70px;
+
+    border-radius:50%;
+
+    background:
+        rgba(82,116,255,.09);
+}
+
+.intro-card h1{
+
+    color:#182848;
+
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+.intro-card h2{
+
+    color:#304878;
+
+    font-size:25px;
+
+    margin:
+        18px 0 12px;
+}
+
+.intro-card p{
+
+    color:#555;
+
+    font-size:17px;
+
+    line-height:1.9;
+}
+
+.quote{
+
+    margin-top:22px;
+
+    color:#304878 !important;
+
+    font-style:italic;
+
+    font-weight:600;
+}
+
+.thanks{
+
+    margin-top:18px;
+
+    color:#182848 !important;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-area{
+
+    padding:
+        35px 0
+        15px;
+}
+
+.search-box{
+
+    position:relative;
+
+    max-width:700px;
+
+    margin:auto;
 }
 
 .search-box input{
@@ -744,11 +916,10 @@ textarea{
     font-size:16px;
 
     box-shadow:
-        0 10px 35px
+        0 12px 40px
         rgba(15,23,42,.08);
 
     transition:.3s;
-
 }
 
 .search-box input:focus{
@@ -757,9 +928,8 @@ textarea{
         translateY(-2px);
 
     box-shadow:
-        0 14px 40px
-        rgba(76,111,255,.18);
-
+        0 18px 45px
+        rgba(82,116,255,.16);
 }
 
 .search-icon{
@@ -773,48 +943,55 @@ textarea{
     transform:
         translateY(-50%);
 
+    font-size:20px;
 }
 
 
-/* =====================================================
-   STORY GRID
-===================================================== */
+/* =========================================================
+   STORIES
+========================================================= */
 
-.story-grid{
+.stories-section{
+
+    padding:
+        55px 0
+        90px;
+}
+
+.stories{
 
     display:grid;
 
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(280px,1fr)
+            minmax(275px,1fr)
         );
 
     gap:25px;
-
 }
 
-.story-card{
+.card{
 
     position:relative;
 
     overflow:hidden;
 
-    min-height:325px;
+    min-height:315px;
 
-    padding:28px;
+    padding:27px;
 
     border-radius:25px;
 
     background:
-        rgba(255,255,255,.95);
+        rgba(255,255,255,.92);
 
     border:
         1px solid
         rgba(15,23,42,.06);
 
     box-shadow:
-        0 12px 35px
+        0 12px 38px
         rgba(15,23,42,.07);
 
     opacity:0;
@@ -823,80 +1000,93 @@ textarea{
         translateY(40px);
 
     transition:
-        .45s ease;
-
+        transform .45s ease,
+        box-shadow .45s ease,
+        border .45s ease;
 }
 
-.story-card.visible{
+.card.show{
 
     opacity:1;
 
     transform:
         translateY(0);
-
 }
 
-.story-card:hover{
+.card:hover{
 
     transform:
         translateY(-10px);
 
-    box-shadow:
-        0 25px 60px
-        rgba(15,23,42,.15);
+    border-color:
+        rgba(82,116,255,.25);
 
+    box-shadow:
+        0 25px 65px
+        rgba(15,23,42,.15);
 }
 
-.story-card::before{
+.card::before{
 
     content:"";
 
     position:absolute;
 
-    width:180px;
-    height:180px;
+    width:190px;
 
-    top:-80px;
-    right:-70px;
+    height:190px;
+
+    top:-90px;
+
+    right:-80px;
 
     border-radius:50%;
 
     background:
-        rgba(76,111,255,.09);
+        rgba(82,116,255,.08);
 
     transition:.5s;
-
 }
 
-.story-card:hover::before{
+.card:hover::before{
 
-    transform:scale(1.5);
-
+    transform:
+        scale(1.5);
 }
 
-.story-number{
+.card-number{
 
-    width:45px;
-    height:45px;
+    position:relative;
+
+    z-index:2;
+
+    width:48px;
+
+    height:48px;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
-    border-radius:14px;
+    border-radius:15px;
 
-    background:#edf2ff;
+    background:
+        linear-gradient(
+            135deg,
+            #edf2ff,
+            #e0e7ff
+        );
 
-    color:#3452c6;
+    color:#304fc1;
 
     font-weight:800;
 
     margin-bottom:20px;
-
 }
 
-.story-card h3{
+.card h3{
 
     position:relative;
 
@@ -907,10 +1097,9 @@ textarea{
     font-size:24px;
 
     margin-bottom:12px;
-
 }
 
-.story-card p{
+.card p{
 
     position:relative;
 
@@ -918,10 +1107,9 @@ textarea{
 
     color:#64748b;
 
-    line-height:1.85;
-
     font-size:15px;
 
+    line-height:1.85;
 }
 
 .story-date{
@@ -932,21 +1120,20 @@ textarea{
 
     z-index:2;
 
-    margin-top:15px;
+    margin-top:16px;
 
     color:#94a3b8;
 
     font-size:13px;
-
 }
 
-.story-link{
-
-    display:inline-flex;
+.read{
 
     position:relative;
 
     z-index:2;
+
+    display:inline-flex;
 
     align-items:center;
 
@@ -954,59 +1141,59 @@ textarea{
 
     margin-top:20px;
 
-    color:#3452c6;
+    color:#304fc1 !important;
 
     text-decoration:none;
 
     font-weight:800;
 
     transition:.3s;
-
 }
 
-.story-link:hover{
+.read:hover{
 
     gap:14px;
-
 }
 
-.like-button{
+.like-btn{
 
     position:absolute;
 
     right:20px;
+
     bottom:20px;
 
+    z-index:5;
+
     width:43px;
+
     height:43px;
 
     border:none;
 
     border-radius:50%;
 
-    background:#f1f5f9;
-
     cursor:pointer;
+
+    background:#f1f5f9;
 
     font-size:18px;
 
     transition:.3s;
-
 }
 
-.like-button:hover{
+.like-btn:hover{
 
-    transform:scale(1.12);
-
+    transform:
+        scale(1.12);
 }
 
-.like-button.liked{
+.like-btn.liked{
 
     background:#ffe4e6;
 
     animation:
         heartPop .35s ease;
-
 }
 
 @keyframes heartPop{
@@ -1014,9 +1201,2619 @@ textarea{
     50%{
         transform:scale(1.3);
     }
+}
+
+
+/* =========================================================
+   ADD STORY BUTTON
+========================================================= */
+
+.add-story-area{
+
+    text-align:center;
+
+    margin-top:48px;
+}
+
+.add-story-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:
+        14px 25px;
+
+    border-radius:50px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #182848,
+            #4c64d8
+        );
+
+    font-weight:800;
+
+    box-shadow:
+        0 15px 40px
+        rgba(48,79,193,.22);
+
+    transition:.35s;
+}
+
+.add-story-btn:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 50px
+        rgba(48,79,193,.30);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section{
+
+    padding:
+        15px 0
+        90px;
+}
+
+.about{
+
+    position:relative;
+
+    overflow:hidden;
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:
+        48px 30px;
+
+    text-align:center;
+
+    color:white;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071225,
+            #1b3b67
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(15,23,42,.20);
+}
+
+.about::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    left:-170px;
+
+    top:-170px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:50%;
+
+    animation:
+        rotateCircle 18s linear infinite;
+}
+
+.about-icon{
+
+    width:85px;
+
+    height:85px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    font-size:40px;
+}
+
+.about h2{
+
+    margin-top:20px;
+
+    font-size:31px;
+}
+
+.about h3{
+
+    margin-top:5px;
+
+    color:#7dd3fc;
+}
+
+.about p{
+
+    max-width:680px;
+
+    margin:
+        18px auto 0;
+
+    color:
+        rgba(255,255,255,.75);
+
+    line-height:1.9;
+
+    font-size:16px;
+}
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:27px;
+}
+
+.social{
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:
+        11px 18px;
+
+    border-radius:50px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    transition:.3s;
+}
+
+.social:hover{
+
+    color:#182848;
+
+    background:white;
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =========================================================
+   SHARE
+========================================================= */
+
+.share-section{
+
+    text-align:center;
+
+    padding:
+        20px 20px
+        80px;
+}
+
+.share-section h2{
+
+    font-size:30px;
+
+    color:#182848;
+}
+
+.share-section p{
+
+    margin:
+        10px 0
+        23px;
+
+    color:#64748b;
+}
+
+.share-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:
+        14px 26px;
+
+    border-radius:50px;
+
+    background:#182848;
+
+    color:white;
+
+    font-weight:800;
+
+    transition:.35s;
+}
+
+.share-btn:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(24,40,72,.22);
+}
+
+
+/* =========================================================
+   VISITOR
+========================================================= */
+
+.visitor-counter{
+
+    width:max-content;
+
+    max-width:90%;
+
+    margin:
+        0 auto
+        55px;
+
+    padding:
+        13px 23px;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#182848;
+
+    font-weight:800;
+
+    box-shadow:
+        0 10px 30px
+        rgba(15,23,42,.08);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    color:white;
+
+    padding:
+        45px 20px;
+
+    background:#071225;
+}
+
+.footer-logo{
+
+    font-family:
+        "Yatra One",
+        cursive;
+
+    font-size:27px;
+}
+
+.footer-line{
+
+    width:80px;
+
+    height:3px;
+
+    margin:
+        17px auto;
+
+    border-radius:50px;
+
+    background:#7dd3fc;
+}
+
+footer p{
+
+    margin-top:8px;
+
+    color:
+        rgba(255,255,255,.62);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(2,8,23,.78);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.modal.active{
+
+    display:flex;
+
+    animation:
+        modalFade .3s ease;
+}
+
+.modal-box{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:510px;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    background:white;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.35);
+
+    animation:
+        modalUp .4s ease;
+}
+
+.modal-box h2{
+
+    color:#182848;
+
+    margin-bottom:8px;
+}
+
+.modal-box p{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:14px;
+
+    right:14px;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f1f5f9;
+
+    color:#182848;
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.close-modal:hover{
+
+    transform:
+        rotate(90deg);
+}
+
+.modal-box input,
+.modal-box textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:13px;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius:14px;
+
+    outline:none;
+
+    color:#182848;
+
+    background:white;
+
+    font-size:15px;
+}
+
+.modal-box textarea{
+
+    min-height:120px;
+
+    resize:vertical;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus{
+
+    border-color:#5274ff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(82,116,255,.08);
+}
+
+.unlock-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:#182848;
+
+    color:white;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.unlock-btn:hover{
+
+    background:#304fc1;
+
+    transform:
+        translateY(-2px);
+}
+
+.error{
+
+    display:none;
+
+    color:#dc2626 !important;
+
+    margin:
+        0 0 12px !important;
+}
+
+@keyframes modalFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes modalUp{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.95);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+#toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    z-index:20000;
+
+    padding:
+        13px 20px;
+
+    border-radius:50px;
+
+    background:#182848;
+
+    color:white;
+
+    opacity:0;
+
+    transform:
+        translate(-50%,100px);
+
+    transition:.4s;
+}
+
+#toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark{
+
+    background:#050c18;
+
+    color:#e5edf9;
+}
+
+body.dark .section-title h2,
+body.dark .share-section h2{
+
+    color:#f8fafc;
+}
+
+body.dark .section-title p,
+body.dark .section-title small,
+body.dark .share-section p{
+
+    color:#94a3b8;
+}
+
+body.dark .intro-card{
+
+    background:
+        rgba(16,29,52,.92);
+
+    border-color:
+        rgba(255,255,255,.05);
+}
+
+body.dark .intro-card h1,
+body.dark .intro-card h2{
+
+    color:#f8fafc;
+}
+
+body.dark .intro-card p{
+
+    color:#aebbd0;
+}
+
+body.dark .quote{
+
+    color:#7dd3fc !important;
+}
+
+body.dark .thanks{
+
+    color:#f8fafc !important;
+}
+
+body.dark .search-box input{
+
+    background:#101d34;
+
+    color:white;
+}
+
+body.dark .card{
+
+    background:
+        rgba(16,29,52,.96);
+
+    border-color:
+        rgba(255,255,255,.06);
+}
+
+body.dark .card h3{
+
+    color:#f8fafc !important;
+}
+
+body.dark .card p{
+
+    color:#94a3b8;
+}
+
+body.dark .story-date{
+
+    color:#64748b;
+}
+
+body.dark .like-btn{
+
+    background:#17263f;
+
+    color:white;
+}
+
+body.dark .visitor-counter{
+
+    background:#101d34;
+
+    color:white;
+}
+
+body.dark .modal-box{
+
+    background:#101d34;
+}
+
+body.dark .modal-box h2{
+
+    color:white;
+}
+
+body.dark .modal-box p{
+
+    color:#94a3b8;
+}
+
+body.dark .modal-box input,
+body.dark .modal-box textarea{
+
+    background:#071225;
+
+    color:white;
+
+    border-color:#243550;
+}
+
+body.dark .close-modal{
+
+    background:#17263f;
+
+    color:white;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .navbar{
+
+        padding:
+            11px 14px;
+    }
+
+    .logo{
+
+        font-size:18px;
+    }
+
+    .nav-btn{
+
+        width:39px;
+
+        height:39px;
+    }
+
+    .hero{
+
+        min-height:91vh;
+
+        padding:
+            110px 15px
+            70px;
+    }
+
+    .hero h1{
+
+        font-size:48px;
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+        line-height:1.8;
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .hero-btn{
+
+        width:90%;
+    }
+
+    .intro-section,
+    .stories-section,
+    .about-section{
+
+        padding:
+            65px 0;
+    }
+
+    .container{
+
+        width:94%;
+    }
+
+    .section-title h2{
+
+        font-size:30px;
+    }
+
+    .stories{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+    }
+
+    .card{
+
+        min-height:300px;
+
+        padding:23px;
+    }
+
+    .about{
+
+        padding:
+            42px 19px;
+
+        border-radius:25px;
+    }
+
+    .about h2{
+
+        font-size:27px;
+    }
+
+    .share-section{
+
+        padding-bottom:65px;
+    }
 
 }
 
 
-/* =====================================================
-   ADD STO
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media(max-width:390px){
+
+    .logo{
+
+        font-size:16px;
+    }
+
+    .hero h1{
+
+        font-size:41px;
+    }
+
+    .hero-badge{
+
+        font-size:12px;
+    }
+
+    .card h3{
+
+        font-size:22px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div id="loader">
+
+    <div class="loader-book">
+        📖
+    </div>
+
+    <h2>
+        विचित्र कहानियाँ
+    </h2>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
+
+<div id="particles"></div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <a
+        href="#home"
+        class="logo">
+
+        📖 विचित्र कहानियाँ
+
+    </a>
+
+    <div class="nav-tools">
+
+        <button
+            class="nav-btn"
+            onclick="openPassword()"
+            title="नई कहानी जोड़ें">
+
+            ➕
+
+        </button>
+
+        <button
+            class="nav-btn"
+            id="darkBtn"
+            onclick="toggleDark()"
+            title="Dark Mode">
+
+            🌙
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header
+    class="hero"
+    id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+
+            ✨ शब्दों में छुपी एक अलग दुनिया
+
+        </div>
+
+        <h1>
+
+            विचित्र
+            <span>कहानियाँ</span>
+
+        </h1>
+
+        <p>
+
+            कुछ कहानियाँ सिर्फ पढ़ी नहीं जातीं...
+            उन्हें महसूस किया जाता है। ❤️
+
+            <br>
+
+            यहाँ हर कहानी अपने अंदर
+            एक अलग एहसास और एक अलग दुनिया
+            छुपाए हुए है।
+
+        </p>
+
+        <div class="hero-actions">
+
+            <a
+                href="#stories"
+                class="hero-btn primary">
+
+                📚 कहानियाँ पढ़ें
+
+            </a>
+
+            <a
+                href="yaadein.html"
+                class="hero-btn secondary">
+
+                📸 कुछ यादें
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-indicator">
+        ↓
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section
+    class="intro-section"
+    id="intro">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <small>
+                WELCOME
+            </small>
+
+            <h2>
+                मेरी कहानी की दुनिया
+            </h2>
+
+            <p>
+                शब्दों में छुपी यादों और भावनाओं का सफर।
+            </p>
+
+        </div>
+
+
+        <div class="intro-card">
+
+            <h1>
+                “विचित्र कहानी”
+            </h1>
+
+            <p>
+                <b>
+                    By — ABHISHEK YADAV
+                </b>
+            </p>
+
+            <p>
+                <b>
+                    17/08/2026
+                </b>
+            </p>
+
+            <h2>
+                विचित्र कहानी
+            </h2>
+
+            <p>
+                “विचित्र कहानी” ये केवल एक कहानी नहीं है।
+                ये मेरी वो यादें हैं जिन्हें मैं कभी नहीं
+                भूलना चाहता।
+            </p>
+
+            <p>
+                इस कहानी में मेरी वो बातें,
+                वो यादें और वो पल हैं जो मेरी जिंदगी
+                के सबसे खास दिन थे।
+            </p>
+
+            <p>
+                उन दिनों को मैं याद करता रहूँ,
+                इसलिए इन बातों को एक कहानी की तरह
+                लिख रहा हूँ।
+            </p>
+
+            <p>
+                <b>
+                    — ABHISHEK YADAV
+                </b>
+            </p>
+
+            <p class="quote">
+                “मैं तो केवल इन कहानियों को लिख रहा हूँ,
+                लेकिन इन कहानियों को लिखवाने वाला कोई और है।”
+            </p>
+
+            <p class="thanks">
+                Thank you....
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STORIES
+===================================================== -->
+
+<section
+    class="stories-section"
+    id="stories">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <small>
+                MY STORIES
+            </small>
+
+            <h2>
+                📚 मेरी कहानियाँ
+            </h2>
+
+            <p>
+                हर कहानी एक अलग एहसास लेकर आती है।
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-area">
+
+            <div class="search-box">
+
+                <input
+                    type="search"
+                    id="storySearch"
+                    placeholder="🔍 कहानी खोजें..."
+                    oninput="searchStories()">
+
+                <span class="search-icon">
+                    🔎
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- STORY GRID -->
+
+        <div
+            class="stories"
+            id="storyGrid">
+
+
+            <!-- STORY 1 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    विचित्र कहानी
+                </h3>
+
+                <p>
+                    एक ऐसी कहानी जिसमें यादें,
+                    भावनाएँ और कुछ अनकही बातें
+                    शब्दों का रूप लेती हैं।
+                </p>
+
+                <span class="story-date">
+                    📅 17/08/2026
+                </span>
+
+                <a
+                    class="read"
+                    href="kahani1.html">
+
+                    पूरी कहानी पढ़ें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="kahani1"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            </article>
+
+
+            <!-- STORY 2 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    उन दिनों में
+                </h3>
+
+                <p>
+                    कहानी का पूरा भाग पढ़ें
+                    और उन दिनों की यादों के
+                    साथ एक नया सफर शुरू करें।
+                </p>
+
+                <span class="story-date">
+                    📅 27/08/2026
+                </span>
+
+                <a
+                    class="read"
+                    href="kahani2.html">
+
+                    पूरी कहानी पढ़ें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="kahani2"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            </article>
+
+
+            <!-- STORY 3 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    एक ख्वाहिश
+                </h3>
+
+                <p>
+                    एक ख्वाहिश और उससे जुड़ी
+                    कुछ यादों की कहानी।
+                </p>
+
+                <span class="story-date">
+                    📅 03/09/2026
+                </span>
+
+                <a
+                    class="read"
+                    href="kahani3.html">
+
+                    पूरी कहानी पढ़ें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="kahani3"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            </article>
+
+
+            <!-- STORY 4 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <h3>
+                    मैं और मेरी कहानी
+                </h3>
+
+                <p>
+                    एक कहानी जो लेखक और
+                    उसकी अपनी दुनिया से जुड़ी है।
+                </p>
+
+                <span class="story-date">
+                    📅 10/09/2026
+                </span>
+
+                <a
+                    class="read"
+                    href="kahani4.html">
+
+                    पूरी कहानी पढ़ें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="kahani4"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            </article>
+
+
+            <!-- STORY 5 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    05
+                </div>
+
+                <h3>
+                    मैं और मैं
+                </h3>
+
+                <p>
+                    खुद से जुड़ी सोच और
+                    कुछ अनकहे एहसासों की कहानी।
+                </p>
+
+                <span class="story-date">
+                    📅 12/07/2026
+                </span>
+
+                <a
+                    class="read"
+                    href="kahani5.html">
+
+                    पूरी कहानी पढ़ें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="kahani5"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            </article>
+
+
+            <!-- STORY 6 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    06
+                </div>
+
+                <h3>
+                    काल्पनिक दुनिया 🌌
+                </h3>
+
+                <p>
+                    एक ऐसी दुनिया जहाँ ख्याल
+                    हकीकत से भी ज्यादा खूबसूरत
+                    होते हैं...
+                </p>
+
+                <span class="story-date">
+                    📅 20/09/2026
+                </span>
+
+                <a
+                    class="read"
+                    href="kalpanik-duniya.html">
+
+                    पूरी कहानी पढ़ें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="kalpanik"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            </article>
+
+
+            <!-- STORY 7 -->
+
+            <article class="card">
+
+                <div class="card-number">
+                    07
+                </div>
+
+                <h3>
+                    📸 कुछ यादें
+                </h3>
+
+                <p>
+                    कुछ तस्वीरें, कुछ पल और
+                    कुछ ऐसी यादें जिन्हें
+                    हमेशा अपने पास रखना चाहता हूँ।
+                </p>
+
+                <span class="story-date">
+                    ❤️ Memories
+                </span>
+
+                <a
+                    class="read"
+                    href="yaadein.html">
+
+                    यादें देखें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="yaadein"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- ADD STORY -->
+
+        <div class="add-story-area">
+
+            <button
+                class="add-story-btn"
+                onclick="openPassword()">
+
+                🔐 नई कहानी जोड़ें
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="about-section"
+    id="about">
+
+    <div class="container">
+
+        <div class="about">
+
+            <div class="about-icon">
+                ✍️
+            </div>
+
+            <h2>
+                लेखक के बारे में
+            </h2>
+
+            <h3>
+                ABHISHEK YADAV
+            </h3>
+
+            <p>
+                मेरा नाम अभिषेक यादव है।
+                मुझे कहानियाँ लिखना पसंद है।
+                मेरी कोशिश है कि मेरे शब्द
+                किसी न किसी के दिल तक पहुँचें।
+            </p>
+
+            <div class="socials">
+
+                <a
+                    href="https://www.instagram.com/mr_abhishek_yadav6924/"
+                    target="_blank"
+                    rel="noopener"
+                    class="social">
+
+                    📸 Instagram
+
+                </a>
+
+                <a
+                    href="yaadein.html"
+                    class="social">
+
+                    📸 मेरी यादें
+
+                </a>
+
+                <a
+                    href="#stories"
+                    class="social">
+
+                    📚 मेरी कहानियाँ
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SHARE
+===================================================== -->
+
+<section
+    class="share-section"
+    id="contact">
+
+    <h2>
+        🌐 मेरी वेबसाइट शेयर करें
+    </h2>
+
+    <p>
+        अगर आपको मेरी website पसंद आई,
+        तो इसे अपने दोस्तों के साथ share करें।
+    </p>
+
+    <button
+        class="share-btn"
+        onclick="shareWebsite()">
+
+        📤 Share Website
+
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     VISITOR
+===================================================== -->
+
+<div class="visitor-counter">
+
+    👁️ कुल Visitors:
+
+    <span
+        class="counterapi"
+        data-name="vichitra-kahaniyan-visitors">
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        📖 विचित्र कहानियाँ
+    </div>
+
+    <div class="footer-line"></div>
+
+    <p>
+        कुछ कहानियाँ • कुछ यादें • कुछ एहसास
+    </p>
+
+    <p>
+        © 2026 विचित्र कहानियाँ
+    </p>
+
+    <p>
+        लेखक — ABHISHEK YADAV
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     PASSWORD MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="passwordModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closePassword()">
+
+            ×
+
+        </button>
+
+        <h2>
+            🔐 नई कहानी जोड़ें
+        </h2>
+
+        <p>
+            नई कहानी जोड़ने के लिए password डालें।
+        </p>
+
+        <input
+            type="password"
+            id="storyPassword"
+            placeholder="Password डालें..."
+            autocomplete="off"
+            onkeydown="passwordEnter(event)">
+
+        <p
+            class="error"
+            id="passwordError">
+
+            ❌ गलत Password!
+
+        </p>
+
+        <button
+            class="unlock-btn"
+            onclick="checkPassword()">
+
+            🔓 Unlock करें
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NEW STORY MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="storyModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeStoryModal()">
+
+            ×
+
+        </button>
+
+        <h2>
+            ✨ नई कहानी
+        </h2>
+
+        <p>
+            नई कहानी की जानकारी भरें।
+        </p>
+
+        <input
+            type="text"
+            id="newStoryTitle"
+            placeholder="कहानी का नाम">
+
+        <input
+            type="text"
+            id="newStoryDate"
+            placeholder="तारीख">
+
+        <input
+            type="text"
+            id="newStoryFile"
+            placeholder="HTML file — जैसे kahani8.html">
+
+        <textarea
+            id="newStoryDescription"
+            placeholder="कहानी का छोटा परिचय..."></textarea>
+
+        <button
+            class="unlock-btn"
+            onclick="saveNewStory()">
+
+            📖 कहानी जोड़ें
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div id="toast"></div>
+
+
+<!-- =====================================================
+     COUNTER
+===================================================== -->
+
+<script
+src="https://counterapi.com/c.js"
+async>
+</script>
+
+
+<script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        setTimeout(
+            function(){
+
+                document
+                .getElementById("loader")
+                .classList
+                .add("hide");
+
+            },
+            900
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+const particleBox =
+document.getElementById("particles");
+
+const particleSymbols = [
+    "✦",
+    "✧",
+    "•",
+    "✨",
+    "♡",
+    "📖"
+];
+
+for(
+    let i = 0;
+    i < 32;
+    i++
+){
+
+    const particle =
+    document.createElement("span");
+
+    particle.className =
+        "particle";
+
+    particle.innerText =
+        particleSymbols[
+            Math.floor(
+                Math.random() *
+                particleSymbols.length
+            )
+        ];
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.fontSize =
+        10 +
+        Math.random() * 18 +
+        "px";
+
+    particle.style.animationDuration =
+        10 +
+        Math.random() * 18 +
+        "s";
+
+    particle.style.animationDelay =
+        -(Math.random() * 20) +
+        "s";
+
+    particleBox.appendChild(
+        particle
+    );
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const cards =
+document.querySelectorAll(".card");
+
+const cardObserver =
+new IntersectionObserver(
+    function(entries){
+
+        entries.forEach(
+            function(entry){
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    entry.target
+                    .classList
+                    .add("show");
+
+                    cardObserver
+                    .unobserve(
+                        entry.target
+                    );
+
+                }
+
+            }
+        );
+
+    },
+    {
+        threshold:.12
+    }
+);
+
+cards.forEach(
+    function(card){
+        cardObserver.observe(card);
+    }
+);
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchStories(){
+
+    const query =
+        document
+        .getElementById(
+            "storySearch"
+        )
+        .value
+        .toLowerCase()
+        .trim();
+
+    document
+    .querySelectorAll(".card")
+    .forEach(
+        function(card){
+
+            const text =
+                card.innerText
+                .toLowerCase();
+
+            if(
+                text.includes(query)
+            ){
+
+                card.style.display =
+                    "block";
+
+            }else{
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleDark(){
+
+    document.body
+    .classList
+    .toggle("dark");
+
+    const dark =
+        document.body
+        .classList
+        .contains("dark");
+
+    localStorage.setItem(
+        "darkMode",
+        dark ? "on" : "off"
+    );
+
+    document
+    .getElementById("darkBtn")
+    .innerText =
+        dark ? "☀️" : "🌙";
+}
+
+
+if(
+    localStorage.getItem(
+        "darkMode"
+    ) === "on"
+){
+
+    document.body
+    .classList
+    .add("dark");
+
+    document
+    .getElementById("darkBtn")
+    .innerText =
+        "☀️";
+}
+
+
+/* =========================================================
+   LIKE SYSTEM
+========================================================= */
+
+function toggleLike(button){
+
+    const story =
+        button.dataset.story;
+
+    const likedKey =
+        "liked-" + story;
+
+    const countKey =
+        "likes-" + story;
+
+    let count =
+        Number(
+            localStorage.getItem(
+                countKey
+            )
+        ) || 0;
+
+    const liked =
+        localStorage.getItem(
+            likedKey
+        );
+
+    if(
+        liked === "yes"
+    ){
+
+        showToast(
+            "❤️ आपने इसे पहले ही Like किया है!"
+        );
+
+        return;
+    }
+
+    count++;
+
+    localStorage.setItem(
+        countKey,
+        count
+    );
+
+    localStorage.setItem(
+        likedKey,
+        "yes"
+    );
+
+    button.classList
+    .add("liked");
+
+    button.innerText =
+        "❤️";
+
+    showToast(
+        "❤️ Story Like हो गई!"
+    );
+}
+
+
+/* =========================================================
+   LOAD LIKES
+========================================================= */
+
+document
+.querySelectorAll(".like-btn")
+.forEach(
+    function(button){
+
+        const story =
+            button.dataset.story;
+
+        const liked =
+            localStorage.getItem(
+                "liked-" + story
+            );
+
+        if(
+            liked === "yes"
+        ){
+
+            button.classList
+            .add("liked");
+
+            button.innerText =
+                "❤️";
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PASSWORD MODAL
+========================================================= */
+
+function openPassword(){
+
+    document
+    .getElementById(
+        "passwordModal"
+    )
+    .classList
+    .add("active");
+
+    setTimeout(
+        function(){
+
+            document
+            .getElementById(
+                "storyPassword"
+            )
+            .focus();
+
+        },
+        200
+    );
+}
+
+
+function closePassword(){
+
+    document
+    .getElementById(
+        "passwordModal"
+    )
+    .classList
+    .remove("active");
+
+    document
+    .getElementById(
+        "storyPassword"
+    )
+    .value = "";
+
+    document
+    .getElementById(
+        "passwordError"
+    )
+    .style.display =
+        "none";
+}
+
+
+function passwordEnter(event){
+
+    if(
+        event.key === "Enter"
+    ){
+
+        checkPassword();
+
+    }
+}
+
+
+function checkPassword(){
+
+    const password =
+        document
+        .getElementById(
+            "storyPassword"
+        )
+        .value;
+
+    if(
+        password === "ABHI7S"
+    ){
+
+        closePassword();
+
+        document
+        .getElementById(
+            "storyModal"
+        )
+        .classList
+        .add("active");
+
+        showToast(
+            "🔓 Password सही है!"
+        );
+
+    }else{
+
+        document
+        .getElementById(
+            "passwordError"
+        )
+        .style.display =
+            "block";
+
+    }
+}
+
+
+/* =========================================================
+   STORY MODAL
+========================================================= */
+
+function closeStoryModal(){
+
+    document
+    .getElementById(
+        "storyModal"
+    )
+    .classList
+    .remove("active");
+
+    document
+    .getElementById(
+        "newStoryTitle"
+    )
+    .value = "";
+
+    document
+    .getElementById(
+        "newStoryDate"
+    )
+    .value = "";
+
+    document
+    .getElementById(
+        "newStoryFile"
+    )
+    .value = "";
+
+    document
+    .getElementById(
+        "newStoryDescription"
+    )
+    .value = "";
+}
+
+
+/* =========================================================
+   SAVE NEW STORY
+========================================================= */
+
+function saveNewStory(){
+
+    const title =
+        document
+        .getElementById(
+            "newStoryTitle"
+        )
+        .value
+        .trim();
+
+    const date =
+        document
+        .getElementById(
+            "newStoryDate"
+        )
+        .value
+        .trim();
+
+    const file =
+        document
+        .getElementById(
+            "newStoryFile"
+        )
+        .value
+        .trim();
+
+    const description =
+        document
+        .getElementById(
+            "newStoryDescription"
+        )
+        .value
+        .trim();
+
+
+    if(
+        !title ||
+        !file
+    ){
+
+        showToast(
+            "⚠️ कहानी का नाम और HTML file डालें।"
+        );
+
+        return;
+    }
+
+
+    const stories =
+        JSON.parse(
+            localStorage.getItem(
+                "customStories"
+            ) || "[]"
+        );
+
+
+    stories.push({
+
+        title:title,
+
+        date:
+            date ||
+            "नई कहानी",
+
+        file:file,
+
+        description:
+            description ||
+            "एक नई कहानी..."
+    });
+
+
+    localStorage.setItem(
+        "customStories",
+        JSON.stringify(stories)
+    );
+
+
+    closeStoryModal();
+
+
+    showToast(
+        "✅ नई कहानी save हो गई!"
+    );
+
+
+    setTimeout(
+        function(){
+
+            location.reload();
+
+        },
+        900
+    );
+}
+
+
+/* =========================================================
+   LOAD CUSTOM STORIES
+========================================================= */
+
+function loadCustomStories(){
+
+    const stories =
+        JSON.parse(
+            localStorage.getItem(
+                "customStories"
+            ) || "[]"
+        );
+
+
+    const grid =
+        document.getElementById(
+            "storyGrid"
+        );
+
+
+    stories.forEach(
+        function(story,index){
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+            card.className =
+                "card show";
+
+
+            card.innerHTML = `
+
+                <div class="card-number">
+                    ${
+                        String(
+                            index + 8
+                        ).padStart(2,"0")
+                    }
+                </div>
+
+                <h3>
+                    ${escapeHTML(
+                        story.title
+                    )}
+                </h3>
+
+                <p>
+                    ${escapeHTML(
+                        story.description
+                    )}
+                </p>
+
+                <span class="story-date">
+                    📅 ${
+                        escapeHTML(
+                            story.date
+                        )
+                    }
+                </span>
+
+                <a
+                    class="read"
+                    href="${escapeAttribute(
+                        story.file
+                    )}">
+
+                    पूरी कहानी पढ़ें →
+
+                </a>
+
+                <button
+                    class="like-btn"
+                    data-story="custom-${index}"
+                    onclick="toggleLike(this)">
+
+                    ♡
+
+                </button>
+
+            `;
+
+
+            grid.appendChild(
+                card
+            );
+
+        }
+    );
+}
+
+
+/* =========================================================
+   HTML SECURITY HELPERS
+========================================================= */
+
+function escapeHTML(text){
+
+    return String(text)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+}
+
+
+function escapeAttribute(text){
+
+    return String(text)
+
+        .replaceAll(
+            '"',
+            "%22"
+        )
+
+        .replaceAll(
+            "'",
+            "%27"
+        );
+}
+
+
+/* =========================================================
+   SHARE WEBSITE
+========================================================= */
+
+async function shareWebsite(){
+
+    const url =
+        window.location.href;
+
+
+    if(
+        navigator.share
+    ){
+
+        try{
+
+            await navigator.share({
+
+                title:
+                    "विचित्र कहानियाँ | Abhishek Yadav",
+
+                text:
+                    "📖 मेरी कहानियों की दुनिया देखें।",
+
+                url:url
+
+            });
+
+        }catch(error){
+
+        }
+
+    }else{
+
+        try{
+
+            await navigator
+            .clipboard
+            .writeText(url);
+
+            showToast(
+                "🔗 Website link copy हो गया!"
+            );
+
+        }catch(error){
+
+            showToast(
+                "🔗 Link copy नहीं हो पाया।"
+            );
+
+        }
+
+    }
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+    toast.innerText =
+        message;
+
+    toast.classList
+    .add("show");
+
+
+    setTimeout(
+        function(){
+
+            toast.classList
+            .remove("show");
+
+        },
+        2500
+    );
+}
+
+
+/* =========================================================
+   CLOSE MODAL ON OUTSIDE CLICK
+========================================================= */
+
+document
+.getElementById(
+    "passwordModal"
+)
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target === this
+        ){
+
+            closePassword();
+
+        }
+
+    }
+);
+
+
+document
+.getElementById(
+    "storyModal"
+)
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target === this
+        ){
+
+            closeStoryModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closePassword();
+
+            closeStoryModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START CUSTOM STORIES
+========================================================= */
+
+loadCustomStories();
+
+</script>
+
+</body>
+
+</html>
