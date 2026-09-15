@@ -2090,6 +2090,238 @@ body.dark .close-modal{
     }
 }
 
+
+/* =========================================================
+   WHATSAPP + INSTAGRAM + CONTACT
+========================================================= */
+
+.contact-section{
+    padding:20px 0 90px;
+}
+
+.contact-wrap{
+    max-width:850px;
+    margin:auto;
+}
+
+.quick-contact{
+    text-align:center;
+    padding:42px 24px 36px;
+    background:rgba(255,255,255,.92);
+    border:1px solid rgba(15,23,42,.06);
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(15,23,42,.09);
+}
+
+.quick-contact h2{
+    color:#182848;
+    font-size:clamp(28px,5vw,40px);
+    margin-bottom:12px;
+}
+
+.quick-contact p{
+    color:#64748b;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.whatsapp-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 23px;
+    border-radius:13px;
+    color:#fff;
+    background:#25D366;
+    text-decoration:none;
+    font-weight:800;
+    box-shadow:0 12px 30px rgba(37,211,102,.25);
+    transition:.35s;
+}
+
+.whatsapp-btn:hover{
+    transform:translateY(-5px) scale(1.02);
+    box-shadow:0 18px 38px rgba(37,211,102,.35);
+}
+
+.instagram-box{
+    margin-top:35px;
+    padding-top:28px;
+    border-top:1px solid #e2e8f0;
+}
+
+.instagram-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 24px;
+    border-radius:12px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:800;
+    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+    box-shadow:0 12px 30px rgba(225,48,108,.18);
+    transition:.35s;
+}
+
+.instagram-link:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+.instagram-text{
+    margin-top:14px;
+    margin-bottom:0 !important;
+    color:#64748b;
+}
+
+.contact-box{
+    margin-top:28px;
+    padding:42px 30px;
+    background:rgba(255,255,255,.96);
+    border:1px solid rgba(15,23,42,.07);
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(15,23,42,.09);
+}
+
+.contact-box h2{
+    text-align:center;
+    color:#182848;
+    font-size:clamp(28px,5vw,40px);
+    margin-bottom:12px;
+}
+
+.contact-box .small-text{
+    text-align:center;
+    color:#64748b;
+    line-height:1.9;
+    margin:0 auto 28px;
+    max-width:720px;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.contact-form label{
+    color:#182848;
+    font-weight:800;
+    margin-top:6px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #d9e0ea;
+    border-radius:14px;
+    outline:none;
+    color:#182848;
+    background:#fff;
+    font-size:15px;
+    transition:.3s;
+}
+
+.contact-form textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#5274ff;
+    box-shadow:0 0 0 4px rgba(82,116,255,.08);
+}
+
+.send-btn{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    margin-top:10px;
+    padding:15px;
+    border-radius:14px;
+    color:#fff;
+    background:#050505;
+    font-weight:900;
+    font-size:16px;
+    transition:.35s;
+}
+
+.send-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+}
+
+.email-box{
+    margin-top:25px;
+    padding:18px;
+    text-align:center;
+    border-radius:16px;
+    background:#f8fafc;
+    color:#64748b;
+}
+
+.email-box a{
+    display:inline-block;
+    margin-top:5px;
+    color:#304fc1;
+    font-weight:800;
+    text-decoration:none;
+}
+
+body.dark .quick-contact,
+body.dark .contact-box{
+    background:rgba(16,29,52,.96);
+    border-color:rgba(255,255,255,.06);
+}
+
+body.dark .quick-contact h2,
+body.dark .contact-box h2,
+body.dark .contact-form label{
+    color:#f8fafc;
+}
+
+body.dark .quick-contact p,
+body.dark .instagram-text,
+body.dark .contact-box .small-text{
+    color:#94a3b8;
+}
+
+body.dark .instagram-box{
+    border-top-color:#243550;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea{
+    background:#071225;
+    color:#fff;
+    border-color:#243550;
+}
+
+body.dark .email-box{
+    background:#071225;
+    color:#94a3b8;
+}
+
+@media(max-width:700px){
+    .contact-section{
+        padding-bottom:65px;
+    }
+
+    .quick-contact,
+    .contact-box{
+        padding:32px 18px;
+        border-radius:24px;
+    }
+
+    .whatsapp-btn,
+    .instagram-link{
+        width:100%;
+    }
+}
+
 </style>
 
 </head>
@@ -3805,6 +4037,53 @@ document.addEventListener(
 ========================================================= */
 
 loadCustomStories();
+
+
+/* =========================================================
+   CONTACT MESSAGE → WHATSAPP
+========================================================= */
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("contactName").value.trim();
+
+    const message =
+        document.getElementById("contactMessage").value.trim();
+
+    if(!name || !message){
+        alert("कृपया अपना नाम और message दोनों लिखें।");
+        return;
+    }
+
+    /*
+      अपना WhatsApp नंबर यहाँ भी बदलें:
+      91 + मोबाइल नंबर, बिना + और बिना spaces के.
+    */
+    const whatsappNumber = "91XXXXXXXXXX";
+
+    const text =
+        "नमस्ते Abhishek Yadav,%0A%0A" +
+        "मेरा नाम: " +
+        encodeURIComponent(name) +
+        "%0A%0A" +
+        "मेरा Message / विचार:%0A" +
+        encodeURIComponent(message);
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        text;
+
+    window.open(
+        whatsappURL,
+        "_blank",
+        "noopener,noreferrer"
+    );
+}
 
 </script>
 
